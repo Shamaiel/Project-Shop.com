@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men Shirt</title>
+    <style>
+        #data{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-left: 5%;
+            gap: 10px;
+        }
+        #data > div > div{
+            display: flex;
+        }
+        img{
+            width: 200px;
+            border-radius: 20px;
+            height: 200px;
+        }
+        
+        .cartBtn{
+          width: 60%;
+          padding: 10px;
+          margin-left: 20px;
+          background-color: teal;
+          color: white;
+          border: none;
+          border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="data"></div>
+</body>
+</html>
+
+<script>
+
+
+var products = [
+{
+"name":"Cutter & Buck Men's Big & Tall Voyager 5 Pocket Pant",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Big+Tall+Voyager+5+Pocket+Pant+-1940910024-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910024.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Big+Tall+Voyager+5+Pocket+Pant+-1940910024-p+.xhtml",
+"price":"Price range is\n$105.00 - $128.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"up to $7.68 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Big & Tall Voyager Chino Pant",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Big+Tall+Voyager+Chino+Pant+-1940910033-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910033.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Big+Tall+Voyager+Chino+Pant+-1940910033-p+.xhtml",
+"price":"$100.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.00 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Big & Tall Unhemmed Bainbridge Flat Front Pant",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Big+Tall+Unhemmed+Bainbridge+Flat+Front+Pant+-1940910029-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910029.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Big+Tall+Unhemmed+Bainbridge+Flat+Front+Pant+-1940910029-p+.xhtml",
+"price":"$120.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$7.20 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Bainbridge Flat Front Pant",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Bainbridge+Flat+Front+Pant+-1951836739-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836739.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Bainbridge+Flat+Front+Pant+-1951836739-p+.xhtml",
+"price":"$120.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$7.20 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Voyager Chino",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Voyager+Chino+-1940909979-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940909979.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Voyager+Chino+-1940909979-p+.xhtml",
+"price":"$100.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.00 / 6% Cashback"
+},
+{
+"name":"9881GF Hanes Alternative Dodgeball Fleece Youth Pants",
+"name_url":"https://www.shop.com/9881GF+Hanes+Alternative+Dodgeball+Fleece+Youth+Pants+-1959588069-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291500/291508/products/1959588069.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/9881GF+Hanes+Alternative+Dodgeball+Fleece+Youth+Pants+-1959588069-p+.xhtml",
+"price":"$14.99",
+"soldBy":"Sold by RetailKing",
+"ShippingAndCashBack":"$0.90 / 6% Cashback"
+},
+{
+"name":"Iron Co. Men's Classic Stretch Comfort Patriot Pants, Straight Leg",
+"name_url":"https://www.shop.com/Iron+Co+Mens+Classic+Stretch+Comfort+Patriot+Pants+Straight+Leg+-1918696389-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Iron+Co+Mens+Classic+Stretch+Comfort+Patriot+Pants+Straight+Leg+-1918696389-p+.xhtml",
+"price":"Price range is\n$25.91 - $26.99",
+"soldBy":"Sold by eWirelessGear",
+"ShippingAndCashBack":"up to $1.62 / 6% Cashback"
+},
+{
+"name":"Member's Mark Men's Lightweight Comfort Waistband Straight Fit Denali Pant",
+"name_url":"https://www.shop.com/Members+Mark+Mens+Lightweight+Comfort+Waistband+Straight+Fit+Denali+Pant+-1940043996-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Members+Mark+Mens+Lightweight+Comfort+Waistband+Straight+Fit+Denali+Pant+-1940043996-p+.xhtml",
+"price":"Price range is\n$18.94 - $20.98",
+"soldBy":"Sold by eWirelessGear",
+"ShippingAndCashBack":"up to $1.26 / 6% Cashback"
+},
+{
+"name":"DOCKERS Mens Beige Cotton Pants 32 X 32",
+"name_url":"https://www.shop.com/DOCKERS+Mens+Beige+Cotton+Pants+32+X+32+-1965735917-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/DOCKERS+Mens+Beige+Cotton+Pants+32+X+32+-1965735917-p+.xhtml",
+"price":"Price range is\n$31.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.96 / 3% Cashback"
+},
+{
+"name":"Big & Tall Tek Gear Midweight Pants, Men's, Size: 4XB, Med Grey",
+"name_url":"https://www.shop.com/Big+Tall+Tek+Gear+Midweight+Pants+Mens+Size+4XB+Med+Grey+-1925637586-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Big+Tall+Tek+Gear+Midweight+Pants+Mens+Size+4XB+Med+Grey+-1925637586-p+.xhtml",
+"price":"$7.00",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Hugo Boss Men's Hesten Glen Plaid Extra Slim Fit Suit Pants",
+"name_url":"https://www.shop.com/Hugo+Boss+Mens+Hesten+Glen+Plaid+Extra+Slim+Fit+Suit+Pants+-1920883373-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Hugo+Boss+Mens+Hesten+Glen+Plaid+Extra+Slim+Fit+Suit+Pants+-1920883373-p+.xhtml",
+"price":"$89.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$2.70 / 3% Cashback"
+},
+{
+"name":"St. John’s Bay Mens Classic Thermal Base Layer Long John Pants",
+"name_url":"https://www.shop.com/St+John+s+Bay+Mens+Classic+Thermal+Base+Layer+Long+John+Pants+-1933452464-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/St+John+s+Bay+Mens+Classic+Thermal+Base+Layer+Long+John+Pants+-1933452464-p+.xhtml",
+"price":"$6.79",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.14 / 2% Cashback"
+},
+{
+"name":"Gucci Men's Trousers Black / White Cotton Suits Coat Jacket Pants 244630 1070",
+"name_url":"https://www.shop.com/Gucci+Mens+Trousers+Black+White+Cotton+Suits+Coat+Jacket+Pants+244630+1070+-1917346327-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Gucci+Mens+Trousers+Black+White+Cotton+Suits+Coat+Jacket+Pants+244630+1070+-1917346327-p+.xhtml",
+"price":"$1,000.00",
+"soldBy":"Sold by LUX LAIR",
+"ShippingAndCashBack":"$60.00 / 6% Cashback"
+},
+{
+"name":"Sun + Stone Mens Bleeker Cotton Cropped Cargo Pants",
+"name_url":"https://www.shop.com/Sun+Stone+Mens+Bleeker+Cotton+Cropped+Cargo+Pants+-1954748013-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Sun+Stone+Mens+Bleeker+Cotton+Cropped+Cargo+Pants+-1954748013-p+.xhtml",
+"price":"Price range is\n$6.59 - $14.09",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $0.28 / 2% Cashback"
+},
+{
+"name":"Circle S Western Pants Mens Polyester Back Flap Pockets Dress CP4793",
+"name_url":"https://www.shop.com/Circle+S+Western+Pants+Mens+Polyester+Back+Flap+Pockets+Dress+CP4793+-1932757249-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Circle+S+Western+Pants+Mens+Polyester+Back+Flap+Pockets+Dress+CP4793+-1932757249-p+.xhtml",
+"price":"$61.95",
+"soldBy":"Sold by Ranch & Home",
+"ShippingAndCashBack":"$3.72 / 6% Cashback"
+},
+{
+"name":"7 FOR ALL MANKIND Mens Green Camouflage Slim Fit Chino Pants 29",
+"name_url":"https://www.shop.com/7+FOR+ALL+MANKIND+Mens+Green+Camouflage+Slim+Fit+Chino+Pants+29+-1958203910-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/7+FOR+ALL+MANKIND+Mens+Green+Camouflage+Slim+Fit+Chino+Pants+29+-1958203910-p+.xhtml",
+"price":"$64.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.95 / 3% Cashback"
+},
+{
+"name":"HUGO BOSS Mens Navy Plaid Slim Fit Wool Blend Pants 32R",
+"name_url":"https://www.shop.com/HUGO+BOSS+Mens+Navy+Plaid+Slim+Fit+Wool+Blend+Pants+32R+-1958146036-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/HUGO+BOSS+Mens+Navy+Plaid+Slim+Fit+Wool+Blend+Pants+32R+-1958146036-p+.xhtml",
+"price":"$68.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$2.07 / 3% Cashback"
+},
+{
+"name":"DOCKERS Mens Beige Cotton Pants 36X34",
+"name_url":"https://www.shop.com/DOCKERS+Mens+Beige+Cotton+Pants+36X34+-1958219136-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/DOCKERS+Mens+Beige+Cotton+Pants+36X34+-1958219136-p+.xhtml",
+"price":"Price range is\n$28.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.87 / 3% Cashback"
+},
+{
+"name":"LACOSTE Mens Navy Tapered, Relaxed Fit Cotton Blend Pants W32/ L34",
+"name_url":"https://www.shop.com/LACOSTE+Mens+Navy+Tapered+Relaxed+Fit+Cotton+Blend+Pants+W32+L34+-1958228354-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/LACOSTE+Mens+Navy+Tapered+Relaxed+Fit+Cotton+Blend+Pants+W32+L34+-1958228354-p+.xhtml",
+"price":"$32.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.99 / 3% Cashback"
+},
+{
+"name":"Amazon Essentials Men's Big and Tall Fleece Pant fit by DXL, Black, 2X",
+"name_url":"https://www.shop.com/Amazon+Essentials+Mens+Big+and+Tall+Fleece+Pant+fit+by+DXL+Black+2X+-1929769101-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Amazon+Essentials+Mens+Big+and+Tall+Fleece+Pant+fit+by+DXL+Black+2X+-1929769101-p+.xhtml",
+"price":"$12.00",
+"soldBy":"Sold by PairMySole",
+"ShippingAndCashBack":"$0.48 / 4% Cashback"
+},
+{
+"name":"St. John’s Bay Mens Classic Thermal Lightweight Long John Pants",
+"name_url":"https://www.shop.com/St+John+s+Bay+Mens+Classic+Thermal+Lightweight+Long+John+Pants+-1933452491-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/St+John+s+Bay+Mens+Classic+Thermal+Lightweight+Long+John+Pants+-1933452491-p+.xhtml",
+"price":"Price range is\n$2.79 - $8.89",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $0.18 / 2% Cashback"
+},
+{
+"name":"HUGO BOSS Mens Navy Plaid Classic Fit Pants 32R",
+"name_url":"https://www.shop.com/HUGO+BOSS+Mens+Navy+Plaid+Classic+Fit+Pants+32R+-1958176572-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/HUGO+BOSS+Mens+Navy+Plaid+Classic+Fit+Pants+32R+-1958176572-p+.xhtml",
+"price":"$52.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.59 / 3% Cashback"
+},
+{
+"name":"Tommy Hilfiger Mens Heritage Iconic Reissue Straight Fit Office Chino Pants",
+"name_url":"https://www.shop.com/Tommy+Hilfiger+Mens+Heritage+Iconic+Reissue+Straight+Fit+Office+Chino+Pants+-1951624040-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Tommy+Hilfiger+Mens+Heritage+Iconic+Reissue+Straight+Fit+Office+Chino+Pants+-1951624040-p+.xhtml",
+"price":"$9.39",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.19 / 2% Cashback"
+},
+{
+"name":"Big & Tall Levi's XX Chino EZ Relaxed-Fit Pants, Men's, Size: 3XL, Black",
+"name_url":"https://www.shop.com/Big+Tall+Levis+XX+Chino+EZ+Relaxed+Fit+Pants+Mens+Size+3XL+Black+-1926623754-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Big+Tall+Levis+XX+Chino+EZ+Relaxed+Fit+Pants+Mens+Size+3XL+Black+-1926623754-p+.xhtml",
+"price":"$20.85",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Dolce & Gabbana Black Cotton Skinny Corduroy Cargo Men's Pants",
+"name_url":"https://www.shop.com/Dolce+Gabbana+Black+Cotton+Skinny+Corduroy+Cargo+Mens+Pants+-1964558620-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Dolce+Gabbana+Black+Cotton+Skinny+Corduroy+Cargo+Mens+Pants+-1964558620-p+.xhtml",
+"price":"$721.00",
+"soldBy":"Sold by LUX LAIR",
+"ShippingAndCashBack":"$43.26 / 6% Cashback"
+},
+{
+"name":"Democracy Mens ABsolution Utility Workwear Cargo Pants",
+"name_url":"https://www.shop.com/Democracy+Mens+ABsolution+Utility+Workwear+Cargo+Pants+-1944527185-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Democracy+Mens+ABsolution+Utility+Workwear+Cargo+Pants+-1944527185-p+.xhtml",
+"price":"$8.09",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.16 / 2% Cashback"
+},
+{
+"name":"Dolce & Gabbana Black Viscose Skinny Cargo Trouser Men's Pants",
+"name_url":"https://www.shop.com/Dolce+Gabbana+Black+Viscose+Skinny+Cargo+Trouser+Mens+Pants+-1962023684-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Dolce+Gabbana+Black+Viscose+Skinny+Cargo+Trouser+Mens+Pants+-1962023684-p+.xhtml",
+"price":"$586.00",
+"soldBy":"Sold by LUX LAIR",
+"ShippingAndCashBack":"$35.16 / 6% Cashback"
+},
+{
+"name":"Cotton On Mens Casual Pockets Cargo Pants",
+"name_url":"https://www.shop.com/Cotton+On+Mens+Casual+Pockets+Cargo+Pants+-1964931650-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Cotton+On+Mens+Casual+Pockets+Cargo+Pants+-1964931650-p+.xhtml",
+"price":"$22.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.46 / 2% Cashback"
+},
+{
+"name":"Dolce & Gabbana Black Cotton Stretch Tapered Cargo Men's Pants",
+"name_url":"https://www.shop.com/Dolce+Gabbana+Black+Cotton+Stretch+Tapered+Cargo+Mens+Pants+-1962228453-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Dolce+Gabbana+Black+Cotton+Stretch+Tapered+Cargo+Mens+Pants+-1962228453-p+.xhtml",
+"price":"$586.00",
+"soldBy":"Sold by LUX LAIR",
+"ShippingAndCashBack":"$35.16 / 6% Cashback"
+},
+{
+"name":"IZOD Mens Weekend Straight Fit Casual Trouser Pants, Style # 45FM079401",
+"name_url":"https://www.shop.com/IZOD+Mens+Weekend+Straight+Fit+Casual+Trouser+Pants+Style+45FM079401+-1938908614-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/IZOD+Mens+Weekend+Straight+Fit+Casual+Trouser+Pants+Style+45FM079401+-1938908614-p+.xhtml",
+"price":"$38.48",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"$0.77 / 2% Cashback"
+},
+{
+"name":"Dolce & Gabbana Black Viscose Cargo Skinny Men Trouser Men's Pants",
+"name_url":"https://www.shop.com/Dolce+Gabbana+Black+Viscose+Cargo+Skinny+Men+Trouser+Mens+Pants+-1962024258-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Dolce+Gabbana+Black+Viscose+Cargo+Skinny+Men+Trouser+Mens+Pants+-1962024258-p+.xhtml",
+"price":"$498.00",
+"soldBy":"Sold by LUX LAIR",
+"ShippingAndCashBack":"$29.88 / 6% Cashback"
+},
+{
+"name":"HAGGAR Mens Gray Stretch, Heather Pants 36 X 32",
+"name_url":"https://www.shop.com/HAGGAR+Mens+Gray+Stretch+Heather+Pants+36+X+32+-1958156279-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/HAGGAR+Mens+Gray+Stretch+Heather+Pants+36+X+32+-1958156279-p+.xhtml",
+"price":"Price range is\n$29.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.90 / 3% Cashback"
+},
+{
+"name":"Dockers Mens Signature Stretch Khaki Casual Trouser Pants, Style # 476990006",
+"name_url":"https://www.shop.com/Dockers+Mens+Signature+Stretch+Khaki+Casual+Trouser+Pants+Style+476990006+-1938903264-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Dockers+Mens+Signature+Stretch+Khaki+Casual+Trouser+Pants+Style+476990006+-1938903264-p+.xhtml",
+"price":"Price range is\n$36.76 - $40.31",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"up to $0.81 / 2% Cashback"
+},
+{
+"name":"Amazon Essentials Men's Classic-fit Wrinkle-Resistant Pleated Chino Pant",
+"name_url":"https://www.shop.com/Amazon+Essentials+Mens+Classic+fit+Wrinkle+Resistant+Pleated+Chino+Pant+-1929769616-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Amazon+Essentials+Mens+Classic+fit+Wrinkle+Resistant+Pleated+Chino+Pant+-1929769616-p+.xhtml",
+"price":"$12.00",
+"soldBy":"Sold by PairMySole",
+"ShippingAndCashBack":"$0.48 / 4% Cashback"
+},
+{
+"name":"The Men's Store Mens Tailored Fit Work Wear Straight Leg Pants",
+"name_url":"https://www.shop.com/The+Mens+Store+Mens+Tailored+Fit+Work+Wear+Straight+Leg+Pants+-1855063518-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/The+Mens+Store+Mens+Tailored+Fit+Work+Wear+Straight+Leg+Pants+-1855063518-p+.xhtml",
+"price":"$12.09",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.24 / 2% Cashback"
+},
+{
+"name":"Ralph Lauren Mens Classic Khaki Dress Pants Slacks, Style # 715512165002",
+"name_url":"https://www.shop.com/Ralph+Lauren+Mens+Classic+Khaki+Dress+Pants+Slacks+Style+715512165002+-1938908898-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Ralph+Lauren+Mens+Classic+Khaki+Dress+Pants+Slacks+Style+715512165002+-1938908898-p+.xhtml",
+"price":"Price range is\n$199.07 - $203.48",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"up to $4.07 / 2% Cashback"
+},
+{
+"name":"DOCKERS Mens Brown Straight Fit Pants 36 X 34",
+"name_url":"https://www.shop.com/DOCKERS+Mens+Brown+Straight+Fit+Pants+36+X+34+-1958178208-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/DOCKERS+Mens+Brown+Straight+Fit+Pants+36+X+34+-1958178208-p+.xhtml",
+"price":"$19.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.60 / 3% Cashback"
+},
+{
+"name":"RALPH LAUREN Mens Brown Classic Fit Cotton Blend Pants 56 42W\\34L",
+"name_url":"https://www.shop.com/RALPH+LAUREN+Mens+Brown+Classic+Fit+Cotton+Blend+Pants+56+42W+34L+-1958144067-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/RALPH+LAUREN+Mens+Brown+Classic+Fit+Cotton+Blend+Pants+56+42W+34L+-1958144067-p+.xhtml",
+"price":"$34.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.05 / 3% Cashback"
+},
+{
+"name":"LEVI'S Mens Gray Pants 30 X 32",
+"name_url":"https://www.shop.com/LEVIS+Mens+Gray+Pants+30+X+32+-1958197880-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/LEVIS+Mens+Gray+Pants+30+X+32+-1958197880-p+.xhtml",
+"price":"$23.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.72 / 3% Cashback"
+},
+{
+"name":"DOCKERS Mens Beige Pants 30W/ 32L",
+"name_url":"https://www.shop.com/DOCKERS+Mens+Beige+Pants+30W+32L+-1966833530-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/DOCKERS+Mens+Beige+Pants+30W+32L+-1966833530-p+.xhtml",
+"price":"Price range is\n$19.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.60 / 3% Cashback"
+},
+{
+"name":"Sun + Stone Mens Mott Straight Leg Patch Khaki Pants",
+"name_url":"https://www.shop.com/Sun+Stone+Mens+Mott+Straight+Leg+Patch+Khaki+Pants+-1954565805-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Sun+Stone+Mens+Mott+Straight+Leg+Patch+Khaki+Pants+-1954565805-p+.xhtml",
+"price":"Price range is\n$6.59 - $21.09",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $0.42 / 2% Cashback"
+},
+{
+"name":"HUGO BOSS Mens Blue Check Pants 32R",
+"name_url":"https://www.shop.com/HUGO+BOSS+Mens+Blue+Check+Pants+32R+-1958176619-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/HUGO+BOSS+Mens+Blue+Check+Pants+32R+-1958176619-p+.xhtml",
+"price":"$52.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.59 / 3% Cashback"
+},
+{
+"name":"Amazon Essentials Men's Skinny-Fit Broken-in Chino Pant, Black, 34W x 32L",
+"name_url":"https://www.shop.com/Amazon+Essentials+Mens+Skinny+Fit+Broken+in+Chino+Pant+Black+34W+x+32L+-1929769368-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Amazon+Essentials+Mens+Skinny+Fit+Broken+in+Chino+Pant+Black+34W+x+32L+-1929769368-p+.xhtml",
+"price":"$12.00",
+"soldBy":"Sold by PairMySole",
+"ShippingAndCashBack":"$0.48 / 4% Cashback"
+},
+{
+"name":"LEVI'S Mens Light Blue Tapered, Classic Fit Stretch Cargo Pants 34\\30",
+"name_url":"https://www.shop.com/LEVIS+Mens+Light+Blue+Tapered+Classic+Fit+Stretch+Cargo+Pants+34+30+-1958194192-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/LEVIS+Mens+Light+Blue+Tapered+Classic+Fit+Stretch+Cargo+Pants+34+30+-1958194192-p+.xhtml",
+"price":"$28.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.87 / 3% Cashback"
+},
+{
+"name":"JOE'S Mens Navy Pants 38 Waist",
+"name_url":"https://www.shop.com/JOES+Mens+Navy+Pants+38+Waist+-1958160494-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/JOES+Mens+Navy+Pants+38+Waist+-1958160494-p+.xhtml",
+"price":"$46.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.41 / 3% Cashback"
+},
+{
+"name":"INC Mens London Pinstripe Flat Front Dress Pants",
+"name_url":"https://www.shop.com/INC+Mens+London+Pinstripe+Flat+Front+Dress+Pants+-1923776992-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/INC+Mens+London+Pinstripe+Flat+Front+Dress+Pants+-1923776992-p+.xhtml",
+"price":"$3.59",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.07 / 2% Cashback"
+},
+{
+"name":"Alfani Mens Slim-Fit Work Pant Suit",
+"name_url":"https://www.shop.com/Alfani+Mens+Slim+Fit+Work+Pant+Suit+-1958629989-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Alfani+Mens+Slim+Fit+Work+Pant+Suit+-1958629989-p+.xhtml",
+"price":"$12.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.26 / 2% Cashback"
+},
+{
+"name":"BAR III Mens Pink Flat Front, Tapered, Slim Fit Suit Separate Pants 34W/ 32L",
+"name_url":"https://www.shop.com/BAR+III+Mens+Pink+Flat+Front+Tapered+Slim+Fit+Suit+Separate+Pants+34W+32L+-1958212830-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/BAR+III+Mens+Pink+Flat+Front+Tapered+Slim+Fit+Suit+Separate+Pants+34W+32L+-1958212830-p+.xhtml",
+"price":"$27.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.84 / 3% Cashback"
+},
+{
+"name":"Dolce & Gabbana Multicolor Logo Mania Cotton Tapered Trouser Men's Pants",
+"name_url":"https://www.shop.com/Dolce+Gabbana+Multicolor+Logo+Mania+Cotton+Tapered+Trouser+Mens+Pants+-1962023915-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Dolce+Gabbana+Multicolor+Logo+Mania+Cotton+Tapered+Trouser+Mens+Pants+-1962023915-p+.xhtml",
+"price":"$738.00",
+"soldBy":"Sold by LUX LAIR",
+"ShippingAndCashBack":"$44.28 / 6% Cashback"
+},
+{
+"name":"DW6869 Adidas Mens Team 19 Woven Pants",
+"name_url":"https://www.shop.com/DW6869+Adidas+Mens+Team+19+Woven+Pants+-1953853806-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/DW6869+Adidas+Mens+Team+19+Woven+Pants+-1953853806-p+.xhtml",
+"price":"Price range is\n$42.39 - $43.19",
+"soldBy":"Sold by RetailKing",
+"ShippingAndCashBack":"up to $2.59 / 6% Cashback"
+},
+{
+"name":"Hugo Boss Mens Jefford Stedson Dress Pants Slacks, Style # 50383397-B",
+"name_url":"https://www.shop.com/Hugo+Boss+Mens+Jefford+Stedson+Dress+Pants+Slacks+Style+50383397+B+-1938893574-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Hugo+Boss+Mens+Jefford+Stedson+Dress+Pants+Slacks+Style+50383397+B+-1938893574-p+.xhtml",
+"price":"$222.25",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"$4.45 / 2% Cashback"
+},
+{
+"name":"Amazon Essentials Men's Athletic-Fit Casual Stretch Khaki Pant, Navy, 40W x 29L",
+"name_url":"https://www.shop.com/Amazon+Essentials+Mens+Athletic+Fit+Casual+Stretch+Khaki+Pant+Navy+40W+x+29L+-1929769620-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Amazon+Essentials+Mens+Athletic+Fit+Casual+Stretch+Khaki+Pant+Navy+40W+x+29L+-1929769620-p+.xhtml",
+"price":"$12.00",
+"soldBy":"Sold by PairMySole",
+"ShippingAndCashBack":"$0.48 / 4% Cashback"
+},
+{
+"name":"Amazon Essentials Men's Slim-Fit Flat-Front Linen Pant, Navy, X-Large-32\" Inseam",
+"name_url":"https://www.shop.com/Amazon+Essentials+Mens+Slim+Fit+Flat+Front+Linen+Pant+Navy+X+Large+32+Inseam+-1929768746-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Amazon+Essentials+Mens+Slim+Fit+Flat+Front+Linen+Pant+Navy+X+Large+32+Inseam+-1929768746-p+.xhtml",
+"price":"$12.00",
+"soldBy":"Sold by PairMySole",
+"ShippingAndCashBack":"$0.48 / 4% Cashback"
+},
+{
+"name":"CANALI Mens Siena Beige Flat Front, Patterned Classic Fit Pants 36",
+"name_url":"https://www.shop.com/CANALI+Mens+Siena+Beige+Flat+Front+Patterned+Classic+Fit+Pants+36+-1958226123-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/CANALI+Mens+Siena+Beige+Flat+Front+Patterned+Classic+Fit+Pants+36+-1958226123-p+.xhtml",
+"price":"$95.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$2.88 / 3% Cashback"
+},
+{
+"name":"LEVI'S Mens Brown Classic Fit Pants 30W/ 32L",
+"name_url":"https://www.shop.com/LEVIS+Mens+Brown+Classic+Fit+Pants+30W+32L+-1958199027-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/LEVIS+Mens+Brown+Classic+Fit+Pants+30W+32L+-1958199027-p+.xhtml",
+"price":"$19.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.60 / 3% Cashback"
+},
+{
+"name":"DOCKERS Mens Workday Brown Classic Fit Cotton Blend Pants W32/ L32",
+"name_url":"https://www.shop.com/DOCKERS+Mens+Workday+Brown+Classic+Fit+Cotton+Blend+Pants+W32+L32+-1962831272-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/DOCKERS+Mens+Workday+Brown+Classic+Fit+Cotton+Blend+Pants+W32+L32+-1962831272-p+.xhtml",
+"price":"Price range is\n$38.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.17 / 3% Cashback"
+},
+{
+"name":"WeSC Mens Corduroy Deep Pockets Cargo Pants",
+"name_url":"https://www.shop.com/WeSC+Mens+Corduroy+Deep+Pockets+Cargo+Pants+-1964487958-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/WeSC+Mens+Corduroy+Deep+Pockets+Cargo+Pants+-1964487958-p+.xhtml",
+"price":"$37.49",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.75 / 2% Cashback"
+},
+{
+"name":"Amazon Essentials Men's Athletic-Fit Broken-in Chino, Black, Size 42W x 29L",
+"name_url":"https://www.shop.com/Amazon+Essentials+Mens+Athletic+Fit+Broken+in+Chino+Black+Size+42W+x+29L+-1929769013-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Amazon+Essentials+Mens+Athletic+Fit+Broken+in+Chino+Black+Size+42W+x+29L+-1929769013-p+.xhtml",
+"price":"$12.00",
+"soldBy":"Sold by PairMySole",
+"ShippingAndCashBack":"$0.48 / 4% Cashback"
+},
+{
+"name":"DOCKERS Mens Brown Pants W40/ L32",
+"name_url":"https://www.shop.com/DOCKERS+Mens+Brown+Pants+W40+L32+-1958209567-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/DOCKERS+Mens+Brown+Pants+W40+L32+-1958209567-p+.xhtml",
+"price":"Price range is\n$28.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.87 / 3% Cashback"
+},
+{
+"name":"1946 by Ballin Mens Cuffed Total Comfort Dress Pants",
+"name_url":"https://www.shop.com/1946+by+Ballin+Mens+Cuffed+Total+Comfort+Dress+Pants+-1944527311-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/1946+by+Ballin+Mens+Cuffed+Total+Comfort+Dress+Pants+-1944527311-p+.xhtml",
+"price":"$8.09",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.16 / 2% Cashback"
+}
+];
+
+    displayProducts(products);
+
+    function displayProducts(products){
+
+        products.map(function(ele){
+            var div = document.createElement("div");
+
+            var image = document.createElement("img");
+            image.setAttribute("src", ele.image);
+            image.setAttribute("alt", ele.name);
+
+            var h5 = document.createElement("h3");
+            h5.textContent = ele.name;
+
+            var h3 = document.createElement("h5");
+            h3.textContent = ele.soldBy;
+
+            var price = document.createElement("h4");
+            price.textContent = ele.price;
+
+            var ship = document.createElement("h5");
+            ship.textContent = ele.ShippingAndCashBack;
+
+            var offer = document.createElement("h5");
+            offer.textContent = "Free shipping with $50.00 orders"
+
+            var add = document.createElement("button");
+            add.textContent = "Add to Cart"
+            add.setAttribute("class", "cartBtn");
+            add.addEventListener("click", function(){
+                addToCart(ele);
+            });
+
+            div.append(image, h5, h3, price, ship, offer, add);
+            document.querySelector("#data").append(div);
+        });
+    }
+
+    var cartArr = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+    function addToCart(ele){
+      cartArr.push(ele);
+      console.log(cartArr);
+      localStorage.setItem("cartProducts", JSON.stringify(cartArr));
+    }
+</script>

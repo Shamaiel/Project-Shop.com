@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men Shorts</title>
+    <style>
+        #data{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-left: 5%;
+            gap: 10px;
+        }
+        #data > div > div{
+            display: flex;
+        }
+        img{
+            width: 200px;
+            border-radius: 20px;
+            height: 200px;
+        }
+        
+        .cartBtn{
+          width: 60%;
+          padding: 10px;
+          margin-left: 20px;
+          background-color: teal;
+          color: white;
+          border: none;
+          border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="data"></div>
+</body>
+</html>
+
+<script>
+
+
+var products = [
+{
+"name":"GAP Men's Easy Fit Vintage Flat Front Shorts",
+"name_url":"https://www.shop.com/GAP+Mens+Easy+Fit+Vintage+Flat+Front+Shorts+-1935418114-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290600/290680/products/53509295Allure.jpg?plain&size=1512x1512",
+"image_url":"https://www.shop.com/GAP+Mens+Easy+Fit+Vintage+Flat+Front+Shorts+-1935418114-p+.xhtml",
+"price":"Price range is\n$12.99 - $14.99",
+"soldBy":"Sold by eWirelessGear",
+"ShippingAndCashBack":"up to $0.90 / 6% Cashback"
+},
+{
+"name":"Hurley Men's Hybrid 4-Way Stretch Quick Dry 20\" Walk Shorts W/ Reflective Logo",
+"name_url":"https://www.shop.com/Hurley+Mens+Hybrid+4+Way+Stretch+Quick+Dry+20+Walk+Shorts+W+Reflective+Logo+-1920192237-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290600/290680/products/1920192237.png?plain&size=400x400",
+"image_url":"https://www.shop.com/Hurley+Mens+Hybrid+4+Way+Stretch+Quick+Dry+20+Walk+Shorts+W+Reflective+Logo+-1920192237-p+.xhtml",
+"price":"Price range is\n$19.19 - $19.99",
+"soldBy":"Sold by eWirelessGear",
+"ShippingAndCashBack":"up to $1.20 / 6% Cashback"
+},
+{
+"name":"Iron Co Men's Comfort Flex Waistband Stretch Twill Flat Front Shorts",
+"name_url":"https://www.shop.com/Iron+Co+Mens+Comfort+Flex+Waistband+Stretch+Twill+Flat+Front+Shorts+-1918696418-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290600/290680/products/1918696418.png?plain&size=400x400",
+"image_url":"https://www.shop.com/Iron+Co+Mens+Comfort+Flex+Waistband+Stretch+Twill+Flat+Front+Shorts+-1918696418-p+.xhtml",
+"price":"$13.59",
+"soldBy":"Sold by eWirelessGear",
+"ShippingAndCashBack":"$0.82 / 6% Cashback"
+},
+{
+"name":"Hurley Men's Quick Dry Classic Fit Hybrid Walk Shorts",
+"name_url":"https://www.shop.com/Hurley+Mens+Quick+Dry+Classic+Fit+Hybrid+Walk+Shorts+-1937375011-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290600/290680/products/1937375011.png?plain&size=400x400",
+"image_url":"https://www.shop.com/Hurley+Mens+Quick+Dry+Classic+Fit+Hybrid+Walk+Shorts+-1937375011-p+.xhtml",
+"price":"Price range is\n$18.99 - $21.99",
+"soldBy":"Sold by eWirelessGear",
+"ShippingAndCashBack":"up to $1.32 / 6% Cashback"
+},
+{
+"name":"Guy Harvey Mens UV Protection Stretch Casual Shorts",
+"name_url":"https://www.shop.com/Guy+Harvey+Mens+UV+Protection+Stretch+Casual+Shorts+-1953999825-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1953999825.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Guy+Harvey+Mens+UV+Protection+Stretch+Casual+Shorts+-1953999825-p+.xhtml",
+"price":"$8.09",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.16 / 2% Cashback"
+},
+{
+"name":"FLAG & ANTHEM Mens Navy Chino Shorts 28",
+"name_url":"https://www.shop.com/FLAG+ANTHEM+Mens+Navy+Chino+Shorts+28+-1958203552-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958203552.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/FLAG+ANTHEM+Mens+Navy+Chino+Shorts+28+-1958203552-p+.xhtml",
+"price":"$18.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.57 / 3% Cashback"
+},
+{
+"name":"Brooklyn Brigade Men's Standard-Fit 9\" Queensland Flat Front Shorts",
+"name_url":"https://www.shop.com/Brooklyn+Brigade+Mens+Standard+Fit+9+Queensland+Flat+Front+Shorts+-1851724987-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1940029732.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Brooklyn+Brigade+Mens+Standard+Fit+9+Queensland+Flat+Front+Shorts+-1851724987-p+.xhtml",
+"price":"$98.00",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$1.96 / 2% Cashback"
+},
+{
+"name":"Levi's Men's 405 Denim Shorts, 42 , Black",
+"name_url":"https://www.shop.com/Levis+Mens+405+Denim+Shorts+42+Black+-1925009213-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1851724987.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Mens+405+Denim+Shorts+42+Black+-1925009213-p+.xhtml",
+"price":"$39.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.80 / 2% Cashback"
+},
+{
+"name":"COLUMBIA Mens Sportswear Company Beige Regular Fit Stretch Cargo Shorts 38 Waist",
+"name_url":"https://www.shop.com/COLUMBIA+Mens+Sportswear+Company+Beige+Regular+Fit+Stretch+Cargo+Shorts+38+Waist+-1958183077-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958183077.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/COLUMBIA+Mens+Sportswear+Company+Beige+Regular+Fit+Stretch+Cargo+Shorts+38+Waist+-1958183077-p+.xhtml",
+"price":"$22.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.69 / 3% Cashback"
+},
+{
+"name":"WEATHERPROOF VINTAGE Mens Navy Flat Front, Straight Leg Classic Fit Cargo Shorts 42 Waist",
+"name_url":"https://www.shop.com/WEATHERPROOF+VINTAGE+Mens+Navy+Flat+Front+Straight+Leg+Classic+Fit+Cargo+Shorts+42+Waist+-1958166090-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1925009213.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/WEATHERPROOF+VINTAGE+Mens+Navy+Flat+Front+Straight+Leg+Classic+Fit+Cargo+Shorts+42+Waist+-1958166090-p+.xhtml",
+"price":"$20.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.63 / 3% Cashback"
+},
+{
+"name":"Margaritaville Men 'Breeze' Reversible Shorts",
+"name_url":"https://www.shop.com/Margaritaville+Men+Breeze+Reversible+Shorts+-1907472831-p+.xhtml",
+"image":"https://img.shop.com/Image/280000/289900/289944/products/1907472831.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Margaritaville+Men+Breeze+Reversible+Shorts+-1907472831-p+.xhtml",
+"price":"$43.74",
+"soldBy":"Sold by Virtual Exchanges",
+"ShippingAndCashBack":"$2.62 / 6% Cashback"
+},
+{
+"name":"THE NORTH FACE Mens Coordinates White Drawstring Flat Frong Logo Graphic Shorts XXL",
+"name_url":"https://www.shop.com/THE+NORTH+FACE+Mens+Coordinates+White+Drawstring+Flat+Frong+Logo+Graphic+Shorts+XXL+-1958211393-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958211393.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/THE+NORTH+FACE+Mens+Coordinates+White+Drawstring+Flat+Frong+Logo+Graphic+Shorts+XXL+-1958211393-p+.xhtml",
+"price":"$17.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.54 / 3% Cashback"
+},
+{
+"name":"Men's Navy New York Yankees Big and Tall French Terry Shorts",
+"name_url":"https://www.shop.com/Mens+Navy+New+York+Yankees+Big+and+Tall+French+Terry+Shorts+-1936335149-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958211393.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Mens+Navy+New+York+Yankees+Big+and+Tall+French+Terry+Shorts+-1936335149-p+.xhtml",
+"price":"$49.99",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$1.00 / 2% Cashback"
+},
+{
+"name":"Iron Co Men's Comfort Flex Waistband Stretch Twill Cargo Short",
+"name_url":"https://www.shop.com/Iron+Co+Mens+Comfort+Flex+Waistband+Stretch+Twill+Cargo+Short+-1935418115-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290600/290680/products/1935418115.png?plain&size=400x400",
+"image_url":"https://www.shop.com/Iron+Co+Mens+Comfort+Flex+Waistband+Stretch+Twill+Cargo+Short+-1935418115-p+.xhtml",
+"price":"Price range is\n$18.98 - $22.98",
+"soldBy":"Sold by eWirelessGear",
+"ShippingAndCashBack":"up to $1.38 / 6% Cashback"
+},
+{
+"name":"CLUBROOM Mens Light Blue Classic Fit Stretch Shorts 32 Waist",
+"name_url":"https://www.shop.com/CLUBROOM+Mens+Light+Blue+Classic+Fit+Stretch+Shorts+32+Waist+-1958164881-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958164881.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/CLUBROOM+Mens+Light+Blue+Classic+Fit+Stretch+Shorts+32+Waist+-1958164881-p+.xhtml",
+"price":"$23.23",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.70 / 3% Cashback"
+},
+{
+"name":"St. John's Bay Comfort Stretch 10\" Mens Cargo Short, 44 , Blue",
+"name_url":"https://www.shop.com/St+Johns+Bay+Comfort+Stretch+10+Mens+Cargo+Short+44+Blue+-1955840189-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1955840189.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/St+Johns+Bay+Comfort+Stretch+10+Mens+Cargo+Short+44+Blue+-1955840189-p+.xhtml",
+"price":"$22.39",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.45 / 2% Cashback"
+},
+{
+"name":"Nautica Mens Cargo Shorts",
+"name_url":"https://www.shop.com/Nautica+Mens+Cargo+Shorts+-1954748025-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1954748025.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Nautica+Mens+Cargo+Shorts+-1954748025-p+.xhtml",
+"price":"Price range is\n$9.59 - $12.49",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $0.25 / 2% Cashback"
+},
+{
+"name":"Men's Columbia Big & Tall Hike Shorts",
+"name_url":"https://www.shop.com/Mens+Columbia+Big+Tall+Hike+Shorts+-1940029732-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1940029732.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Mens+Columbia+Big+Tall+Hike+Shorts+-1940029732-p+.xhtml",
+"price":"$23.93",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$0.48 / 2% Cashback"
+},
+{
+"name":"Big & Tall Columbia Eaglecrest Shorts, Men's, Size: 54, Grey",
+"name_url":"https://www.shop.com/Big+Tall+Columbia+Eaglecrest+Shorts+Mens+Size+54+Grey+-1936991108-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1936991108.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Big+Tall+Columbia+Eaglecrest+Shorts+Mens+Size+54+Grey+-1936991108-p+.xhtml",
+"price":"$11.37",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Levi's Men's Carrier Cargo Ripstop Shorts, 31 , Beige",
+"name_url":"https://www.shop.com/Levis+Mens+Carrier+Cargo+Ripstop+Shorts+31+Beige+-1848105646-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1848105646.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Mens+Carrier+Cargo+Ripstop+Shorts+31+Beige+-1848105646-p+.xhtml",
+"price":"$39.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.80 / 2% Cashback"
+},
+{
+"name":"St. John's Bay Comfort Stretch 10\" Mens Cargo Short, 42 , Blue",
+"name_url":"https://www.shop.com/St+Johns+Bay+Comfort+Stretch+10+Mens+Cargo+Short+42+Blue+-1955840304-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1955840303.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/St+Johns+Bay+Comfort+Stretch+10+Mens+Cargo+Short+42+Blue+-1955840304-p+.xhtml",
+"price":"$22.39",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.45 / 2% Cashback"
+},
+{
+"name":"St. John's Bay Comfort Stretch 10\" Mens Cargo Short, 40 , Blue",
+"name_url":"https://www.shop.com/St+Johns+Bay+Comfort+Stretch+10+Mens+Cargo+Short+40+Blue+-1955840303-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1955840303.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/St+Johns+Bay+Comfort+Stretch+10+Mens+Cargo+Short+40+Blue+-1955840303-p+.xhtml",
+"price":"$22.39",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.45 / 2% Cashback"
+},
+{
+"name":"Men's Tek Gear Ultra Soft Fleece Cargo Shorts, Size: Small, Med Red",
+"name_url":"https://www.shop.com/Mens+Tek+Gear+Ultra+Soft+Fleece+Cargo+Shorts+Size+Small+Med+Red+-1927914878-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1927914878.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Mens+Tek+Gear+Ultra+Soft+Fleece+Cargo+Shorts+Size+Small+Med+Red+-1927914878-p+.xhtml",
+"price":"$4.00",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Men's Tek Gear Ultra Soft Fleece Cargo Shorts, Size: XL, Med Red",
+"name_url":"https://www.shop.com/Mens+Tek+Gear+Ultra+Soft+Fleece+Cargo+Shorts+Size+XL+Med+Red+-1927914881-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1927914878.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Mens+Tek+Gear+Ultra+Soft+Fleece+Cargo+Shorts+Size+XL+Med+Red+-1927914881-p+.xhtml",
+"price":"$4.00",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Men's Tek Gear Ultra Soft Fleece Cargo Shorts, Size: XXL, Med Red",
+"name_url":"https://www.shop.com/Mens+Tek+Gear+Ultra+Soft+Fleece+Cargo+Shorts+Size+XXL+Med+Red+-1927914882-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1927914878.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Mens+Tek+Gear+Ultra+Soft+Fleece+Cargo+Shorts+Size+XXL+Med+Red+-1927914882-p+.xhtml",
+"price":"$4.00",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Men's Tek Gear Ultra Soft Fleece Cargo Shorts, Size: Medium, Med Red",
+"name_url":"https://www.shop.com/Mens+Tek+Gear+Ultra+Soft+Fleece+Cargo+Shorts+Size+Medium+Med+Red+-1927914879-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1927914878.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Mens+Tek+Gear+Ultra+Soft+Fleece+Cargo+Shorts+Size+Medium+Med+Red+-1927914879-p+.xhtml",
+"price":"$4.00",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Levi's Men's 405 Standard Jean Shorts",
+"name_url":"https://www.shop.com/Levis+Mens+405+Standard+Jean+Shorts+-1897058172-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1897058172.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Mens+405+Standard+Jean+Shorts+-1897058172-p+.xhtml",
+"price":"$39.99",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$0.80 / 2% Cashback"
+},
+{
+"name":"7 FOR ALL MANKIND Mens Brown Flat Front, Regular Fit Stretch Shorts 29 Waist",
+"name_url":"https://www.shop.com/7+FOR+ALL+MANKIND+Mens+Brown+Flat+Front+Regular+Fit+Stretch+Shorts+29+Waist+-1958214448-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958214448.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/7+FOR+ALL+MANKIND+Mens+Brown+Flat+Front+Regular+Fit+Stretch+Shorts+29+Waist+-1958214448-p+.xhtml",
+"price":"$61.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.86 / 3% Cashback"
+},
+{
+"name":"Fox Outdoor Casual Shorts Mens Battle Dress Cargo Woodland Camo 67-345",
+"name_url":"https://www.shop.com/Fox+Outdoor+Casual+Shorts+Mens+Battle+Dress+Cargo+Woodland+Camo+67+345+-1935763378-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/292000/292019/products/1935763378.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Fox+Outdoor+Casual+Shorts+Mens+Battle+Dress+Cargo+Woodland+Camo+67+345+-1935763378-p+.xhtml",
+"price":"$47.95",
+"soldBy":"Sold by Ranch & Home",
+"ShippingAndCashBack":"$2.88 / 6% Cashback"
+},
+{
+"name":"Dockers Mens Camo Casual Chino Shorts, Style # 297040014",
+"name_url":"https://www.shop.com/Dockers+Mens+Camo+Casual+Chino+Shorts+Style+297040014+-1938898645-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938898645.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Dockers+Mens+Camo+Casual+Chino+Shorts+Style+297040014+-1938898645-p+.xhtml",
+"price":"Price range is\n$28.08 - $28.28",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"up to $0.57 / 2% Cashback"
+},
+{
+"name":"ALFANI Mens Beige Flat Front, Classic Fit Stretch Chino Shorts 30 Waist",
+"name_url":"https://www.shop.com/ALFANI+Mens+Beige+Flat+Front+Classic+Fit+Stretch+Chino+Shorts+30+Waist+-1958185307-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958185307.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/ALFANI+Mens+Beige+Flat+Front+Classic+Fit+Stretch+Chino+Shorts+30+Waist+-1958185307-p+.xhtml",
+"price":"$12.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.39 / 3% Cashback"
+},
+{
+"name":"ALFANI Mens Black Flat Front, Classic Fit Stretch Chino Shorts 34 Waist",
+"name_url":"https://www.shop.com/ALFANI+Mens+Black+Flat+Front+Classic+Fit+Stretch+Chino+Shorts+34+Waist+-1958218958-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958218958.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/ALFANI+Mens+Black+Flat+Front+Classic+Fit+Stretch+Chino+Shorts+34+Waist+-1958218958-p+.xhtml",
+"price":"$11.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.36 / 3% Cashback"
+},
+{
+"name":"St. John's Bay Comfort Stretch 10\" Mens Cargo Short, 34 , Blue",
+"name_url":"https://www.shop.com/St+Johns+Bay+Comfort+Stretch+10+Mens+Cargo+Short+34+Blue+-1955840179-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1955840179.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/St+Johns+Bay+Comfort+Stretch+10+Mens+Cargo+Short+34+Blue+-1955840179-p+.xhtml",
+"price":"$22.39",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.45 / 2% Cashback"
+},
+{
+"name":"ELEVEN PARIS Mens Blue Camouflage Cotton Shorts S",
+"name_url":"https://www.shop.com/ELEVEN+PARIS+Mens+Blue+Camouflage+Cotton+Shorts+S+-1958219878-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958219878.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/ELEVEN+PARIS+Mens+Blue+Camouflage+Cotton+Shorts+S+-1958219878-p+.xhtml",
+"price":"$29.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.90 / 3% Cashback"
+},
+{
+"name":"FLAG & ANTHEM Mens Green Stretch Shorts 32 Waist",
+"name_url":"https://www.shop.com/FLAG+ANTHEM+Mens+Green+Stretch+Shorts+32+Waist+-1958203291-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958203291.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/FLAG+ANTHEM+Mens+Green+Stretch+Shorts+32+Waist+-1958203291-p+.xhtml",
+"price":"$17.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.54 / 3% Cashback"
+},
+{
+"name":"COLUMBIA Mens Brentyn Trail Brown Straight Leg, Regular Fit Stretch Cargo Shorts 40W",
+"name_url":"https://www.shop.com/COLUMBIA+Mens+Brentyn+Trail+Brown+Straight+Leg+Regular+Fit+Stretch+Cargo+Shorts+40W+-1958230135-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958230135.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/COLUMBIA+Mens+Brentyn+Trail+Brown+Straight+Leg+Regular+Fit+Stretch+Cargo+Shorts+40W+-1958230135-p+.xhtml",
+"price":"$21.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.66 / 3% Cashback"
+},
+{
+"name":"MICHAEL KORS Mens Navy Flat Front Easy Care Stretch Poplin Shorts 30 Waist",
+"name_url":"https://www.shop.com/MICHAEL+KORS+Mens+Navy+Flat+Front+Easy+Care+Stretch+Poplin+Shorts+30+Waist+-1958224634-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958230135.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/MICHAEL+KORS+Mens+Navy+Flat+Front+Easy+Care+Stretch+Poplin+Shorts+30+Waist+-1958224634-p+.xhtml",
+"price":"Price range is\n$34.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.05 / 3% Cashback"
+},
+{
+"name":"DOCKERS Mens Ultimate Beige Flat Front Straight Leg Stretch Paisley Classic Fit Stretch Shorts W42",
+"name_url":"https://www.shop.com/DOCKERS+Mens+Ultimate+Beige+Flat+Front+Straight+Leg+Stretch+Paisley+Classic+Fit+Stretch+Shorts+W42+-1958170099-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958170099.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/DOCKERS+Mens+Ultimate+Beige+Flat+Front+Straight+Leg+Stretch+Paisley+Classic+Fit+Stretch+Shorts+W42+-1958170099-p+.xhtml",
+"price":"$15.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.48 / 3% Cashback"
+},
+{
+"name":"ALFANI Mens Blue Classic Fit Stretch Chino Shorts 30 Waist",
+"name_url":"https://www.shop.com/ALFANI+Mens+Blue+Classic+Fit+Stretch+Chino+Shorts+30+Waist+-1958226643-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958226643.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/ALFANI+Mens+Blue+Classic+Fit+Stretch+Chino+Shorts+30+Waist+-1958226643-p+.xhtml",
+"price":"$11.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.36 / 3% Cashback"
+},
+{
+"name":"Men's Suva Amphibian Hybrid Shorts",
+"name_url":"https://www.shop.com/Mens+Suva+Amphibian+Hybrid+Shorts+-1951252062-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1936991108.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Mens+Suva+Amphibian+Hybrid+Shorts+-1951252062-p+.xhtml",
+"price":"$65.00",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$1.30 / 2% Cashback"
+},
+{
+"name":"LEVI STRAUSS & CO Mens Gray Belted Regular Fit Shorts 30",
+"name_url":"https://www.shop.com/LEVI+STRAUSS+CO+Mens+Gray+Belted+Regular+Fit+Shorts+30+-1958168677-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1898604269.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/LEVI+STRAUSS+CO+Mens+Gray+Belted+Regular+Fit+Shorts+30+-1958168677-p+.xhtml",
+"price":"$20.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.63 / 3% Cashback"
+},
+{
+"name":"TOMMY BAHAMA Mens Red Lined Geometric Shorts XL",
+"name_url":"https://www.shop.com/TOMMY+BAHAMA+Mens+Red+Lined+Geometric+Shorts+XL+-1958183644-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958183644.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/TOMMY+BAHAMA+Mens+Red+Lined+Geometric+Shorts+XL+-1958183644-p+.xhtml",
+"price":"$22.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.69 / 3% Cashback"
+},
+{
+"name":"St. John's Bay Comfort Stretch 10\" Mens Cargo Short, 42 , Red",
+"name_url":"https://www.shop.com/St+Johns+Bay+Comfort+Stretch+10+Mens+Cargo+Short+42+Red+-1962002300-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1955840189.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/St+Johns+Bay+Comfort+Stretch+10+Mens+Cargo+Short+42+Red+-1962002300-p+.xhtml",
+"price":"$22.39",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.45 / 2% Cashback"
+},
+{
+"name":"Sun + Stone Men's Shibori Shorts, Created for Macy's",
+"name_url":"https://www.shop.com/Sun+Stone+Mens+Shibori+Shorts+Created+for+Macys+-1900925948-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958164881.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Sun+Stone+Mens+Shibori+Shorts+Created+for+Macys+-1900925948-p+.xhtml",
+"price":"$22.50",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$0.45 / 2% Cashback"
+},
+{
+"name":"Mvp Collections By Mo Vaughn Productions Men's Big and Tall Tie-Dye Drawstring Shorts",
+"name_url":"https://www.shop.com/Mvp+Collections+By+Mo+Vaughn+Productions+Mens+Big+and+Tall+Tie+Dye+Drawstring+Shorts+-1933715423-p+.xhtml",
+"image":"https://img.shop.com/Image/280000/289900/289944/products/1907472831.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Mvp+Collections+By+Mo+Vaughn+Productions+Mens+Big+and+Tall+Tie+Dye+Drawstring+Shorts+-1933715423-p+.xhtml",
+"price":"$59.50",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$1.19 / 2% Cashback"
+},
+{
+"name":"Men's Move in Silence Jean Shorts",
+"name_url":"https://www.shop.com/Mens+Move+in+Silence+Jean+Shorts+-1933323560-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1951252062.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Mens+Move+in+Silence+Jean+Shorts+-1933323560-p+.xhtml",
+"price":"$49.00",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$0.98 / 2% Cashback"
+},
+{
+"name":"True Religion Men's True Tipped Mesh Drawstring Shorts",
+"name_url":"https://www.shop.com/True+Religion+Mens+True+Tipped+Mesh+Drawstring+Shorts+-1957703893-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1957703893.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/True+Religion+Mens+True+Tipped+Mesh+Drawstring+Shorts+-1957703893-p+.xhtml",
+"price":"$53.40",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$1.07 / 2% Cashback"
+},
+{
+"name":"St. John's Bay Comfort Stretch 10\" Mens Cargo Short, 32 , Blue",
+"name_url":"https://www.shop.com/St+Johns+Bay+Comfort+Stretch+10+Mens+Cargo+Short+32+Blue+-1955840267-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1955840267.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/St+Johns+Bay+Comfort+Stretch+10+Mens+Cargo+Short+32+Blue+-1955840267-p+.xhtml",
+"price":"$22.39",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.45 / 2% Cashback"
+},
+{
+"name":"St. John's Bay Comfort Stretch 10\" Mens Cargo Short, 38 , Red",
+"name_url":"https://www.shop.com/St+Johns+Bay+Comfort+Stretch+10+Mens+Cargo+Short+38+Red+-1962002342-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1962002342.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/St+Johns+Bay+Comfort+Stretch+10+Mens+Cargo+Short+38+Red+-1962002342-p+.xhtml",
+"price":"$22.39",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.45 / 2% Cashback"
+},
+{
+"name":"St. John's Bay Comfort Stretch 10\" Mens Cargo Short, 40 , Red",
+"name_url":"https://www.shop.com/St+Johns+Bay+Comfort+Stretch+10+Mens+Cargo+Short+40+Red+-1962092369-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1962002342.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/St+Johns+Bay+Comfort+Stretch+10+Mens+Cargo+Short+40+Red+-1962092369-p+.xhtml",
+"price":"$22.39",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.45 / 2% Cashback"
+},
+{
+"name":"Big & Tall Wrangler Foundation Denim Shorts, Men's, Size: 46, Light Blue",
+"name_url":"https://www.shop.com/Big+Tall+Wrangler+Foundation+Denim+Shorts+Mens+Size+46+Light+Blue+-1933521303-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1933521303.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Big+Tall+Wrangler+Foundation+Denim+Shorts+Mens+Size+46+Light+Blue+-1933521303-p+.xhtml",
+"price":"$11.50",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Big & Tall Wrangler Foundation Denim Shorts, Men's, Size: 44, Light Blue",
+"name_url":"https://www.shop.com/Big+Tall+Wrangler+Foundation+Denim+Shorts+Mens+Size+44+Light+Blue+-1933521302-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1933521302.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Big+Tall+Wrangler+Foundation+Denim+Shorts+Mens+Size+44+Light+Blue+-1933521302-p+.xhtml",
+"price":"$11.50",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Big & Tall Wrangler Foundation Carpenter Shorts, Men's, Size: 44, Med Brown",
+"name_url":"https://www.shop.com/Big+Tall+Wrangler+Foundation+Carpenter+Shorts+Mens+Size+44+Med+Brown+-1934547458-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1934547458.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Big+Tall+Wrangler+Foundation+Carpenter+Shorts+Mens+Size+44+Med+Brown+-1934547458-p+.xhtml",
+"price":"$11.50",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Big & Tall Wrangler Foundation Carpenter Shorts, Men's, Size: 50, Blue",
+"name_url":"https://www.shop.com/Big+Tall+Wrangler+Foundation+Carpenter+Shorts+Mens+Size+50+Blue+-1934548443-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1934548443.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Big+Tall+Wrangler+Foundation+Carpenter+Shorts+Mens+Size+50+Blue+-1934548443-p+.xhtml",
+"price":"$11.50",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Fila Mens Kylan Comfy Cozy Shorts",
+"name_url":"https://www.shop.com/Fila+Mens+Kylan+Comfy+Cozy+Shorts+-1912764119-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1912764119.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Fila+Mens+Kylan+Comfy+Cozy+Shorts+-1912764119-p+.xhtml",
+"price":"Price range is\n$5.99 - $8.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $0.18 / 2% Cashback"
+},
+{
+"name":"UnionBay Mens Wave Pull-On Casual Walking Shorts, Style # Y18BNR8",
+"name_url":"https://www.shop.com/UnionBay+Mens+Wave+Pull+On+Casual+Walking+Shorts+Style+Y18BNR8+-1938894178-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938894178.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/UnionBay+Mens+Wave+Pull+On+Casual+Walking+Shorts+Style+Y18BNR8+-1938894178-p+.xhtml",
+"price":"$18.01",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"$0.36 / 2% Cashback"
+},
+{
+"name":"Ecko Unltd. Mens Jello Embroidered Casual Bermuda Shorts, Style # 05666",
+"name_url":"https://www.shop.com/Ecko+Unltd+Mens+Jello+Embroidered+Casual+Bermuda+Shorts+Style+05666+-1938910314-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938910314.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Ecko+Unltd+Mens+Jello+Embroidered+Casual+Bermuda+Shorts+Style+05666+-1938910314-p+.xhtml",
+"price":"$17.79",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"$0.36 / 2% Cashback"
+},
+{
+"name":"St. John's Bay Comfort Stretch 10\" Mens Cargo Short, 38 , Blue",
+"name_url":"https://www.shop.com/St+Johns+Bay+Comfort+Stretch+10+Mens+Cargo+Short+38+Blue+-1955840500-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1955840500.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/St+Johns+Bay+Comfort+Stretch+10+Mens+Cargo+Short+38+Blue+-1955840500-p+.xhtml",
+"price":"$22.39",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.45 / 2% Cashback"
+},
+{
+"name":"RALPH LAUREN Mens Light Blue Graphic Shorts M",
+"name_url":"https://www.shop.com/RALPH+LAUREN+Mens+Light+Blue+Graphic+Shorts+M+-1958165728-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958165728.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/RALPH+LAUREN+Mens+Light+Blue+Graphic+Shorts+M+-1958165728-p+.xhtml",
+"price":"$27.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.84 / 3% Cashback"
+},
+{
+"name":"Travis Mathew Mens Striped Lightweight Casual Shorts",
+"name_url":"https://www.shop.com/Travis+Mathew+Mens+Striped+Lightweight+Casual+Shorts+-1958520114-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1958520114.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Travis+Mathew+Mens+Striped+Lightweight+Casual+Shorts+-1958520114-p+.xhtml",
+"price":"$23.79",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.48 / 2% Cashback"
+}
+];
+
+    displayProducts(products);
+
+    function displayProducts(products){
+
+        products.map(function(ele){
+            var div = document.createElement("div");
+
+            var image = document.createElement("img");
+            image.setAttribute("src", ele.image);
+            image.setAttribute("alt", ele.name);
+
+            var h5 = document.createElement("h3");
+            h5.textContent = ele.name;
+
+            var h3 = document.createElement("h5");
+            h3.textContent = ele.soldBy;
+
+            var price = document.createElement("h4");
+            price.textContent = ele.price;
+
+            var ship = document.createElement("h5");
+            ship.textContent = ele.ShippingAndCashBack;
+
+            var offer = document.createElement("h5");
+            offer.textContent = "Free shipping with $50.00 orders"
+
+            var add = document.createElement("button");
+            add.textContent = "Add to Cart"
+            add.setAttribute("class", "cartBtn");
+            add.addEventListener("click", function(){
+                addToCart(ele);
+            });
+
+            div.append(image, h5, h3, price, ship, offer, add);
+            document.querySelector("#data").append(div);
+        });
+    }
+
+    var cartArr = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+    function addToCart(ele){
+      cartArr.push(ele);
+      console.log(cartArr);
+      localStorage.setItem("cartProducts", JSON.stringify(cartArr));
+    }
+</script>

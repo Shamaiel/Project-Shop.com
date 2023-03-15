@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men Shirt</title>
+    <style>
+        #data{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-left: 5%;
+            gap: 10px;
+        }
+        #data > div > div{
+            display: flex;
+        }
+        img{
+            width: 200px;
+            border-radius: 20px;
+            height: 200px;
+        }
+        
+        .cartBtn{
+          width: 60%;
+          padding: 10px;
+          margin-left: 20px;
+          background-color: teal;
+          color: white;
+          border: none;
+          border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="data"></div>
+</body>
+</html>
+
+<script>
+
+
+var products = [
+{
+"name":"Cutter & Buck Epic Easy Care Nailshead Mens Big and Tall Long Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Epic+Easy+Care+Nailshead+Mens+Big+and+Tall+Long+Sleeve+Dress+Shirt+-1940910013-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910013.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Epic+Easy+Care+Nailshead+Mens+Big+and+Tall+Long+Sleeve+Dress+Shirt+-1940910013-p+.xhtml",
+"price":"Price range is\n$75.00 - $90.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"up to $5.40 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Versatech Multi Check Stretch Mens Big and Tall Long Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Versatech+Multi+Check+Stretch+Mens+Big+and+Tall+Long+Sleeve+Dress+Shirt+-1940910020-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910020.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Versatech+Multi+Check+Stretch+Mens+Big+and+Tall+Long+Sleeve+Dress+Shirt+-1940910020-p+.xhtml",
+"price":"$95.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$5.70 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Versatech Multi Check Stretch Mens Long Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Versatech+Multi+Check+Stretch+Mens+Long+Sleeve+Dress+Shirt+-1939500311-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939500311.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Versatech+Multi+Check+Stretch+Mens+Long+Sleeve+Dress+Shirt+-1939500311-p+.xhtml",
+"price":"$95.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$5.70 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Easy Care Stretch Gingham Mens Big and Tall Long Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Easy+Care+Stretch+Gingham+Mens+Big+and+Tall+Long+Sleeve+Dress+Shirt+-1940910018-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910018.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Easy+Care+Stretch+Gingham+Mens+Big+and+Tall+Long+Sleeve+Dress+Shirt+-1940910018-p+.xhtml",
+"price":"$105.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.30 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Stretch Oxford Mens Short Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Stretch+Oxford+Mens+Short+Sleeve+Dress+Shirt+-1943601116-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1943601116.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Stretch+Oxford+Mens+Short+Sleeve+Dress+Shirt+-1943601116-p+.xhtml",
+"price":"$100.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.00 / 6% Cashback"
+},
+{
+"name":"Clique Men's Malmo Pique Polo Shirt",
+"name_url":"https://www.shop.com/Clique+Mens+Malmo+Pique+Polo+Shirt+-1940909969-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940909969.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Mens+Malmo+Pique+Polo+Shirt+-1940909969-p+.xhtml",
+"price":"$30.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$1.80 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Versatech Tattersall Stretch Mens Long Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Versatech+Tattersall+Stretch+Mens+Long+Sleeve+Dress+Shirt+-1939530734-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939530734.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Versatech+Tattersall+Stretch+Mens+Long+Sleeve+Dress+Shirt+-1939530734-p+.xhtml",
+"price":"$95.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$5.70 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Advantage Tipped Polo Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Advantage+Tipped+Polo+Shirt+-1940909989-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940909989.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Advantage+Tipped+Polo+Shirt+-1940909989-p+.xhtml",
+"price":"$70.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$4.20 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Big & Tall CB DryTec Northgate Polo Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Big+Tall+CB+DryTec+Northgate+Polo+Shirt+-1939500270-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939500270.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Big+Tall+CB+DryTec+Northgate+Polo+Shirt+-1939500270-p+.xhtml",
+"price":"Price range is\n$50.00 - $55.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"up to $3.30 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Stretch Oxford Stripe Mens Long Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Stretch+Oxford+Stripe+Mens+Long+Sleeve+Dress+Shirt+-1943601120-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1943601120.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Stretch+Oxford+Stripe+Mens+Long+Sleeve+Dress+Shirt+-1943601120-p+.xhtml",
+"price":"$100.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.00 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Epic Easy Care Nailshead Mens Short Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Epic+Easy+Care+Nailshead+Mens+Short+Sleeve+Dress+Shirt+-1951836702-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836702.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Epic+Easy+Care+Nailshead+Mens+Short+Sleeve+Dress+Shirt+-1951836702-p+.xhtml",
+"price":"$75.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$4.50 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Epic Easy Care Nailshead Mens Long Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Epic+Easy+Care+Nailshead+Mens+Long+Sleeve+Dress+Shirt+-1951836724-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836724.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Epic+Easy+Care+Nailshead+Mens+Long+Sleeve+Dress+Shirt+-1951836724-p+.xhtml",
+"price":"Price range is\n$75.00 - $90.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"up to $5.40 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Versatech Pinstripe Stretch Mens Long Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Versatech+Pinstripe+Stretch+Mens+Long+Sleeve+Dress+Shirt+-1939500274-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939500274.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Versatech+Pinstripe+Stretch+Mens+Long+Sleeve+Dress+Shirt+-1939500274-p+.xhtml",
+"price":"$95.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$5.70 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Big & Tall Windward Jigsaw Print Short Sleeve Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Big+Tall+Windward+Jigsaw+Print+Short+Sleeve+Shirt+-1939530736-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939530736.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Big+Tall+Windward+Jigsaw+Print+Short+Sleeve+Shirt+-1939530736-p+.xhtml",
+"price":"$90.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$5.40 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Long-Sleeve Advantage Jersey Polo Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Long+Sleeve+Advantage+Jersey+Polo+Shirt+-1940909975-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940909975.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Long+Sleeve+Advantage+Jersey+Polo+Shirt+-1940909975-p+.xhtml",
+"price":"$85.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$5.10 / 6% Cashback"
+},
+{
+"name":"Forge Polo Tailored Fit Shirt",
+"name_url":"https://www.shop.com/Forge+Polo+Tailored+Fit+Shirt+-1939500277-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939500277.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Forge+Polo+Tailored+Fit+Shirt+-1939500277-p+.xhtml",
+"price":"$70.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$4.20 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Reach Oxford Button Front Short-Sleeve Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Reach+Oxford+Button+Front+Short+Sleeve+Shirt+-1951836766-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836766.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Reach+Oxford+Button+Front+Short+Sleeve+Shirt+-1951836766-p+.xhtml",
+"price":"$85.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$5.10 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's L/S Epic Easy Care Mini Herringbone Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+L+S+Epic+Easy+Care+Mini+Herringbone+Shirt+-1951836704-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836704.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+L+S+Epic+Easy+Care+Mini+Herringbone+Shirt+-1951836704-p+.xhtml",
+"price":"Price range is\n$75.00 - $90.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"up to $5.40 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Long Sleeve Mens Big & Tall Epic Easy Care Mini Herringbone Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Long+Sleeve+Mens+Big+Tall+Epic+Easy+Care+Mini+Herringbone+Shirt+-1939500292-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939500292.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Long+Sleeve+Mens+Big+Tall+Epic+Easy+Care+Mini+Herringbone+Shirt+-1939500292-p+.xhtml",
+"price":"Price range is\n$69.00 - $75.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"up to $4.50 / 6% Cashback"
+},
+{
+"name":"Clique Men's Helsa V-neck Shirt",
+"name_url":"https://www.shop.com/Clique+Mens+Helsa+V+neck+Shirt+-1940910041-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910041.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Mens+Helsa+V+neck+Shirt+-1940910041-p+.xhtml",
+"price":"$47.50",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$2.85 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Epic Easy Care Nailshead Mens Big and Tall Short Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Epic+Easy+Care+Nailshead+Mens+Big+and+Tall+Short+Sleeve+Dress+Shirt+-1940910009-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910009.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Epic+Easy+Care+Nailshead+Mens+Big+and+Tall+Short+Sleeve+Dress+Shirt+-1940910009-p+.xhtml",
+"price":"Price range is\n$75.00 - $80.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"up to $4.80 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Soar Windowpane Plaid Short Sleeve Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Soar+Windowpane+Plaid+Short+Sleeve+Shirt+-1951836687-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836687.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Soar+Windowpane+Plaid+Short+Sleeve+Shirt+-1951836687-p+.xhtml",
+"price":"$110.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.60 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Strive Shadow Plaid Short Sleeve Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Strive+Shadow+Plaid+Short+Sleeve+Shirt+-1951836735-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836735.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Strive+Shadow+Plaid+Short+Sleeve+Shirt+-1951836735-p+.xhtml",
+"price":"$100.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.00 / 6% Cashback"
+},
+{
+"name":"Clique Men's Malmo Snag Proof Zip Polo Shirt",
+"name_url":"https://www.shop.com/Clique+Mens+Malmo+Snag+Proof+Zip+Polo+Shirt+-1940909966-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940909966.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Mens+Malmo+Snag+Proof+Zip+Polo+Shirt+-1940909966-p+.xhtml",
+"price":"$30.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$1.80 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's L/S Tailored Fit Spread Nailshead Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+L+S+Tailored+Fit+Spread+Nailshead+Shirt+-1951836763-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836763.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+L+S+Tailored+Fit+Spread+Nailshead+Shirt+-1951836763-p+.xhtml",
+"price":"$75.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$4.50 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Epic Easy Care Fine Twill Mens Long Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Epic+Easy+Care+Fine+Twill+Mens+Long+Sleeve+Dress+Shirt+-1940910042-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910042.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Epic+Easy+Care+Fine+Twill+Mens+Long+Sleeve+Dress+Shirt+-1940910042-p+.xhtml",
+"price":"Price range is\n$75.00 - $85.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"up to $5.10 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Stretch Oxford Mens Big and Tall Short Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Stretch+Oxford+Mens+Big+and+Tall+Short+Sleeve+Dress+Shirt+-1943601103-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1943601103.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Stretch+Oxford+Mens+Big+and+Tall+Short+Sleeve+Dress+Shirt+-1943601103-p+.xhtml",
+"price":"$100.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.00 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Anchor Double Check Plaid Mens Tailored Fit Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Anchor+Double+Check+Plaid+Mens+Tailored+Fit+Shirt+-1939500310-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939500305.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Anchor+Double+Check+Plaid+Mens+Tailored+Fit+Shirt+-1939500310-p+.xhtml",
+"price":"$95.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$5.70 / 6% Cashback"
+},
+{
+"name":"Forge Polo Tonal Stripe Tailored Fit Shirt",
+"name_url":"https://www.shop.com/Forge+Polo+Tonal+Stripe+Tailored+Fit+Shirt+-1939500305-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939500305.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Forge+Polo+Tonal+Stripe+Tailored+Fit+Shirt+-1939500305-p+.xhtml",
+"price":"$75.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$4.50 / 6% Cashback"
+},
+{
+"name":"Clique Malmo Snag Proof Zip Polo Shirt",
+"name_url":"https://www.shop.com/Clique+Malmo+Snag+Proof+Zip+Polo+Shirt+-1940910030-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910030.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Malmo+Snag+Proof+Zip+Polo+Shirt+-1940910030-p+.xhtml",
+"price":"$30.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$1.80 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Soar Windowpane Check Tailored Fit Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Soar+Windowpane+Check+Tailored+Fit+Shirt+-1951836718-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836718.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Soar+Windowpane+Check+Tailored+Fit+Shirt+-1951836718-p+.xhtml",
+"price":"$115.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.90 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Stretch Oxford Mens Long Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Stretch+Oxford+Mens+Long+Sleeve+Dress+Shirt+-1951836722-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836722.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Stretch+Oxford+Mens+Long+Sleeve+Dress+Shirt+-1951836722-p+.xhtml",
+"price":"Price range is\n$100.00 - $105.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"up to $6.30 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Anchor Multi Color Plaid Mens Tailored Fit Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Anchor+Multi+Color+Plaid+Mens+Tailored+Fit+Shirt+-1939500261-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939500261.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Anchor+Multi+Color+Plaid+Mens+Tailored+Fit+Shirt+-1939500261-p+.xhtml",
+"price":"$95.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$5.70 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Strive Three Bars Jacquard Short Sleeve Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Strive+Three+Bars+Jacquard+Short+Sleeve+Shirt+-1939530730-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939530730.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Strive+Three+Bars+Jacquard+Short+Sleeve+Shirt+-1939530730-p+.xhtml",
+"price":"$100.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.00 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Windward Jigsaw Print Short Sleeve Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Windward+Jigsaw+Print+Short+Sleeve+Shirt+-1939530729-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939530729.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Windward+Jigsaw+Print+Short+Sleeve+Shirt+-1939530729-p+.xhtml",
+"price":"$90.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$5.40 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Epic Easy Care Fine Twill Mens Big and Tall Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Epic+Easy+Care+Fine+Twill+Mens+Big+and+Tall+Dress+Shirt+-1951836760-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836760.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Epic+Easy+Care+Fine+Twill+Mens+Big+and+Tall+Dress+Shirt+-1951836760-p+.xhtml",
+"price":"Price range is\n$75.00 - $85.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"up to $5.10 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Reach Oxford Button Front Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Reach+Oxford+Button+Front+Shirt+-1940909977-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940909977.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Reach+Oxford+Button+Front+Shirt+-1940909977-p+.xhtml",
+"price":"$100.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.00 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Versatech Geo Dobby Stretch Mens Long Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Versatech+Geo+Dobby+Stretch+Mens+Long+Sleeve+Dress+Shirt+-1939530737-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939530737.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Versatech+Geo+Dobby+Stretch+Mens+Long+Sleeve+Dress+Shirt+-1939530737-p+.xhtml",
+"price":"$90.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$5.40 / 6% Cashback"
+},
+{
+"name":"CBUK Men's Alta Polo Shirt",
+"name_url":"https://www.shop.com/CBUK+Mens+Alta+Polo+Shirt+-1951836736-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836736.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/CBUK+Mens+Alta+Polo+Shirt+-1951836736-p+.xhtml",
+"price":"$40.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$2.40 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Versatech Geo Dobby Stretch Mens Big and Tall Long Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Versatech+Geo+Dobby+Stretch+Mens+Big+and+Tall+Long+Sleeve+Dress+Shirt+-1939500288-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939500288.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Versatech+Geo+Dobby+Stretch+Mens+Big+and+Tall+Long+Sleeve+Dress+Shirt+-1939500288-p+.xhtml",
+"price":"$90.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$5.40 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Easy Care Stretch Gingham Mens Long Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Easy+Care+Stretch+Gingham+Mens+Long+Sleeve+Dress+Shirt+-1951836721-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836721.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Easy+Care+Stretch+Gingham+Mens+Long+Sleeve+Dress+Shirt+-1951836721-p+.xhtml",
+"price":"$105.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.30 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Tailored Fit Nailshead Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Tailored+Fit+Nailshead+Shirt+-1951836764-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836764.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Tailored+Fit+Nailshead+Shirt+-1951836764-p+.xhtml",
+"price":"Price range is\n$75.00 - $90.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"up to $5.40 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Big & Tall Reach Oxford Button Front Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Big+Tall+Reach+Oxford+Button+Front+Shirt+-1951836761-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836761.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Big+Tall+Reach+Oxford+Button+Front+Shirt+-1951836761-p+.xhtml",
+"price":"Price range is\n$100.00 - $110.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"up to $6.60 / 6% Cashback"
+},
+{
+"name":"CBUK Men's Jackson Crewneck Shirt",
+"name_url":"https://www.shop.com/CBUK+Mens+Jackson+Crewneck+Shirt+-1951836726-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836726.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/CBUK+Mens+Jackson+Crewneck+Shirt+-1951836726-p+.xhtml",
+"price":"$60.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$3.60 / 6% Cashback"
+},
+{
+"name":"Clique Men's Fairfax Polo Shirt",
+"name_url":"https://www.shop.com/Clique+Mens+Fairfax+Polo+Shirt+-1940910045-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910045.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Mens+Fairfax+Polo+Shirt+-1940910045-p+.xhtml",
+"price":"$30.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$1.80 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's CB DryTec Northgate Polo Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+CB+DryTec+Northgate+Polo+Shirt+-1940909978-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940909978.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+CB+DryTec+Northgate+Polo+Shirt+-1940909978-p+.xhtml",
+"price":"Price range is\n$50.00 - $55.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"up to $3.30 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Windward Twill Long Sleeve Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Windward+Twill+Long+Sleeve+Shirt+-1940910008-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910008.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Windward+Twill+Long+Sleeve+Shirt+-1940910008-p+.xhtml",
+"price":"$95.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$5.70 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Mens Forge Polo Particle Print Polo Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Forge+Polo+Particle+Print+Polo+Shirt+-1939500315-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939500315.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Forge+Polo+Particle+Print+Polo+Shirt+-1939500315-p+.xhtml",
+"price":"$85.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$5.10 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's L/S Tailored Fit Stretch Oxford Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+L+S+Tailored+Fit+Stretch+Oxford+Shirt+-1940910035-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910035.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+L+S+Tailored+Fit+Stretch+Oxford+Shirt+-1940910035-p+.xhtml",
+"price":"$105.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.30 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Mens Anchor Double Check Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Anchor+Double+Check+Shirt+-1939500267-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939500267.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Anchor+Double+Check+Shirt+-1939500267-p+.xhtml",
+"price":"$95.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$5.70 / 6% Cashback"
+},
+{
+"name":"Forge Polo Heather Stripe Tailored fit Shirt",
+"name_url":"https://www.shop.com/Forge+Polo+Heather+Stripe+Tailored+fit+Shirt+-1939500304-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939500304.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Forge+Polo+Heather+Stripe+Tailored+fit+Shirt+-1939500304-p+.xhtml",
+"price":"$75.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$4.50 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's Strive Keyhole Print Short Sleeve Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+Strive+Keyhole+Print+Short+Sleeve+Shirt+-1939530743-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939530743.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+Strive+Keyhole+Print+Short+Sleeve+Shirt+-1939530743-p+.xhtml",
+"price":"$100.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.00 / 6% Cashback"
+},
+{
+"name":"Clique Men's Parma Colorblock Polo Shirt",
+"name_url":"https://www.shop.com/Clique+Mens+Parma+Colorblock+Polo+Shirt+-1940909951-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940909951.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Mens+Parma+Colorblock+Polo+Shirt+-1940909951-p+.xhtml",
+"price":"$32.50",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$1.95 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Versatech Pinstripe Stretch Mens Big and Tall Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Versatech+Pinstripe+Stretch+Mens+Big+and+Tall+Dress+Shirt+-1940909997-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940909997.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Versatech+Pinstripe+Stretch+Mens+Big+and+Tall+Dress+Shirt+-1940909997-p+.xhtml",
+"price":"$95.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$5.70 / 6% Cashback"
+},
+{
+"name":"Clique Men's Ice Sport Polo Shirt",
+"name_url":"https://www.shop.com/Clique+Mens+Ice+Sport+Polo+Shirt+-1940910003-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910003.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Mens+Ice+Sport+Polo+Shirt+-1940910003-p+.xhtml",
+"price":"Price range is\n$30.00 - $32.50",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"up to $1.95 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Stretch Oxford Stripe Mens Big and Tall Long Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Stretch+Oxford+Stripe+Mens+Big+and+Tall+Long+Sleeve+Dress+Shirt+-1943601102-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1943601102.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Stretch+Oxford+Stripe+Mens+Big+and+Tall+Long+Sleeve+Dress+Shirt+-1943601102-p+.xhtml",
+"price":"$100.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.00 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Stretch Oxford Mens Big and Tall Long Sleeve Dress Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Stretch+Oxford+Mens+Big+and+Tall+Long+Sleeve+Dress+Shirt+-1943601104-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1943601104.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Stretch+Oxford+Mens+Big+and+Tall+Long+Sleeve+Dress+Shirt+-1943601104-p+.xhtml",
+"price":"$105.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.30 / 6% Cashback"
+},
+{
+"name":"Forge Polo Pencil Stripe Tailored Fit Shirt",
+"name_url":"https://www.shop.com/Forge+Polo+Pencil+Stripe+Tailored+Fit+Shirt+-1939500312-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939500304.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Forge+Polo+Pencil+Stripe+Tailored+Fit+Shirt+-1939500312-p+.xhtml",
+"price":"$75.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$4.50 / 6% Cashback"
+},
+{
+"name":"Clique Addison Youth Polo",
+"name_url":"https://www.shop.com/Clique+Addison+Youth+Polo+-1939500320-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939500320.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Addison+Youth+Polo+-1939500320-p+.xhtml",
+"price":"$17.50",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$1.05 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Men's L/S Tailored Fit Stretch Gingham Shirt",
+"name_url":"https://www.shop.com/Cutter+Buck+Mens+L+S+Tailored+Fit+Stretch+Gingham+Shirt+-1940910011-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910011.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Mens+L+S+Tailored+Fit+Stretch+Gingham+Shirt+-1940910011-p+.xhtml",
+"price":"$105.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.30 / 6% Cashback"
+}
+];
+
+    displayProducts(products);
+
+    function displayProducts(products){
+
+        products.map(function(ele){
+            var div = document.createElement("div");
+
+            var image = document.createElement("img");
+            image.setAttribute("src", ele.image);
+            image.setAttribute("alt", ele.name);
+
+            var h5 = document.createElement("h3");
+            h5.textContent = ele.name;
+
+            var h3 = document.createElement("h5");
+            h3.textContent = ele.soldBy;
+
+            var price = document.createElement("h4");
+            price.textContent = "$" + ele.price;
+
+            var ship = document.createElement("h5");
+            ship.textContent = ele.ShippingAndCashBack;
+
+            var offer = document.createElement("h5");
+            offer.textContent = "Free shipping with $50.00 orders"
+
+            var add = document.createElement("button");
+            add.textContent = "Add to Cart"
+            add.setAttribute("class", "cartBtn");
+            add.addEventListener("click", function(){
+                addToCart(ele);
+            });
+
+            div.append(image, h5, h3, price, ship, offer, add);
+            document.querySelector("#data").append(div);
+        });
+    }
+
+    var cartArr = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+    function addToCart(ele){
+      cartArr.push(ele);
+      console.log(cartArr);
+      localStorage.setItem("cartProducts", JSON.stringify(cartArr));
+    }
+</script>

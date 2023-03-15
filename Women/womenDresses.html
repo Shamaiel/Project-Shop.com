@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Dresses</title>
+    <style>
+        #data{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-left: 5%;
+            gap: 10px;
+        }
+        #data > div > div{
+            display: flex;
+        }
+        img{
+            width: 200px;
+            border-radius: 20px;
+            height: 200px;
+        }
+        
+        .cartBtn{
+          width: 60%;
+          padding: 10px;
+          margin-left: 20px;
+          background-color: teal;
+          color: white;
+          border: none;
+          border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="data"></div>
+</body>
+</html>
+
+<script>
+
+var products = [
+{
+"name":"American Living Women's Velvet Cold-Shoulder Dress",
+"name_url":"https://www.shop.com/American+Living+Womens+Velvet+Cold+Shoulder+Dress+-1726772173-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1726772173.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/American+Living+Womens+Velvet+Cold+Shoulder+Dress+-1726772173-p+.xhtml",
+"price":"Regular\n$89.00\nOn sale,\n$49.99",
+"ShippingAndCashBack":"$1.50 / 3% Cashback",
+"soldBy":"Sold by Rennde"
+},
+{
+"name":"Alice + Olivia Womens Mina Puff Sleeve Square Neck Fit & Flare Dress",
+"name_url":"https://www.shop.com/Alice+Olivia+Womens+Mina+Puff+Sleeve+Square+Neck+Fit+Flare+Dress+-1950976497-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1950976497.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Alice+Olivia+Womens+Mina+Puff+Sleeve+Square+Neck+Fit+Flare+Dress+-1950976497-p+.xhtml",
+"price":"Regular\n$440.00\nOn sale,\n$108.79",
+"ShippingAndCashBack":"$2.18 / 2% Cashback",
+"soldBy":"Sold by BHFO"
+},
+{
+"name":"MORGAN & CO Womens Blue Pleated Glitter Sleeveless Scoop Neck Maxi Prom Dress Juniors 3",
+"name_url":"https://www.shop.com/MORGAN+CO+Womens+Blue+Pleated+Glitter+Sleeveless+Scoop+Neck+Maxi+Prom+Dress+Juniors+3+-1958170535-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958170535.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/MORGAN+CO+Womens+Blue+Pleated+Glitter+Sleeveless+Scoop+Neck+Maxi+Prom+Dress+Juniors+3+-1958170535-p+.xhtml",
+"price":"Regular\n$169.00\nOn sale,\n$62.98",
+"ShippingAndCashBack":"$1.89 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"CeCe Womens Flora Whispers Chiffon Floral Shift Dress",
+"name_url":"https://www.shop.com/CeCe+Womens+Flora+Whispers+Chiffon+Floral+Shift+Dress+-1951855526-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1951855526.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/CeCe+Womens+Flora+Whispers+Chiffon+Floral+Shift+Dress+-1951855526-p+.xhtml",
+"price":"Regular\n$129.00\nOn sale,\n$36.29",
+"ShippingAndCashBack":"$0.73 / 2% Cashback",
+"soldBy":"Sold by BHFO"
+},
+{
+"name":"Anthropologie Maronie Womens Velvet Lace Cocktail and Party Dress",
+"name_url":"https://www.shop.com/Anthropologie+Maronie+Womens+Velvet+Lace+Cocktail+and+Party+Dress+-1931331621-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1931331621.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Anthropologie+Maronie+Womens+Velvet+Lace+Cocktail+and+Party+Dress+-1931331621-p+.xhtml",
+"price":"Regular\n$88.00\nOn sale,\nPrice range is\n$2.99 - $8.99",
+"ShippingAndCashBack":"up to $0.18 / 2% Cashback",
+"soldBy":"Sold by BHFO"
+},
+{
+"name":"CONNECTED APPAREL Womens Red Stretch Sequined Lace Slitted Notched Floral Short Sleeve Scoop Neck Maxi Formal Body Con Dress Petites 8P",
+"name_url":"https://www.shop.com/CONNECTED+APPAREL+Womens+Red+Stretch+Sequined+Lace+Slitted+Notched+Floral+Short+Sleeve+Scoop+Neck+Maxi+Formal+Body+Con+Dress+Petites+8P+-1958151522-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958151522.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/CONNECTED+APPAREL+Womens+Red+Stretch+Sequined+Lace+Slitted+Notched+Floral+Short+Sleeve+Scoop+Neck+Maxi+Formal+Body+Con+Dress+Petites+8P+-1958151522-p+.xhtml",
+"price":"Regular\n$99.00\nOn sale,\n$44.98",
+"ShippingAndCashBack":"$1.35 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"Aidan Mattox Womens Satin Hi-Low Midi Dress",
+"name_url":"https://www.shop.com/Aidan+Mattox+Womens+Satin+Hi+Low+Midi+Dress+-1949916222-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Aidan+Mattox+Womens+Satin+Hi+Low+Midi+Dress+-1949916222-p+.xhtml",
+"price":"Regular\n$365.00\nOn sale,\nPrice range is\n$61.69 - $91.39",
+"ShippingAndCashBack":"up to $1.83 / 2% Cashback",
+"soldBy":"Sold by BHFO"
+},
+{
+"name":"CALVIN KLEIN Womens Black Floral Sleeveless Jewel Neck Knee Length Mermaid Dress 4",
+"name_url":"https://www.shop.com/CALVIN+KLEIN+Womens+Black+Floral+Sleeveless+Jewel+Neck+Knee+Length+Mermaid+Dress+4+-1958175069-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/CALVIN+KLEIN+Womens+Black+Floral+Sleeveless+Jewel+Neck+Knee+Length+Mermaid+Dress+4+-1958175069-p+.xhtml",
+"price":"Regular\n$159.00\nOn sale,\n$78.98",
+"ShippingAndCashBack":"$2.37 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"CeCe Womens Floral Ruffled Mini Dress",
+"name_url":"https://www.shop.com/CeCe+Womens+Floral+Ruffled+Mini+Dress+-1945887045-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/CeCe+Womens+Floral+Ruffled+Mini+Dress+-1945887045-p+.xhtml",
+"price":"Regular\n$89.00\nOn sale,\n$16.99",
+"ShippingAndCashBack":"$0.34 / 2% Cashback",
+"soldBy":"Sold by BHFO"
+},
+{
+"name":"CALVIN KLEIN Womens Black Patterned Sleeveless Jewel Neck Above The Knee Shift Dress 4",
+"name_url":"https://www.shop.com/CALVIN+KLEIN+Womens+Black+Patterned+Sleeveless+Jewel+Neck+Above+The+Knee+Shift+Dress+4+-1958156591-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/CALVIN+KLEIN+Womens+Black+Patterned+Sleeveless+Jewel+Neck+Above+The+Knee+Shift+Dress+4+-1958156591-p+.xhtml",
+"price":"Regular\n$89.98\nOn sale,\n$34.98",
+"ShippingAndCashBack":"$1.05 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"CALVIN KLEIN Womens Purple Pleated Sunburst Sleeveless Scoop Neck Above The Knee Wear To Work Sheath Dress Petites 10P",
+"name_url":"https://www.shop.com/CALVIN+KLEIN+Womens+Purple+Pleated+Sunburst+Sleeveless+Scoop+Neck+Above+The+Knee+Wear+To+Work+Sheath+Dress+Petites+10P+-1964362385-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/CALVIN+KLEIN+Womens+Purple+Pleated+Sunburst+Sleeveless+Scoop+Neck+Above+The+Knee+Wear+To+Work+Sheath+Dress+Petites+10P+-1964362385-p+.xhtml",
+"price":"Regular\n$89.98\nOn sale,\n$31.98",
+"ShippingAndCashBack":"$0.96 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"Rahi Womens Trista Puff Sleeve Plaid Midi Dress",
+"name_url":"https://www.shop.com/Rahi+Womens+Trista+Puff+Sleeve+Plaid+Midi+Dress+-1868321138-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Rahi+Womens+Trista+Puff+Sleeve+Plaid+Midi+Dress+-1868321138-p+.xhtml",
+"price":"Regular\n$163.00\nOn sale,\n$11.99",
+"ShippingAndCashBack":"$0.24 / 2% Cashback",
+"soldBy":"Sold by BHFO"
+},
+{
+"name":"Stetson Western Dress Womens S/S Twill Zip Black 11-057-0592-0104 BL",
+"name_url":"https://www.shop.com/Stetson+Western+Dress+Womens+S+S+Twill+Zip+Black+11+057+0592+0104+BL+-1963572084-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Stetson+Western+Dress+Womens+S+S+Twill+Zip+Black+11+057+0592+0104+BL+-1963572084-p+.xhtml",
+"price":"Regular\n$89.99\nOn sale,\n$89.94",
+"ShippingAndCashBack":"$5.40 / 6% Cashback",
+"soldBy":"Sold by Ranch & Home"
+},
+{
+"name":"CALVIN KLEIN Womens Purple Pleated Sheer Sleeve Floral Long Sleeve V Neck Above The Knee Shift Dress 2",
+"name_url":"https://www.shop.com/CALVIN+KLEIN+Womens+Purple+Pleated+Sheer+Sleeve+Floral+Long+Sleeve+V+Neck+Above+The+Knee+Shift+Dress+2+-1958173402-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/CALVIN+KLEIN+Womens+Purple+Pleated+Sheer+Sleeve+Floral+Long+Sleeve+V+Neck+Above+The+Knee+Shift+Dress+2+-1958173402-p+.xhtml",
+"price":"Regular\n$99.00\nOn sale,\n$37.98",
+"ShippingAndCashBack":"$1.14 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"Jovani Plunge Maxi Evening Dress",
+"name_url":"https://www.shop.com/Jovani+Plunge+Maxi+Evening+Dress+-1951982814-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Jovani+Plunge+Maxi+Evening+Dress+-1951982814-p+.xhtml",
+"price":"Regular\n$750.00\nOn sale,\n$142.99",
+"ShippingAndCashBack":"$2.86 / 2% Cashback",
+"soldBy":"Sold by BHFO"
+},
+{
+"name":"TOMMY HILFIGER Womens Black Tweed Sleeveless Jewel Neck Short Wear To Work Fit + Flare Dress 8",
+"name_url":"https://www.shop.com/TOMMY+HILFIGER+Womens+Black+Tweed+Sleeveless+Jewel+Neck+Short+Wear+To+Work+Fit+Flare+Dress+8+-1958232848-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/TOMMY+HILFIGER+Womens+Black+Tweed+Sleeveless+Jewel+Neck+Short+Wear+To+Work+Fit+Flare+Dress+8+-1958232848-p+.xhtml",
+"price":"Regular\n$129.00\nOn sale,\n$52.98",
+"ShippingAndCashBack":"$1.59 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"VINCE CAMUTO Womens Beige Embroidered Lace Floral Spaghetti Strap V Neck Maxi Evening Dress 6",
+"name_url":"https://www.shop.com/VINCE+CAMUTO+Womens+Beige+Embroidered+Lace+Floral+Spaghetti+Strap+V+Neck+Maxi+Evening+Dress+6+-1958768570-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/VINCE+CAMUTO+Womens+Beige+Embroidered+Lace+Floral+Spaghetti+Strap+V+Neck+Maxi+Evening+Dress+6+-1958768570-p+.xhtml",
+"price":"Regular\n$268.00\nOn sale,\n$44.99",
+"ShippingAndCashBack":"$1.35 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"VINCE CAMUTO Womens Coral Textured Zippered Striped Sleeveless Round Neck Short Party Shift Dress Petites 10P",
+"name_url":"https://www.shop.com/VINCE+CAMUTO+Womens+Coral+Textured+Zippered+Striped+Sleeveless+Round+Neck+Short+Party+Shift+Dress+Petites+10P+-1959545246-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/VINCE+CAMUTO+Womens+Coral+Textured+Zippered+Striped+Sleeveless+Round+Neck+Short+Party+Shift+Dress+Petites+10P+-1959545246-p+.xhtml",
+"price":"Regular\n$138.00\nOn sale,\n$72.98",
+"ShippingAndCashBack":"$2.19 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"Tahari ASL Womens Sleeveless Knee Length Sheath Dress",
+"name_url":"https://www.shop.com/Tahari+ASL+Womens+Sleeveless+Knee+Length+Sheath+Dress+-1964548680-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Tahari+ASL+Womens+Sleeveless+Knee+Length+Sheath+Dress+-1964548680-p+.xhtml",
+"price":"Regular\n$249.00\nOn sale,\n$112.05",
+"ShippingAndCashBack":"$2.24 / 2% Cashback",
+"soldBy":"Sold by BHFO"
+},
+{
+"name":"SLNY Womens Petites Organza Sleeveless Maxi Dress",
+"name_url":"https://www.shop.com/SLNY+Womens+Petites+Organza+Sleeveless+Maxi+Dress+-1966494922-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/SLNY+Womens+Petites+Organza+Sleeveless+Maxi+Dress+-1966494922-p+.xhtml",
+"price":"Regular\n$139.00\nOn sale,\n$48.65",
+"ShippingAndCashBack":"$0.97 / 2% Cashback",
+"soldBy":"Sold by BHFO"
+},
+{
+"name":"TOMMY HILFIGER Womens Blue Stretch Paisley 3/4 Sleeve Keyhole Short Wear To Work Fit + Flare Dress Plus 18W",
+"name_url":"https://www.shop.com/TOMMY+HILFIGER+Womens+Blue+Stretch+Paisley+3+4+Sleeve+Keyhole+Short+Wear+To+Work+Fit+Flare+Dress+Plus+18W+-1958179759-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/TOMMY+HILFIGER+Womens+Blue+Stretch+Paisley+3+4+Sleeve+Keyhole+Short+Wear+To+Work+Fit+Flare+Dress+Plus+18W+-1958179759-p+.xhtml",
+"price":"Regular\n$104.00\nOn sale,\n$37.98",
+"ShippingAndCashBack":"$1.14 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"TOMMY HILFIGER Womens Navy Textured Pleated Lined Floral Sleeveless Keyhole Short Shift Dress 14",
+"name_url":"https://www.shop.com/TOMMY+HILFIGER+Womens+Navy+Textured+Pleated+Lined+Floral+Sleeveless+Keyhole+Short+Shift+Dress+14+-1958182288-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/TOMMY+HILFIGER+Womens+Navy+Textured+Pleated+Lined+Floral+Sleeveless+Keyhole+Short+Shift+Dress+14+-1958182288-p+.xhtml",
+"price":"Regular\n$129.00\nOn sale,\n$38.98",
+"ShippingAndCashBack":"$1.17 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"Steve Madden Womens Faux Leather Mini Wrap Dress",
+"name_url":"https://www.shop.com/Steve+Madden+Womens+Faux+Leather+Mini+Wrap+Dress+-1956765535-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Steve+Madden+Womens+Faux+Leather+Mini+Wrap+Dress+-1956765535-p+.xhtml",
+"price":"Regular\n$99.00\nOn sale,\n$44.55",
+"ShippingAndCashBack":"$0.89 / 2% Cashback",
+"soldBy":"Sold by BHFO"
+},
+{
+"name":"ADRIANNA PAPELL Womens Navy Pleated Zippered Short Sleeve Off Shoulder Maxi Evening Fit + Flare Dress 4",
+"name_url":"https://www.shop.com/ADRIANNA+PAPELL+Womens+Navy+Pleated+Zippered+Short+Sleeve+Off+Shoulder+Maxi+Evening+Fit+Flare+Dress+4+-1958137974-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/ADRIANNA+PAPELL+Womens+Navy+Pleated+Zippered+Short+Sleeve+Off+Shoulder+Maxi+Evening+Fit+Flare+Dress+4+-1958137974-p+.xhtml",
+"price":"Regular\n$129.00\nOn sale,\n$26.46",
+"ShippingAndCashBack":"$0.79 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"Lost + Wander Womens Seaside Breeze Summer Short Mini Dress",
+"name_url":"https://www.shop.com/Lost+Wander+Womens+Seaside+Breeze+Summer+Short+Mini+Dress+-1934205247-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Lost+Wander+Womens+Seaside+Breeze+Summer+Short+Mini+Dress+-1934205247-p+.xhtml",
+"price":"Regular\n$108.00\nOn sale,\n$15.99",
+"ShippingAndCashBack":"$0.32 / 2% Cashback",
+"soldBy":"Sold by BHFO"
+},
+{
+"name":"Roper Western Dress Womens 3/4 Full Sweep Blue 03-057-0590-7025 BU",
+"name_url":"https://www.shop.com/Roper+Western+Dress+Womens+3+4+Full+Sweep+Blue+03+057+0590+7025+BU+-1932801746-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Roper+Western+Dress+Womens+3+4+Full+Sweep+Blue+03+057+0590+7025+BU+-1932801746-p+.xhtml",
+"price":"Regular\n$53.99\nOn sale,\n$53.94",
+"ShippingAndCashBack":"$3.24 / 6% Cashback",
+"soldBy":"Sold by Ranch & Home"
+},
+{
+"name":"Signature by Robbie Bee Women's Petite Lace Dress",
+"name_url":"https://www.shop.com/Signature+by+Robbie+Bee+Womens+Petite+Lace+Dress+-1842398931-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Signature+by+Robbie+Bee+Womens+Petite+Lace+Dress+-1842398931-p+.xhtml",
+"price":"Regular\n$89.00\nOn sale,\n$49.99",
+"ShippingAndCashBack":"$1.50 / 3% Cashback",
+"soldBy":"Sold by Rennde"
+},
+{
+"name":"Vince Camuto Womens Chiffon Ruffled Halter Dress",
+"name_url":"https://www.shop.com/Vince+Camuto+Womens+Chiffon+Ruffled+Halter+Dress+-1945887109-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Vince+Camuto+Womens+Chiffon+Ruffled+Halter+Dress+-1945887109-p+.xhtml",
+"price":"Regular\n$138.00\nOn sale,\n$36.29",
+"ShippingAndCashBack":"$0.73 / 2% Cashback",
+"soldBy":"Sold by BHFO"
+},
+{
+"name":"Jessica Howard Women's Plus Size Flutter-Sleeve Lace Dress",
+"name_url":"https://www.shop.com/Jessica+Howard+Womens+Plus+Size+Flutter+Sleeve+Lace+Dress+-1900689616-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Jessica+Howard+Womens+Plus+Size+Flutter+Sleeve+Lace+Dress+-1900689616-p+.xhtml",
+"price":"Regular\n$109.00\nOn sale,\n$69.99",
+"ShippingAndCashBack":"$2.10 / 3% Cashback",
+"soldBy":"Sold by Rennde"
+},
+{
+"name":"EMERALD SUNDAE Womens Ivory Floral Short Sleeve Crew Neck Knee Length Fit + Flare Dress Plus 1X",
+"name_url":"https://www.shop.com/EMERALD+SUNDAE+Womens+Ivory+Floral+Short+Sleeve+Crew+Neck+Knee+Length+Fit+Flare+Dress+Plus+1X+-1958139266-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/EMERALD+SUNDAE+Womens+Ivory+Floral+Short+Sleeve+Crew+Neck+Knee+Length+Fit+Flare+Dress+Plus+1X+-1958139266-p+.xhtml",
+"price":"Regular\n$69.00\nOn sale,\nPrice range is\n$15.98",
+"ShippingAndCashBack":"$0.48 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"BAR III Womens Navy Woven Fitted Floral Long Sleeve V Neck Short Party Fit + Flare Dress XS",
+"name_url":"https://www.shop.com/BAR+III+Womens+Navy+Woven+Fitted+Floral+Long+Sleeve+V+Neck+Short+Party+Fit+Flare+Dress+XS+-1958156406-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/BAR+III+Womens+Navy+Woven+Fitted+Floral+Long+Sleeve+V+Neck+Short+Party+Fit+Flare+Dress+XS+-1958156406-p+.xhtml",
+"price":"Regular\n$89.00\nOn sale,\n$17.98",
+"ShippingAndCashBack":"$0.54 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"BCX Womens Navy Stretch Ruched Ruffled Strappy Back With Cutout Long Sleeve Sweetheart Neckline Short Party Sheath Dress L",
+"name_url":"https://www.shop.com/BCX+Womens+Navy+Stretch+Ruched+Ruffled+Strappy+Back+With+Cutout+Long+Sleeve+Sweetheart+Neckline+Short+Party+Sheath+Dress+L+-1958233336-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/BCX+Womens+Navy+Stretch+Ruched+Ruffled+Strappy+Back+With+Cutout+Long+Sleeve+Sweetheart+Neckline+Short+Party+Sheath+Dress+L+-1958233336-p+.xhtml",
+"price":"Regular\n$59.00\nOn sale,\nPrice range is\n$23.98",
+"ShippingAndCashBack":"$0.72 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"Connected Women's Petite Velvet Rhinestone-Brooch Dress (6P, Indigo)",
+"name_url":"https://www.shop.com/Connected+Womens+Petite+Velvet+Rhinestone+Brooch+Dress+6P+Indigo+-1932112227-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Connected+Womens+Petite+Velvet+Rhinestone+Brooch+Dress+6P+Indigo+-1932112227-p+.xhtml",
+"price":"Regular\n$79.00\nOn sale,\n$39.99",
+"ShippingAndCashBack":"$1.20 / 3% Cashback",
+"soldBy":"Sold by Rennde"
+},
+{
+"name":"MSK Women's Petite O-Ring Zipper A-Line Dress (PL, Black)",
+"name_url":"https://www.shop.com/MSK+Womens+Petite+O+Ring+Zipper+A+Line+Dress+PL+Black+-1923708221-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/MSK+Womens+Petite+O+Ring+Zipper+A+Line+Dress+PL+Black+-1923708221-p+.xhtml",
+"price":"Regular\n$69.00\nOn sale,\n$39.99",
+"ShippingAndCashBack":"$1.20 / 3% Cashback",
+"soldBy":"Sold by Rennde"
+},
+{
+"name":"MSK Women's Embellished Asymmetric Midi Dress",
+"name_url":"https://www.shop.com/MSK+Womens+Embellished+Asymmetric+Midi+Dress+-1928683379-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/MSK+Womens+Embellished+Asymmetric+Midi+Dress+-1928683379-p+.xhtml",
+"price":"Regular\n$89.00\nOn sale,\n$49.99",
+"ShippingAndCashBack":"$1.50 / 3% Cashback",
+"soldBy":"Sold by Rennde"
+},
+{
+"name":"CONNECTED APPAREL Womens Gray Ribbed Patterned 3/4 Sleeve Jewel Neck Above The Knee Shift Dress Plus 14W",
+"name_url":"https://www.shop.com/CONNECTED+APPAREL+Womens+Gray+Ribbed+Patterned+3+4+Sleeve+Jewel+Neck+Above+The+Knee+Shift+Dress+Plus+14W+-1958143219-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/CONNECTED+APPAREL+Womens+Gray+Ribbed+Patterned+3+4+Sleeve+Jewel+Neck+Above+The+Knee+Shift+Dress+Plus+14W+-1958143219-p+.xhtml",
+"price":"Regular\n$89.00\nOn sale,\n$28.98",
+"ShippingAndCashBack":"$0.87 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"BCX Juniors' Striped Button-Tab Sweater Dress (M, Grey)",
+"name_url":"https://www.shop.com/BCX+Juniors+Striped+Button+Tab+Sweater+Dress+M+Grey+-1887551329-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/BCX+Juniors+Striped+Button+Tab+Sweater+Dress+M+Grey+-1887551329-p+.xhtml",
+"price":"Regular\n$59.00\nOn sale,\n$39.99",
+"ShippingAndCashBack":"$1.20 / 3% Cashback",
+"soldBy":"Sold by Rennde"
+},
+{
+"name":"Calvin Klein Women's Scuba Sheath Dress",
+"name_url":"https://www.shop.com/Calvin+Klein+Womens+Scuba+Sheath+Dress+-1726773124-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Calvin+Klein+Womens+Scuba+Sheath+Dress+-1726773124-p+.xhtml",
+"price":"Regular\n$134.00\nOn sale,\n$84.99",
+"ShippingAndCashBack":"$2.55 / 3% Cashback",
+"soldBy":"Sold by Rennde"
+},
+{
+"name":"American Living Women's Cold-Shoulder Velvet Dress 10, Aubergine",
+"name_url":"https://www.shop.com/American+Living+Womens+Cold+Shoulder+Velvet+Dress+10+Aubergine+-1901356785-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/American+Living+Womens+Cold+Shoulder+Velvet+Dress+10+Aubergine+-1901356785-p+.xhtml",
+"price":"Regular\n$89.00\nOn sale,\n$59.99",
+"ShippingAndCashBack":"$1.80 / 3% Cashback",
+"soldBy":"Sold by Rennde"
+},
+{
+"name":"Betsy & Adam Women's Petite Lace Tulle Mini Dress",
+"name_url":"https://www.shop.com/Betsy+Adam+Womens+Petite+Lace+Tulle+Mini+Dress+-1725754244-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Betsy+Adam+Womens+Petite+Lace+Tulle+Mini+Dress+-1725754244-p+.xhtml",
+"price":"Regular\n$249.00\nOn sale,\n$79.99",
+"ShippingAndCashBack":"$2.40 / 3% Cashback",
+"soldBy":"Sold by Rennde"
+},
+{
+"name":"NOOKIE Womens Pink Slitted Zippered Sleeveless Sweetheart Neckline Maxi Party Sheath Dress M",
+"name_url":"https://www.shop.com/NOOKIE+Womens+Pink+Slitted+Zippered+Sleeveless+Sweetheart+Neckline+Maxi+Party+Sheath+Dress+M+-1958221645-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/NOOKIE+Womens+Pink+Slitted+Zippered+Sleeveless+Sweetheart+Neckline+Maxi+Party+Sheath+Dress+M+-1958221645-p+.xhtml",
+"price":"Regular\n$329.00\nOn sale,\n$71.98",
+"ShippingAndCashBack":"$2.16 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"Calvin Klein Women's Scuba Crepe Sheath Dress",
+"name_url":"https://www.shop.com/Calvin+Klein+Womens+Scuba+Crepe+Sheath+Dress+-1726771459-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Calvin+Klein+Womens+Scuba+Crepe+Sheath+Dress+-1726771459-p+.xhtml",
+"price":"Regular\n$89.98\nOn sale,\n$69.99",
+"ShippingAndCashBack":"$2.10 / 3% Cashback",
+"soldBy":"Sold by Rennde"
+},
+{
+"name":"Be Bop Womens Juniors Metallic Short Mini Dress",
+"name_url":"https://www.shop.com/Be+Bop+Womens+Juniors+Metallic+Short+Mini+Dress+-1912524952-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Be+Bop+Womens+Juniors+Metallic+Short+Mini+Dress+-1912524952-p+.xhtml",
+"price":"Regular\n$39.00\nOn sale,\n$11.69",
+"ShippingAndCashBack":"$0.23 / 2% Cashback",
+"soldBy":"Sold by BHFO"
+},
+{
+"name":"Karl Lagerfeld Paris Womens Chiffon Bishop Sleeve Maxi Dress",
+"name_url":"https://www.shop.com/Karl+Lagerfeld+Paris+Womens+Chiffon+Bishop+Sleeve+Maxi+Dress+-1950976189-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Karl+Lagerfeld+Paris+Womens+Chiffon+Bishop+Sleeve+Maxi+Dress+-1950976189-p+.xhtml",
+"price":"Regular\n$158.00\nOn sale,\nPrice range is\n$39.09 - $52.99",
+"ShippingAndCashBack":"up to $1.06 / 2% Cashback",
+"soldBy":"Sold by BHFO"
+},
+{
+"name":"NOM Womens Blue Velvet Short Sleeve Knee Length Wrap Dress Size: L",
+"name_url":"https://www.shop.com/NOM+Womens+Blue+Velvet+Short+Sleeve+Knee+Length+Wrap+Dress+Size+L+-1958155184-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/NOM+Womens+Blue+Velvet+Short+Sleeve+Knee+Length+Wrap+Dress+Size+L+-1958155184-p+.xhtml",
+"price":"Regular\n$128.00\nOn sale,\n$43.98",
+"ShippingAndCashBack":"$1.32 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"NOOKIE Womens Pink Slitted Zippered Sleeveless Sweetheart Neckline Maxi Party Sheath Dress XS",
+"name_url":"https://www.shop.com/NOOKIE+Womens+Pink+Slitted+Zippered+Sleeveless+Sweetheart+Neckline+Maxi+Party+Sheath+Dress+XS+-1958148578-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/NOOKIE+Womens+Pink+Slitted+Zippered+Sleeveless+Sweetheart+Neckline+Maxi+Party+Sheath+Dress+XS+-1958148578-p+.xhtml",
+"price":"Regular\n$329.00\nOn sale,\n$87.98",
+"ShippingAndCashBack":"$2.64 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"B DARLIN Womens Black Slitted Lace-up Scuba Crepe Sleeveless Halter Maxi Formal Dress Juniors 7\\8",
+"name_url":"https://www.shop.com/B+DARLIN+Womens+Black+Slitted+Lace+up+Scuba+Crepe+Sleeveless+Halter+Maxi+Formal+Dress+Juniors+7+8+-1958210058-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/B+DARLIN+Womens+Black+Slitted+Lace+up+Scuba+Crepe+Sleeveless+Halter+Maxi+Formal+Dress+Juniors+7+8+-1958210058-p+.xhtml",
+"price":"Regular\n$89.00\nOn sale,\n$25.98",
+"ShippingAndCashBack":"$0.78 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"Jessica Howard Women's Plus Size Patterned Sweater Dress (1X, Grey)",
+"name_url":"https://www.shop.com/Jessica+Howard+Womens+Plus+Size+Patterned+Sweater+Dress+1X+Grey+-1787478564-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Jessica+Howard+Womens+Plus+Size+Patterned+Sweater+Dress+1X+Grey+-1787478564-p+.xhtml",
+"price":"Regular\n$89.00\nOn sale,\n$59.99",
+"ShippingAndCashBack":"$1.80 / 3% Cashback",
+"soldBy":"Sold by Rennde"
+},
+{
+"name":"MICHAEL KORS Womens Purple Textured Floral Sleeveless V Neck Below The Knee Hi-Lo Dress Petites P",
+"name_url":"https://www.shop.com/MICHAEL+KORS+Womens+Purple+Textured+Floral+Sleeveless+V+Neck+Below+The+Knee+Hi+Lo+Dress+Petites+P+-1958164353-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/MICHAEL+KORS+Womens+Purple+Textured+Floral+Sleeveless+V+Neck+Below+The+Knee+Hi+Lo+Dress+Petites+P+-1958164353-p+.xhtml",
+"price":"Regular\n$155.00\nOn sale,\n$28.98",
+"ShippingAndCashBack":"$0.87 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"Jessica Howard Womens Lace Fit & Flare Dress, Style # JH0W9488",
+"name_url":"https://www.shop.com/Jessica+Howard+Womens+Lace+Fit+Flare+Dress+Style+JH0W9488+-1938908610-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Jessica+Howard+Womens+Lace+Fit+Flare+Dress+Style+JH0W9488+-1938908610-p+.xhtml",
+"price":"Regular\n$109.00\nOn sale,\nPrice range is\n$75.48 - $82.60",
+"ShippingAndCashBack":"up to $1.65 / 2% Cashback",
+"soldBy":"Sold by Tags Weekly"
+},
+{
+"name":"Michael Michael Kors Women's Plus Size Sunbleached Wrap Dress (3X, Army Green)",
+"name_url":"https://www.shop.com/Michael+Michael+Kors+Womens+Plus+Size+Sunbleached+Wrap+Dress+3X+Army+Green+-1920988995-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Michael+Michael+Kors+Womens+Plus+Size+Sunbleached+Wrap+Dress+3X+Army+Green+-1920988995-p+.xhtml",
+"price":"Regular\n$130.00\nOn sale,\n$79.99",
+"ShippingAndCashBack":"$2.40 / 3% Cashback",
+"soldBy":"Sold by Rennde"
+},
+{
+"name":"B. Darlin Womens Juniors Printed High Neck Bodycon Dress",
+"name_url":"https://www.shop.com/B+Darlin+Womens+Juniors+Printed+High+Neck+Bodycon+Dress+-1869848144-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/B+Darlin+Womens+Juniors+Printed+High+Neck+Bodycon+Dress+-1869848144-p+.xhtml",
+"price":"Regular\n$59.00\nOn sale,\n$2.99",
+"ShippingAndCashBack":"$0.06 / 2% Cashback",
+"soldBy":"Sold by BHFO"
+},
+{
+"name":"Betsy & Adam Women's Cape Sheath Dress (4, Black)",
+"name_url":"https://www.shop.com/Betsy+Adam+Womens+Cape+Sheath+Dress+4+Black+-1749147946-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Betsy+Adam+Womens+Cape+Sheath+Dress+4+Black+-1749147946-p+.xhtml",
+"price":"Regular\n$179.00\nOn sale,\n$59.99",
+"ShippingAndCashBack":"$1.80 / 3% Cashback",
+"soldBy":"Sold by Rennde"
+},
+{
+"name":"Aqua Womens Printed Long Maxi Dress",
+"name_url":"https://www.shop.com/Aqua+Womens+Printed+Long+Maxi+Dress+-1897365717-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Aqua+Womens+Printed+Long+Maxi+Dress+-1897365717-p+.xhtml",
+"price":"Regular\n$98.00\nOn sale,\n$8.99",
+"ShippingAndCashBack":"$0.18 / 2% Cashback",
+"soldBy":"Sold by BHFO"
+},
+{
+"name":"CONNECTED APPAREL Womens Navy Glitter Zippered Printed Short Sleeve Jewel Neck Knee Length Party Sheath Dress 10",
+"name_url":"https://www.shop.com/CONNECTED+APPAREL+Womens+Navy+Glitter+Zippered+Printed+Short+Sleeve+Jewel+Neck+Knee+Length+Party+Sheath+Dress+10+-1958175302-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/CONNECTED+APPAREL+Womens+Navy+Glitter+Zippered+Printed+Short+Sleeve+Jewel+Neck+Knee+Length+Party+Sheath+Dress+10+-1958175302-p+.xhtml",
+"price":"Regular\n$89.00\nOn sale,\nPrice range is\n$27.98",
+"ShippingAndCashBack":"$0.84 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"Dolce & Gabbana Gold Lace See Through A-Line Knee Length Women's Dress",
+"name_url":"https://www.shop.com/Dolce+Gabbana+Gold+Lace+See+Through+A+Line+Knee+Length+Womens+Dress+-1933832735-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Dolce+Gabbana+Gold+Lace+See+Through+A+Line+Knee+Length+Womens+Dress+-1933832735-p+.xhtml",
+"price":"Regular\n$2,334.00\nOn sale,\n$834.00",
+"ShippingAndCashBack":"$50.04 / 6% Cashback",
+"soldBy":"Sold by LUX LAIR"
+},
+{
+"name":"Dolce & Gabbana Yellow Crystal Mesh Pleated Maxi Women's Dress",
+"name_url":"https://www.shop.com/Dolce+Gabbana+Yellow+Crystal+Mesh+Pleated+Maxi+Womens+Dress+-1941847516-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Dolce+Gabbana+Yellow+Crystal+Mesh+Pleated+Maxi+Womens+Dress+-1941847516-p+.xhtml",
+"price":"Regular\n$23,554.00\nOn sale,\n$9,772.00",
+"ShippingAndCashBack":"$586.32 / 6% Cashback",
+"soldBy":"Sold by LUX LAIR"
+},
+{
+"name":"DKNY Womens Knit Long Midi Dress",
+"name_url":"https://www.shop.com/DKNY+Womens+Knit+Long+Midi+Dress+-1959571247-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/DKNY+Womens+Knit+Long+Midi+Dress+-1959571247-p+.xhtml",
+"price":"Regular\n$115.00\nOn sale,\n$37.69",
+"ShippingAndCashBack":"$0.75 / 2% Cashback",
+"soldBy":"Sold by BHFO"
+},
+{
+"name":"BETSY & ADAM Womens Black Floral Sleeveless Knee Length Body Con Dress Size: 2",
+"name_url":"https://www.shop.com/BETSY+ADAM+Womens+Black+Floral+Sleeveless+Knee+Length+Body+Con+Dress+Size+2+-1958240675-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/BETSY+ADAM+Womens+Black+Floral+Sleeveless+Knee+Length+Body+Con+Dress+Size+2+-1958240675-p+.xhtml",
+"price":"Regular\n$259.00\nOn sale,\n$40.23",
+"ShippingAndCashBack":"$1.21 / 3% Cashback",
+"soldBy":"Sold by BOBBI + BRICKA"
+},
+{
+"name":"Kaximil Women's Sexy Bodycon Spaghetti Strap Ruched Mini Club Dresses,Small,Wine",
+"name_url":"https://www.shop.com/Kaximil+Womens+Sexy+Bodycon+Spaghetti+Strap+Ruched+Mini+Club+Dresses+Small+Wine+-1926922564-p+.xhtml",
+"image":"data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAQAICRAEAOw==",
+"image_url":"https://www.shop.com/Kaximil+Womens+Sexy+Bodycon+Spaghetti+Strap+Ruched+Mini+Club+Dresses+Small+Wine+-1926922564-p+.xhtml",
+"price":"Regular\n$39.99\nOn sale,\n$12.00",
+"ShippingAndCashBack":"$0.48 / 4% Cashback",
+"soldBy":"Sold by PairMySole"
+}
+];
+
+    displayProducts(products);
+
+    function displayProducts(products){
+
+        products.map(function(ele){
+            var div = document.createElement("div");
+
+            var image = document.createElement("img");
+            image.setAttribute("src", ele.image);
+            image.setAttribute("alt", ele.name);
+
+            var h5 = document.createElement("h3");
+            h5.textContent = ele.name;
+
+            var h3 = document.createElement("h5");
+            h3.textContent = ele.soldBy;
+
+            var price = document.createElement("h4");
+            price.textContent = "$" + ele.price;
+
+            var ship = document.createElement("h5");
+            ship.textContent = ele.ShippingAndCashBack;
+
+            var offer = document.createElement("h5");
+            offer.textContent = "Free shipping with $50.00 orders"
+
+            var add = document.createElement("button");
+            add.textContent = "Add to Cart"
+            add.setAttribute("class", "cartBtn");
+            add.addEventListener("click", function(){
+                addToCart(ele);
+            });
+
+            div.append(image, h5, h3, price, ship, offer, add);
+            document.querySelector("#data").append(div);
+        });
+    }
+
+    var cartArr = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+    function addToCart(ele){
+      cartArr.push(ele);
+      console.log(cartArr);
+      localStorage.setItem("cartProducts", JSON.stringify(cartArr));
+    }
+</script>

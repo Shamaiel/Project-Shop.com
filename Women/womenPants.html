@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Pants</title>
+    <style>
+        #data{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-left: 5%;
+            gap: 10px;
+        }
+        #data > div > div{
+            display: flex;
+        }
+        img{
+            width: 200px;
+            border-radius: 20px;
+            height: 200px;
+        }
+        
+        .cartBtn{
+          width: 60%;
+          padding: 10px;
+          margin-left: 20px;
+          background-color: teal;
+          color: white;
+          border: none;
+          border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="data"></div>
+</body>
+</html>
+
+<script>
+
+var products = [
+{
+"name":"Cutter & Buck Ladies' Response Pant",
+"name_url":"https://www.shop.com/Cutter+Buck+Ladies+Response+Pant+-1951836710-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836710.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Ladies+Response+Pant+-1951836710-p+.xhtml",
+"price":"Price range is\n$49.00 - $125.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"up to $7.50 / 6% Cashback"
+},
+{
+"name":"Social Standard Women's Lightweight Scout Poplin Surplus Cropped Pants",
+"name_url":"https://www.shop.com/Social+Standard+Womens+Lightweight+Scout+Poplin+Surplus+Cropped+Pants+-1920192045-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290600/290680/products/1920192045.png?plain&size=400x400",
+"image_url":"https://www.shop.com/Social+Standard+Womens+Lightweight+Scout+Poplin+Surplus+Cropped+Pants+-1920192045-p+.xhtml",
+"price":"Price range is\n$11.99 - $14.69",
+"soldBy":"Sold by eWirelessGear",
+"ShippingAndCashBack":"up to $0.88 / 6% Cashback"
+},
+{
+"name":"Anne Klein Womens Solid Casual Trouser Pants, Style # 10702048",
+"name_url":"https://www.shop.com/Anne+Klein+Womens+Solid+Casual+Trouser+Pants+Style+10702048+-1938902525-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938902525.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Anne+Klein+Womens+Solid+Casual+Trouser+Pants+Style+10702048+-1938902525-p+.xhtml",
+"price":"Price range is\n$55.39 - $56.45",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"up to $1.13 / 2% Cashback"
+},
+{
+"name":"I-N-C Womens Pull-On Skinny Leg Casual Trouser Pants, Style # 100055649",
+"name_url":"https://www.shop.com/I+N+C+Womens+Pull+On+Skinny+Leg+Casual+Trouser+Pants+Style+100055649+-1938887168-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938887168.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/I+N+C+Womens+Pull+On+Skinny+Leg+Casual+Trouser+Pants+Style+100055649+-1938887168-p+.xhtml",
+"price":"Price range is\n$39.62 - $41.99",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"up to $0.84 / 2% Cashback"
+},
+{
+"name":"Theory Womens Yoke Leather Flare Ankle Pants",
+"name_url":"https://www.shop.com/Theory+Womens+Yoke+Leather+Flare+Ankle+Pants+-1930607897-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1930607897.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Theory+Womens+Yoke+Leather+Flare+Ankle+Pants+-1930607897-p+.xhtml",
+"price":"Price range is\n$100.99 - $133.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $2.68 / 2% Cashback"
+},
+{
+"name":"bar III Womens Mirage Striped Casual Trouser Pants, Style # 100006039M",
+"name_url":"https://www.shop.com/bar+III+Womens+Mirage+Striped+Casual+Trouser+Pants+Style+100006039M+-1938902328-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938902328.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/bar+III+Womens+Mirage+Striped+Casual+Trouser+Pants+Style+100006039M+-1938902328-p+.xhtml",
+"price":"$29.39",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"$0.59 / 2% Cashback"
+},
+{
+"name":"CALVIN KLEIN Womens Gray Belted Zippered Slim Ankle Wear To Work Straight leg Pants Plus 20W",
+"name_url":"https://www.shop.com/CALVIN+KLEIN+Womens+Gray+Belted+Zippered+Slim+Ankle+Wear+To+Work+Straight+leg+Pants+Plus+20W+-1958155393-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958155393.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/CALVIN+KLEIN+Womens+Gray+Belted+Zippered+Slim+Ankle+Wear+To+Work+Straight+leg+Pants+Plus+20W+-1958155393-p+.xhtml",
+"price":"$42.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.29 / 3% Cashback"
+},
+{
+"name":"Eileen Fisher Womens Organic Cotton Blend Cropped Ankle Pants",
+"name_url":"https://www.shop.com/Eileen+Fisher+Womens+Organic+Cotton+Blend+Cropped+Ankle+Pants+-1922331252-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1922331252.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Eileen+Fisher+Womens+Organic+Cotton+Blend+Cropped+Ankle+Pants+-1922331252-p+.xhtml",
+"price":"$21.59",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.43 / 2% Cashback"
+},
+{
+"name":"I-N-C Womens Flare Casual Trouser Pants, Style # 100004858M",
+"name_url":"https://www.shop.com/I+N+C+Womens+Flare+Casual+Trouser+Pants+Style+100004858M+-1938896584-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938896584.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/I+N+C+Womens+Flare+Casual+Trouser+Pants+Style+100004858M+-1938896584-p+.xhtml",
+"price":"Price range is\n$48.01 - $48.98",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"up to $0.98 / 2% Cashback"
+},
+{
+"name":"Rag & Bone Womens Nina Faux Leather Pull On Skinny Pants",
+"name_url":"https://www.shop.com/Rag+Bone+Womens+Nina+Faux+Leather+Pull+On+Skinny+Pants+-1951624085-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1951624085.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Rag+Bone+Womens+Nina+Faux+Leather+Pull+On+Skinny+Pants+-1951624085-p+.xhtml",
+"price":"$64.89",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$1.30 / 2% Cashback"
+},
+{
+"name":"Petite Lands' End Squall Insulated Winter Snow Pants, Women's, Size: XS Petite, Blue",
+"name_url":"https://www.shop.com/Petite+Lands+End+Squall+Insulated+Winter+Snow+Pants+Womens+Size+XS+Petite+Blue+-1875280148-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1875280148.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Petite+Lands+End+Squall+Insulated+Winter+Snow+Pants+Womens+Size+XS+Petite+Blue+-1875280148-p+.xhtml",
+"price":"$71.97",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Sanctuary Clothing Womens Social Standard Casual Corduroy Pants, Style # P0450-CSD",
+"name_url":"https://www.shop.com/Sanctuary+Clothing+Womens+Social+Standard+Casual+Corduroy+Pants+Style+P0450+CSD+-1938911739-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938911739.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Sanctuary+Clothing+Womens+Social+Standard+Casual+Corduroy+Pants+Style+P0450+CSD+-1938911739-p+.xhtml",
+"price":"Price range is\n$68.36 - $76.65",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"up to $1.53 / 2% Cashback"
+},
+{
+"name":"Women's Tek Gear Ultrasoft Fleece Pants, Size: Small, Black",
+"name_url":"https://www.shop.com/Womens+Tek+Gear+Ultrasoft+Fleece+Pants+Size+Small+Black+-1951804362-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1951804362.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Womens+Tek+Gear+Ultrasoft+Fleece+Pants+Size+Small+Black+-1951804362-p+.xhtml",
+"price":"$21.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"The North Face Women's Aphrodite Motion Pants",
+"name_url":"https://www.shop.com/The+North+Face+Womens+Aphrodite+Motion+Pants+-1912516716-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1912516716.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/The+North+Face+Womens+Aphrodite+Motion+Pants+-1912516716-p+.xhtml",
+"price":"$49.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$1.50 / 3% Cashback"
+},
+{
+"name":"Sanctuary Womens Faux Leather Fleece Lined Cropped Pants",
+"name_url":"https://www.shop.com/Sanctuary+Womens+Faux+Leather+Fleece+Lined+Cropped+Pants+-1956029011-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1956029011.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Sanctuary+Womens+Faux+Leather+Fleece+Lined+Cropped+Pants+-1956029011-p+.xhtml",
+"price":"Price range is\n$36.29 - $42.39",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $0.85 / 2% Cashback"
+},
+{
+"name":"Women's Tek Gear Ultrasoft Fleece Jogger Pants, Size: XXL, Med Blue",
+"name_url":"https://www.shop.com/Womens+Tek+Gear+Ultrasoft+Fleece+Jogger+Pants+Size+XXL+Med+Blue+-1944460209-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1944460209.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Womens+Tek+Gear+Ultrasoft+Fleece+Jogger+Pants+Size+XXL+Med+Blue+-1944460209-p+.xhtml",
+"price":"$21.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"EILEEN FISHER Womens White Pocketed Textured Pull On Gauze Cropped Pants L",
+"name_url":"https://www.shop.com/EILEEN+FISHER+Womens+White+Pocketed+Textured+Pull+On+Gauze+Cropped+Pants+L+-1958182000-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958182000.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/EILEEN+FISHER+Womens+White+Pocketed+Textured+Pull+On+Gauze+Cropped+Pants+L+-1958182000-p+.xhtml",
+"price":"$38.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.17 / 3% Cashback"
+},
+{
+"name":"Vintage Havana Womens Tie-Dye Ankle Jogger Pants",
+"name_url":"https://www.shop.com/Vintage+Havana+Womens+Tie+Dye+Ankle+Jogger+Pants+-1936686073-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1936686073.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Vintage+Havana+Womens+Tie+Dye+Ankle+Jogger+Pants+-1936686073-p+.xhtml",
+"price":"Price range is\n$3.79 - $4.79",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $0.10 / 2% Cashback"
+},
+{
+"name":"Lucy Paris Womens Nahla Animal Print Cropped Straight Leg Pants",
+"name_url":"https://www.shop.com/Lucy+Paris+Womens+Nahla+Animal+Print+Cropped+Straight+Leg+Pants+-1828717652-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1828717652.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Lucy+Paris+Womens+Nahla+Animal+Print+Cropped+Straight+Leg+Pants+-1828717652-p+.xhtml",
+"price":"$6.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.14 / 2% Cashback"
+},
+{
+"name":"KAREN SCOTT Womens Navy Stretch Pocketed Pull-on Style Cropped Pants Petites PL",
+"name_url":"https://www.shop.com/KAREN+SCOTT+Womens+Navy+Stretch+Pocketed+Pull+on+Style+Cropped+Pants+Petites+PL+-1958224320-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958224320.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/KAREN+SCOTT+Womens+Navy+Stretch+Pocketed+Pull+on+Style+Cropped+Pants+Petites+PL+-1958224320-p+.xhtml",
+"price":"$18.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.57 / 3% Cashback"
+},
+{
+"name":"Tommy Hilfiger Womens Plus Hollywood Mid-Rise Business Khaki, Chino Shorts",
+"name_url":"https://www.shop.com/Tommy+Hilfiger+Womens+Plus+Hollywood+Mid+Rise+Business+Khaki+Chino+Shorts+-1787513481-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1787513481.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Tommy+Hilfiger+Womens+Plus+Hollywood+Mid+Rise+Business+Khaki+Chino+Shorts+-1787513481-p+.xhtml",
+"price":"Price range is\n$9.59 - $11.89",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $0.24 / 2% Cashback"
+},
+{
+"name":"Artistix Juniors' Twill Cargo Pants (26, Olive)",
+"name_url":"https://www.shop.com/Artistix+Juniors+Twill+Cargo+Pants+26+Olive+-1909336863-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1909336863.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Artistix+Juniors+Twill+Cargo+Pants+26+Olive+-1909336863-p+.xhtml",
+"price":"$79.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$2.40 / 3% Cashback"
+},
+{
+"name":"EMPORIO ARMANI Womens Black Zippered Pocketed Glitter Lurex Sable Wear To Work Pants 44",
+"name_url":"https://www.shop.com/EMPORIO+ARMANI+Womens+Black+Zippered+Pocketed+Glitter+Lurex+Sable+Wear+To+Work+Pants+44+-1958225359-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958225359.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/EMPORIO+ARMANI+Womens+Black+Zippered+Pocketed+Glitter+Lurex+Sable+Wear+To+Work+Pants+44+-1958225359-p+.xhtml",
+"price":"$134.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$4.05 / 3% Cashback"
+},
+{
+"name":"Women's Nine West Side-Stripe Wide-Leg Pants, Size: Large, Black",
+"name_url":"https://www.shop.com/Womens+Nine+West+Side+Stripe+Wide+Leg+Pants+Size+Large+Black+-1954009405-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1954009405.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Womens+Nine+West+Side+Stripe+Wide+Leg+Pants+Size+Large+Black+-1954009405-p+.xhtml",
+"price":"$37.80",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Tahari ASL Women's Petite Shannon Bi-Stretch Pants (14P, Slate)",
+"name_url":"https://www.shop.com/Tahari+ASL+Womens+Petite+Shannon+Bi+Stretch+Pants+14P+Slate+-1734289865-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1734289865.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Tahari+ASL+Womens+Petite+Shannon+Bi+Stretch+Pants+14P+Slate+-1734289865-p+.xhtml",
+"price":"$59.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$1.80 / 3% Cashback"
+},
+{
+"name":"INC International Concepts Women's Plus Size Wide-Leg Pants",
+"name_url":"https://www.shop.com/INC+International+Concepts+Womens+Plus+Size+Wide+Leg+Pants+-1769555855-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1769555855.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/INC+International+Concepts+Womens+Plus+Size+Wide+Leg+Pants+-1769555855-p+.xhtml",
+"price":"$39.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$1.20 / 3% Cashback"
+},
+{
+"name":"Generation Love Womens Daisy Ruffled Sweatpant Jogger Pants",
+"name_url":"https://www.shop.com/Generation+Love+Womens+Daisy+Ruffled+Sweatpant+Jogger+Pants+-1956202426-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1956202426.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Generation+Love+Womens+Daisy+Ruffled+Sweatpant+Jogger+Pants+-1956202426-p+.xhtml",
+"price":"Price range is\n$14.89 - $29.60",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $0.59 / 2% Cashback"
+},
+{
+"name":"Lauren Ralph Lauren Women's Stretch Ponte Straight-Leg Pants",
+"name_url":"https://www.shop.com/Lauren+Ralph+Lauren+Womens+Stretch+Ponte+Straight+Leg+Pants+-1875913242-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1875913242.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Lauren+Ralph+Lauren+Womens+Stretch+Ponte+Straight+Leg+Pants+-1875913242-p+.xhtml",
+"price":"$69.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$2.10 / 3% Cashback"
+},
+{
+"name":"EILEEN FISHER Womens Beige Stretch Zippered Pocketed Cropped High Waist Pants 10",
+"name_url":"https://www.shop.com/EILEEN+FISHER+Womens+Beige+Stretch+Zippered+Pocketed+Cropped+High+Waist+Pants+10+-1958209171-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958209171.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/EILEEN+FISHER+Womens+Beige+Stretch+Zippered+Pocketed+Cropped+High+Waist+Pants+10+-1958209171-p+.xhtml",
+"price":"$60.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.83 / 3% Cashback"
+},
+{
+"name":"EILEEN FISHER Womens Black Stretch Pocketed Tie Banded Hem Jogger High Waist Pants M",
+"name_url":"https://www.shop.com/EILEEN+FISHER+Womens+Black+Stretch+Pocketed+Tie+Banded+Hem+Jogger+High+Waist+Pants+M+-1958164685-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958164685.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/EILEEN+FISHER+Womens+Black+Stretch+Pocketed+Tie+Banded+Hem+Jogger+High+Waist+Pants+M+-1958164685-p+.xhtml",
+"price":"$52.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.59 / 3% Cashback"
+},
+{
+"name":"Spiritual Gangster Womens Marlegh Sweatpant Cozy Jogger Pants",
+"name_url":"https://www.shop.com/Spiritual+Gangster+Womens+Marlegh+Sweatpant+Cozy+Jogger+Pants+-1955443708-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1955443708.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Spiritual+Gangster+Womens+Marlegh+Sweatpant+Cozy+Jogger+Pants+-1955443708-p+.xhtml",
+"price":"$41.39",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.83 / 2% Cashback"
+},
+{
+"name":"Eileen Fisher Womens Work Job Capri Pants",
+"name_url":"https://www.shop.com/Eileen+Fisher+Womens+Work+Job+Capri+Pants+-1934831714-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1934831714.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Eileen+Fisher+Womens+Work+Job+Capri+Pants+-1934831714-p+.xhtml",
+"price":"Price range is\n$40.79 - $64.29",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $1.29 / 2% Cashback"
+},
+{
+"name":"PINKO Yellow Cotton Stretch Low Waist Skinny Casual Trouser Women's Pants",
+"name_url":"https://www.shop.com/PINKO+Yellow+Cotton+Stretch+Low+Waist+Skinny+Casual+Trouser+Womens+Pants+-1933832745-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290400/290461/products/1933832745.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/PINKO+Yellow+Cotton+Stretch+Low+Waist+Skinny+Casual+Trouser+Womens+Pants+-1933832745-p+.xhtml",
+"price":"$198.00",
+"soldBy":"Sold by LUX LAIR",
+"ShippingAndCashBack":"$11.88 / 6% Cashback"
+},
+{
+"name":"Tahari ASL Women's Skinny Career Pants (14, Chocolate)",
+"name_url":"https://www.shop.com/Tahari+ASL+Womens+Skinny+Career+Pants+14+Chocolate+-1943572445-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1943572445.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Tahari+ASL+Womens+Skinny+Career+Pants+14+Chocolate+-1943572445-p+.xhtml",
+"price":"$59.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$1.80 / 3% Cashback"
+},
+{
+"name":"CeCe Women's Plaid Straight-Leg Pants (10, Rich Black)",
+"name_url":"https://www.shop.com/CeCe+Womens+Plaid+Straight+Leg+Pants+10+Rich+Black+-1923002088-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1923002088.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/CeCe+Womens+Plaid+Straight+Leg+Pants+10+Rich+Black+-1923002088-p+.xhtml",
+"price":"$59.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$1.80 / 3% Cashback"
+},
+{
+"name":"SANCTUARY Womens Gray Check Capri Pants XL",
+"name_url":"https://www.shop.com/SANCTUARY+Womens+Gray+Check+Capri+Pants+XL+-1958181571-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958181571.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/SANCTUARY+Womens+Gray+Check+Capri+Pants+XL+-1958181571-p+.xhtml",
+"price":"$27.19",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.82 / 3% Cashback"
+},
+{
+"name":"ALFANI Womens White Faux Leather Cropped Pants Size: 2",
+"name_url":"https://www.shop.com/ALFANI+Womens+White+Faux+Leather+Cropped+Pants+Size+2+-1958200450-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958200450.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/ALFANI+Womens+White+Faux+Leather+Cropped+Pants+Size+2+-1958200450-p+.xhtml",
+"price":"$17.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.54 / 3% Cashback"
+},
+{
+"name":"EILEEN FISHER Womens White Stretch High Waist Pants 10",
+"name_url":"https://www.shop.com/EILEEN+FISHER+Womens+White+Stretch+High+Waist+Pants+10+-1958170552-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958170552.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/EILEEN+FISHER+Womens+White+Stretch+High+Waist+Pants+10+-1958170552-p+.xhtml",
+"price":"$59.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.80 / 3% Cashback"
+},
+{
+"name":"Petite Tek Gear Ultrasoft Fleece Pant, Women's, Size: Small Petite, Dark Blue",
+"name_url":"https://www.shop.com/Petite+Tek+Gear+Ultrasoft+Fleece+Pant+Womens+Size+Small+Petite+Dark+Blue+-1951975190-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1951975190.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Petite+Tek+Gear+Ultrasoft+Fleece+Pant+Womens+Size+Small+Petite+Dark+Blue+-1951975190-p+.xhtml",
+"price":"$7.50",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"EILEEN FISHER Womens Gray Pants XL",
+"name_url":"https://www.shop.com/EILEEN+FISHER+Womens+Gray+Pants+XL+-1958222047-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958222047.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/EILEEN+FISHER+Womens+Gray+Pants+XL+-1958222047-p+.xhtml",
+"price":"$53.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.62 / 3% Cashback"
+},
+{
+"name":"EILEEN FISHER Womens Black Pocketed Tie Jogger Pants Petites PL",
+"name_url":"https://www.shop.com/EILEEN+FISHER+Womens+Black+Pocketed+Tie+Jogger+Pants+Petites+PL+-1958234364-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958234364.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/EILEEN+FISHER+Womens+Black+Pocketed+Tie+Jogger+Pants+Petites+PL+-1958234364-p+.xhtml",
+"price":"$71.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$2.16 / 3% Cashback"
+},
+{
+"name":"Dickies Womens Juniors Ankle Work Wear Khaki Pants",
+"name_url":"https://www.shop.com/Dickies+Womens+Juniors+Ankle+Work+Wear+Khaki+Pants+-1901157118-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1901157118.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Dickies+Womens+Juniors+Ankle+Work+Wear+Khaki+Pants+-1901157118-p+.xhtml",
+"price":"$11.09",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.22 / 2% Cashback"
+},
+{
+"name":"EILEEN FISHER Womens Gray Stretch Wear To Work High Waist Pants Petites PM",
+"name_url":"https://www.shop.com/EILEEN+FISHER+Womens+Gray+Stretch+Wear+To+Work+High+Waist+Pants+Petites+PM+-1958176322-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958176322.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/EILEEN+FISHER+Womens+Gray+Stretch+Wear+To+Work+High+Waist+Pants+Petites+PM+-1958176322-p+.xhtml",
+"price":"$51.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.56 / 3% Cashback"
+},
+{
+"name":"Dolce & Gabbana Black Crystal High Waist Trouser Cotton Women's Pants",
+"name_url":"https://www.shop.com/Dolce+Gabbana+Black+Crystal+High+Waist+Trouser+Cotton+Womens+Pants+-1933833299-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290400/290461/products/1933833299.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Dolce+Gabbana+Black+Crystal+High+Waist+Trouser+Cotton+Womens+Pants+-1933833299-p+.xhtml",
+"price":"$445.00",
+"soldBy":"Sold by LUX LAIR",
+"ShippingAndCashBack":"$26.70 / 6% Cashback"
+},
+{
+"name":"EILEEN FISHER Womens Ivory Pocketed Pull On Elastic Waist Wide Leg Cropped Pants M",
+"name_url":"https://www.shop.com/EILEEN+FISHER+Womens+Ivory+Pocketed+Pull+On+Elastic+Waist+Wide+Leg+Cropped+Pants+M+-1958230101-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958230101.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/EILEEN+FISHER+Womens+Ivory+Pocketed+Pull+On+Elastic+Waist+Wide+Leg+Cropped+Pants+M+-1958230101-p+.xhtml",
+"price":"$58.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.77 / 3% Cashback"
+},
+{
+"name":"EILEEN FISHER Womens Brown Stretch Pocketed Elastic Waist Tapered Leg Pants Petites PL",
+"name_url":"https://www.shop.com/EILEEN+FISHER+Womens+Brown+Stretch+Pocketed+Elastic+Waist+Tapered+Leg+Pants+Petites+PL+-1958182506-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958182506.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/EILEEN+FISHER+Womens+Brown+Stretch+Pocketed+Elastic+Waist+Tapered+Leg+Pants+Petites+PL+-1958182506-p+.xhtml",
+"price":"$53.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.62 / 3% Cashback"
+},
+{
+"name":"Reflex 90 Degree Women's Elastic Waist Pull On Athletic Travel Capri Pants",
+"name_url":"https://www.shop.com/Reflex+90+Degree+Womens+Elastic+Waist+Pull+On+Athletic+Travel+Capri+Pants+-1918696449-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290600/290680/products/1918696449.png?plain&size=400x400",
+"image_url":"https://www.shop.com/Reflex+90+Degree+Womens+Elastic+Waist+Pull+On+Athletic+Travel+Capri+Pants+-1918696449-p+.xhtml",
+"price":"$20.33",
+"soldBy":"Sold by eWirelessGear",
+"ShippingAndCashBack":"$1.22 / 6% Cashback"
+},
+{
+"name":"FP Movement by Free People Womens Surfside Comfy Cozy Jogger Pants",
+"name_url":"https://www.shop.com/FP+Movement+by+Free+People+Womens+Surfside+Comfy+Cozy+Jogger+Pants+-1925178221-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1925178221.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/FP+Movement+by+Free+People+Womens+Surfside+Comfy+Cozy+Jogger+Pants+-1925178221-p+.xhtml",
+"price":"$20.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.42 / 2% Cashback"
+},
+{
+"name":"Kobi Halperin Womens Charly High Rise Ankle Pants",
+"name_url":"https://www.shop.com/Kobi+Halperin+Womens+Charly+High+Rise+Ankle+Pants+-1891851314-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1891851314.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Kobi+Halperin+Womens+Charly+High+Rise+Ankle+Pants+-1891851314-p+.xhtml",
+"price":"$98.69",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$1.97 / 2% Cashback"
+},
+{
+"name":"RALPH LAUREN Womens Beige Cropped Wear To Work Wide Leg Pants 8",
+"name_url":"https://www.shop.com/RALPH+LAUREN+Womens+Beige+Cropped+Wear+To+Work+Wide+Leg+Pants+8+-1958152201-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958152201.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/RALPH+LAUREN+Womens+Beige+Cropped+Wear+To+Work+Wide+Leg+Pants+8+-1958152201-p+.xhtml",
+"price":"$23.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.72 / 3% Cashback"
+},
+{
+"name":"WonderWink WonderFLEX 5308 Womens Grace Flare Leg Pant - Petite & Petite Plus, Petite 3x , Blue",
+"name_url":"https://www.shop.com/WonderWink+WonderFLEX+5308+Womens+Grace+Flare+Leg+Pant+Petite+Petite+Plus+Petite+3x+Blue+-1847607114-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1847607114.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/WonderWink+WonderFLEX+5308+Womens+Grace+Flare+Leg+Pant+Petite+Petite+Plus+Petite+3x+Blue+-1847607114-p+.xhtml",
+"price":"$41.60",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.83 / 2% Cashback"
+},
+{
+"name":"Elie Tahari Womens Odette Straight Leg Business Pants",
+"name_url":"https://www.shop.com/Elie+Tahari+Womens+Odette+Straight+Leg+Business+Pants+-1900630066-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1900630066.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Elie+Tahari+Womens+Odette+Straight+Leg+Business+Pants+-1900630066-p+.xhtml",
+"price":"$125.10",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$2.50 / 2% Cashback"
+},
+{
+"name":"Eileen Fisher Womens Cropped Pull On Straight Leg Pants",
+"name_url":"https://www.shop.com/Eileen+Fisher+Womens+Cropped+Pull+On+Straight+Leg+Pants+-1956202432-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1956202432.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Eileen+Fisher+Womens+Cropped+Pull+On+Straight+Leg+Pants+-1956202432-p+.xhtml",
+"price":"$64.09",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$1.28 / 2% Cashback"
+},
+{
+"name":"Lea + Viola Womens Camouflage Cozy Jogger Pants",
+"name_url":"https://www.shop.com/Lea+Viola+Womens+Camouflage+Cozy+Jogger+Pants+-1925627295-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1925627295.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Lea+Viola+Womens+Camouflage+Cozy+Jogger+Pants+-1925627295-p+.xhtml",
+"price":"$1.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.04 / 2% Cashback"
+},
+{
+"name":"EILEEN FISHER Womens Green Pocketed Printed Wide Leg Pants L",
+"name_url":"https://www.shop.com/EILEEN+FISHER+Womens+Green+Pocketed+Printed+Wide+Leg+Pants+L+-1958221019-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958221019.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/EILEEN+FISHER+Womens+Green+Pocketed+Printed+Wide+Leg+Pants+L+-1958221019-p+.xhtml",
+"price":"$68.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$2.07 / 3% Cashback"
+},
+{
+"name":"RALPH LAUREN Womens Brown Elastic Waist Cropped Pants Petites Size: 12P",
+"name_url":"https://www.shop.com/RALPH+LAUREN+Womens+Brown+Elastic+Waist+Cropped+Pants+Petites+Size+12P+-1958178707-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958178707.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/RALPH+LAUREN+Womens+Brown+Elastic+Waist+Cropped+Pants+Petites+Size+12P+-1958178707-p+.xhtml",
+"price":"$20.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.63 / 3% Cashback"
+},
+{
+"name":"WonderWink WonderFLEX 5308 Womens Grace Flare Leg Pant - Petite & Petite Plus, Petite Large , Blue",
+"name_url":"https://www.shop.com/WonderWink+WonderFLEX+5308+Womens+Grace+Flare+Leg+Pant+Petite+Petite+Plus+Petite+Large+Blue+-1847920315-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1847920315.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/WonderWink+WonderFLEX+5308+Womens+Grace+Flare+Leg+Pant+Petite+Petite+Plus+Petite+Large+Blue+-1847920315-p+.xhtml",
+"price":"$37.60",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.75 / 2% Cashback"
+},
+{
+"name":"Scully Western Pants Womens Fringe Bell Bottom Elastic Waist F0_HC771",
+"name_url":"https://www.shop.com/Scully+Western+Pants+Womens+Fringe+Bell+Bottom+Elastic+Waist+F0+HC771+-1938019987-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/292000/292019/products/1938019987.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Scully+Western+Pants+Womens+Fringe+Bell+Bottom+Elastic+Waist+F0+HC771+-1938019987-p+.xhtml",
+"price":"$117.95",
+"soldBy":"Sold by Ranch & Home",
+"ShippingAndCashBack":"$7.08 / 6% Cashback"
+},
+{
+"name":"Kasper Womens Plus Pull On Work Wide Leg Pants",
+"name_url":"https://www.shop.com/Kasper+Womens+Plus+Pull+On+Work+Wide+Leg+Pants+-1952350056-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1952350056.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Kasper+Womens+Plus+Pull+On+Work+Wide+Leg+Pants+-1952350056-p+.xhtml",
+"price":"Price range is\n$12.09 - $28.09",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $0.56 / 2% Cashback"
+},
+{
+"name":"Amazon Essentials Women's Cropped Girlfriend Chino, Black, 10",
+"name_url":"https://www.shop.com/Amazon+Essentials+Womens+Cropped+Girlfriend+Chino+Black+10+-1929768550-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/263300/263362/products/1929768550.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Amazon+Essentials+Womens+Cropped+Girlfriend+Chino+Black+10+-1929768550-p+.xhtml",
+"price":"$12.00",
+"soldBy":"Sold by PairMySole",
+"ShippingAndCashBack":"$0.48 / 4% Cashback"
+}
+];
+
+    displayProducts(products);
+
+    function displayProducts(products){
+
+        products.map(function(ele){
+            var div = document.createElement("div");
+
+            var image = document.createElement("img");
+            image.setAttribute("src", ele.image);
+            image.setAttribute("alt", ele.name);
+
+            var h5 = document.createElement("h3");
+            h5.textContent = ele.name;
+
+            var h3 = document.createElement("h5");
+            h3.textContent = ele.soldBy;
+
+            var price = document.createElement("h4");
+            price.textContent = "$" + ele.price;
+
+            var ship = document.createElement("h5");
+            ship.textContent = ele.ShippingAndCashBack;
+
+            var offer = document.createElement("h5");
+            offer.textContent = "Free shipping with $50.00 orders"
+
+            var add = document.createElement("button");
+            add.textContent = "Add to Cart"
+            add.setAttribute("class", "cartBtn");
+            add.addEventListener("click", function(){
+                addToCart(ele);
+            });
+
+            div.append(image, h5, h3, price, ship, offer, add);
+            document.querySelector("#data").append(div);
+        });
+    }
+
+    var cartArr = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+    function addToCart(ele){
+      cartArr.push(ele);
+      console.log(cartArr);
+      localStorage.setItem("cartProducts", JSON.stringify(cartArr));
+    }
+</script>
