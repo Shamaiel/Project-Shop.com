@@ -1,0 +1,134 @@
+    *{
+        padding: 0;
+        margin: 0;
+
+    }
+        
+    #nav-container{
+        background-color: rgb(240,241,247); 
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        /* width: 100%; */
+        height: 130px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+       
+      
+    }
+    #advert{
+        text-align: center;
+        background-color: rgb(32,35,64);
+        height: 30px;
+       
+    }
+    #advert p{
+       color: antiquewhite;
+      
+    }
+    #upper-nav{
+        display: flex;
+        /* background-color: blueviolet; */
+    }
+
+    #logo-img{
+        width: 15%;
+        margin: 27px 0 0 15px;
+            
+    }
+    #search{
+      padding: 50px;
+    }
+    #search input{
+        width: 370px;
+        height: 41px;
+        border-radius: 0 11px 11px 0;
+        border: 0.1px solid black;
+   
+    }
+    #lower-nav{
+         display: flex;
+         justify-content: space-between;
+        height: 30px;
+       
+        margin-top: -30px;
+
+    }
+    #search{
+        margin-top: -29px;
+    }
+
+    #search select{
+        width: 140px;
+        height: 41.9px;
+        border-radius: 11px 0 0 11px;
+        margin-right: -4px;
+        border: 0.1px  solid black;
+    }   
+     .icon{
+       
+        margin-left: -35px;
+        font-size: 5px;
+       
+       
+     }
+
+     .bar-tag{
+        margin-left: 35px;
+        margin-bottom: 25px;
+     }
+    #lower-middle-nav {
+      display: flex;
+      justify-content: space-between;
+      width: 300px;
+    }
+     
+    #lower-middle-nav div >a{
+       text-decoration: none;
+       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+      #lower-right-nav{
+        display: flex;
+        justify-content: space-between;
+        width: 150px;
+        margin-right: 25px;
+      }
+      .fa-solid{
+       font-size: 27px;
+        color: rgb(32,35,64);
+      }
+      a:hover {
+        color: skyblue;
+      }
+      
+      .fa-solid:hover{
+        color: skyblue;
+      }
+      
+      .grid{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+      }
+
+
+      @media only screen and (max-width: 600px) {
+        #nav-container {
+          /* Adjust the height, font size, and padding */
+          height: 60px;
+          font-size: 16px;
+          padding: 10px;
+        }
+        
+        /* Hide the menu items
+        .nav {
+          display: none;
+        }
+        
+        /* Show a toggle button for the menu */
+        /* .navbar .toggle-menu {
+          display: block;
+          float: right;
+        } */ 
+      }
