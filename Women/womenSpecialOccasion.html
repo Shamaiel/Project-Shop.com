@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Special Occasion</title>
+    <style>
+        #data{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-left: 5%;
+            gap: 10px;
+        }
+        #data > div > div{
+            display: flex;
+        }
+        img{
+            width: 200px;
+            border-radius: 20px;
+            height: 200px;
+        }
+        
+        .cartBtn{
+          width: 60%;
+          padding: 10px;
+          margin-left: 20px;
+          background-color: teal;
+          color: white;
+          border: none;
+          border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="data"></div>
+</body>
+</html>
+
+<script>
+
+var products = [
+{
+"name":"Alex Evenings Womens Sequined Rosette Cocktail Dress",
+"name_url":"https://www.shop.com/Alex+Evenings+Womens+Sequined+Rosette+Cocktail+Dress+-1711773322-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1711773322.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Alex+Evenings+Womens+Sequined+Rosette+Cocktail+Dress+-1711773322-p+.xhtml",
+"price":"Regular\n$189.00\nOn sale,\n$51.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$1.04 / 2% Cashback"
+},
+{
+"name":"CALVIN KLEIN Womens Beige Sequined Cap Sleeve Jewel Neck Full-Length Formal Sheath Dress 6",
+"name_url":"https://www.shop.com/CALVIN+KLEIN+Womens+Beige+Sequined+Cap+Sleeve+Jewel+Neck+Full+Length+Formal+Sheath+Dress+6+-1958151225-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958151225.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/CALVIN+KLEIN+Womens+Beige+Sequined+Cap+Sleeve+Jewel+Neck+Full+Length+Formal+Sheath+Dress+6+-1958151225-p+.xhtml",
+"price":"Regular\n$279.00\nOn sale,\n$121.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$3.66 / 3% Cashback"
+},
+{
+"name":"ADRIANNA PAPELL Womens Black Pocketed Full-Length Evening Hi-Lo Skirt Plus 20W",
+"name_url":"https://www.shop.com/ADRIANNA+PAPELL+Womens+Black+Pocketed+Full+Length+Evening+Hi+Lo+Skirt+Plus+20W+-1958136517-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958136517.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/ADRIANNA+PAPELL+Womens+Black+Pocketed+Full+Length+Evening+Hi+Lo+Skirt+Plus+20W+-1958136517-p+.xhtml",
+"price":"Regular\n$149.00\nOn sale,\n$56.53",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.70 / 3% Cashback"
+},
+{
+"name":"ML Monique Lhuillier Womens Plus Metallic Floral Evening Dress",
+"name_url":"https://www.shop.com/ML+Monique+Lhuillier+Womens+Plus+Metallic+Floral+Evening+Dress+-1963680145-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1963680145.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/ML+Monique+Lhuillier+Womens+Plus+Metallic+Floral+Evening+Dress+-1963680145-p+.xhtml",
+"price":"Regular\n$695.00\nOn sale,\n$147.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$2.96 / 2% Cashback"
+},
+{
+"name":"CITY STUDIO Womens White Zippered Beaded Sleeveless Illusion Neckline Full-Length Formal Fit + Flare Dress Juniors 9",
+"name_url":"https://www.shop.com/CITY+STUDIO+Womens+White+Zippered+Beaded+Sleeveless+Illusion+Neckline+Full+Length+Formal+Fit+Flare+Dress+Juniors+9+-1958150064-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958150064.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/CITY+STUDIO+Womens+White+Zippered+Beaded+Sleeveless+Illusion+Neckline+Full+Length+Formal+Fit+Flare+Dress+Juniors+9+-1958150064-p+.xhtml",
+"price":"Regular\n$109.00\nOn sale,\n$24.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.75 / 3% Cashback"
+},
+{
+"name":"CRYSTAL DOLLS Womens Blue Zippered Ruffled Chiffon Floral Flutter Sleeve Off Shoulder Full-Length Cocktail Hi-Lo Dress Juniors S",
+"name_url":"https://www.shop.com/CRYSTAL+DOLLS+Womens+Blue+Zippered+Ruffled+Chiffon+Floral+Flutter+Sleeve+Off+Shoulder+Full+Length+Cocktail+Hi+Lo+Dress+Juniors+S+-1958149381-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958149381.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/CRYSTAL+DOLLS+Womens+Blue+Zippered+Ruffled+Chiffon+Floral+Flutter+Sleeve+Off+Shoulder+Full+Length+Cocktail+Hi+Lo+Dress+Juniors+S+-1958149381-p+.xhtml",
+"price":"Regular\n$59.00\nOn sale,\n$13.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.42 / 3% Cashback"
+},
+{
+"name":"Mac Duggal Womens Plus Sequined V-Neck Evening Dress",
+"name_url":"https://www.shop.com/Mac+Duggal+Womens+Plus+Sequined+V+Neck+Evening+Dress+-1952350240-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1952350240.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Mac+Duggal+Womens+Plus+Sequined+V+Neck+Evening+Dress+-1952350240-p+.xhtml",
+"price":"Regular\n$458.00\nOn sale,\n$244.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$4.90 / 2% Cashback"
+},
+{
+"name":"AIDAN MATTOX Womens Blue Zippered Pleated Darted Floral Sleeveless Asymmetrical Neckline Full-Length Formal Gown Dress 10",
+"name_url":"https://www.shop.com/AIDAN+MATTOX+Womens+Blue+Zippered+Pleated+Darted+Floral+Sleeveless+Asymmetrical+Neckline+Full+Length+Formal+Gown+Dress+10+-1958243099-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958243099.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/AIDAN+MATTOX+Womens+Blue+Zippered+Pleated+Darted+Floral+Sleeveless+Asymmetrical+Neckline+Full+Length+Formal+Gown+Dress+10+-1958243099-p+.xhtml",
+"price":"Regular\n$440.00\nOn sale,\n$167.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$5.04 / 3% Cashback"
+},
+{
+"name":"Eliza J Womens Velvet Faux Wrap Evening Dress",
+"name_url":"https://www.shop.com/Eliza+J+Womens+Velvet+Faux+Wrap+Evening+Dress+-1950976560-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1950976560.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Eliza+J+Womens+Velvet+Faux+Wrap+Evening+Dress+-1950976560-p+.xhtml",
+"price":"Regular\n$188.00\nOn sale,\nPrice range is\n$38.59 - $55.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $1.12 / 2% Cashback"
+},
+{
+"name":"TEEZE ME Womens Gold Sleeveless Mini Fit + Flare Cocktail Dress Juniors 15\\16",
+"name_url":"https://www.shop.com/TEEZE+ME+Womens+Gold+Sleeveless+Mini+Fit+Flare+Cocktail+Dress+Juniors+15+16+-1958221177-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958221177.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/TEEZE+ME+Womens+Gold+Sleeveless+Mini+Fit+Flare+Cocktail+Dress+Juniors+15+16+-1958221177-p+.xhtml",
+"price":"Regular\n$69.00\nOn sale,\n$37.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.14 / 3% Cashback"
+},
+{
+"name":"SPEECHLESS Womens Silver Sequined Spaghetti Strap V Neck Short Formal Fit + Flare Dress Juniors 16",
+"name_url":"https://www.shop.com/SPEECHLESS+Womens+Silver+Sequined+Spaghetti+Strap+V+Neck+Short+Formal+Fit+Flare+Dress+Juniors+16+-1958156572-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958156572.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/SPEECHLESS+Womens+Silver+Sequined+Spaghetti+Strap+V+Neck+Short+Formal+Fit+Flare+Dress+Juniors+16+-1958156572-p+.xhtml",
+"price":"Regular\n$109.00\nOn sale,\n$21.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.66 / 3% Cashback"
+},
+{
+"name":"Alex Evenings Women's Illusion Embellished A-Line Gown (8, Plum)",
+"name_url":"https://www.shop.com/Alex+Evenings+Womens+Illusion+Embellished+A+Line+Gown+8+Plum+-1823540809-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1823540809.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Alex+Evenings+Womens+Illusion+Embellished+A+Line+Gown+8+Plum+-1823540809-p+.xhtml",
+"price":"Regular\n$209.00\nOn sale,\n$129.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$3.90 / 3% Cashback"
+},
+{
+"name":"JESSICA HOWARD Womens Red Glitter Long Sleeve Boat Neck Above The Knee Cocktail Sheath Dress Plus 16W",
+"name_url":"https://www.shop.com/JESSICA+HOWARD+Womens+Red+Glitter+Long+Sleeve+Boat+Neck+Above+The+Knee+Cocktail+Sheath+Dress+Plus+16W+-1958147104-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958147104.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/JESSICA+HOWARD+Womens+Red+Glitter+Long+Sleeve+Boat+Neck+Above+The+Knee+Cocktail+Sheath+Dress+Plus+16W+-1958147104-p+.xhtml",
+"price":"Regular\n$109.00\nOn sale,\n$45.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.38 / 3% Cashback"
+},
+{
+"name":"Alex Evenings Womens Shimmer V Neck Blouse",
+"name_url":"https://www.shop.com/Alex+Evenings+Womens+Shimmer+V+Neck+Blouse+-1951724055-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1951724055.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Alex+Evenings+Womens+Shimmer+V+Neck+Blouse+-1951724055-p+.xhtml",
+"price":"Regular\n$149.00\nOn sale,\n$51.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$1.04 / 2% Cashback"
+},
+{
+"name":"XSCAPE Womens Pink Metallic Zippered Ruched Sides Off Shoulder Full-Length Formal Fit + Flare Dress 12",
+"name_url":"https://www.shop.com/XSCAPE+Womens+Pink+Metallic+Zippered+Ruched+Sides+Off+Shoulder+Full+Length+Formal+Fit+Flare+Dress+12+-1958768055-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958768055.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/XSCAPE+Womens+Pink+Metallic+Zippered+Ruched+Sides+Off+Shoulder+Full+Length+Formal+Fit+Flare+Dress+12+-1958768055-p+.xhtml",
+"price":"Regular\n$269.00\nOn sale,\n$119.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$3.60 / 3% Cashback"
+},
+{
+"name":"Aidan Mattox Womens Shimmer Full Length Evening Dress",
+"name_url":"https://www.shop.com/Aidan+Mattox+Womens+Shimmer+Full+Length+Evening+Dress+-1959432066-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1959432066.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Aidan+Mattox+Womens+Shimmer+Full+Length+Evening+Dress+-1959432066-p+.xhtml",
+"price":"Regular\n$220.00\nOn sale,\nPrice range is\n$72.79 - $84.19",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $1.68 / 2% Cashback"
+},
+{
+"name":"ADRIANNA PAPELL Womens Black Sheer Evening Wide Leg Pants 8",
+"name_url":"https://www.shop.com/ADRIANNA+PAPELL+Womens+Black+Sheer+Evening+Wide+Leg+Pants+8+-1958136759-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958136759.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/ADRIANNA+PAPELL+Womens+Black+Sheer+Evening+Wide+Leg+Pants+8+-1958136759-p+.xhtml",
+"price":"Regular\n$129.00\nOn sale,\n$57.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.74 / 3% Cashback"
+},
+{
+"name":"Ieena for Mac Duggal Womens Satin Puff Sleeve Evening Dress",
+"name_url":"https://www.shop.com/Ieena+for+Mac+Duggal+Womens+Satin+Puff+Sleeve+Evening+Dress+-1934108737-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1934108737.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Ieena+for+Mac+Duggal+Womens+Satin+Puff+Sleeve+Evening+Dress+-1934108737-p+.xhtml",
+"price":"Regular\n$398.00\nOn sale,\nPrice range is\n$139.99 - $164.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $3.30 / 2% Cashback"
+},
+{
+"name":"Tea Length Black Cocktail Dress With Champagne Trim & Bow",
+"name_url":"https://www.shop.com/Tea+Length+Black+Cocktail+Dress+With+Champagne+Trim+Bow+-1532645923-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/249500/249510/products/1532645923.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Tea+Length+Black+Cocktail+Dress+With+Champagne+Trim+Bow+-1532645923-p+.xhtml",
+"price":"Regular\n$114.00\nOn sale,\n$87.99",
+"soldBy":"Sold by Luxury Divas",
+"ShippingAndCashBack":"$3.52 / 4% Cashback"
+},
+{
+"name":"ALEX EVENINGS Womens Pink Stretch Embellished Zippered Pleated Front Side Floral Cap Sleeve Off Shoulder Above The Knee Evening Sheath Dress 12",
+"name_url":"https://www.shop.com/ALEX+EVENINGS+Womens+Pink+Stretch+Embellished+Zippered+Pleated+Front+Side+Floral+Cap+Sleeve+Off+Shoulder+Above+The+Knee+Evening+Sheath+Dress+12+-1958226715-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958226715.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/ALEX+EVENINGS+Womens+Pink+Stretch+Embellished+Zippered+Pleated+Front+Side+Floral+Cap+Sleeve+Off+Shoulder+Above+The+Knee+Evening+Sheath+Dress+12+-1958226715-p+.xhtml",
+"price":"Regular\n$175.00\nOn sale,\n$74.68",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$2.24 / 3% Cashback"
+},
+{
+"name":"Connected Women's Sequined Lace Gown",
+"name_url":"https://www.shop.com/Connected+Womens+Sequined+Lace+Gown+-1726773246-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1726773246.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Connected+Womens+Sequined+Lace+Gown+-1726773246-p+.xhtml",
+"price":"Regular\n$99.00\nOn sale,\n$49.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$1.50 / 3% Cashback"
+},
+{
+"name":"Adrianna Papell Womens Petites Embellished Wedding Evening Dress",
+"name_url":"https://www.shop.com/Adrianna+Papell+Womens+Petites+Embellished+Wedding+Evening+Dress+-1934755730-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1934755730.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Adrianna+Papell+Womens+Petites+Embellished+Wedding+Evening+Dress+-1934755730-p+.xhtml",
+"price":"Regular\n$249.00\nOn sale,\n$60.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$1.22 / 2% Cashback"
+},
+{
+"name":"Adrianna Papell Womens Petites Embellished Prom Evening Dress",
+"name_url":"https://www.shop.com/Adrianna+Papell+Womens+Petites+Embellished+Prom+Evening+Dress+-1934755701-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1934755701.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Adrianna+Papell+Womens+Petites+Embellished+Prom+Evening+Dress+-1934755701-p+.xhtml",
+"price":"Regular\n$279.00\nOn sale,\n$53.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$1.08 / 2% Cashback"
+},
+{
+"name":"BCX Womens Lace Accent Bodycon Dress, Style # 111229F",
+"name_url":"https://www.shop.com/BCX+Womens+Lace+Accent+Bodycon+Dress+Style+111229F+-1938884445-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938884445.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/BCX+Womens+Lace+Accent+Bodycon+Dress+Style+111229F+-1938884445-p+.xhtml",
+"price":"Regular\n$59.00\nOn sale,\n$33.87",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"$0.68 / 2% Cashback"
+},
+{
+"name":"ALEX EVENINGS Womens Gray Embellished Zippered Godets Inset At Skirt Hem Floral Flutter Sleeve V Neck Full-Length Evening A-Line Dress 8",
+"name_url":"https://www.shop.com/ALEX+EVENINGS+Womens+Gray+Embellished+Zippered+Godets+Inset+At+Skirt+Hem+Floral+Flutter+Sleeve+V+Neck+Full+Length+Evening+A+Line+Dress+8+-1958149048-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958149048.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/ALEX+EVENINGS+Womens+Gray+Embellished+Zippered+Godets+Inset+At+Skirt+Hem+Floral+Flutter+Sleeve+V+Neck+Full+Length+Evening+A+Line+Dress+8+-1958149048-p+.xhtml",
+"price":"Regular\n$269.00\nOn sale,\n$99.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$3.00 / 3% Cashback"
+},
+{
+"name":"Weddington Way Womens Mila Lace Prom Evening Dress",
+"name_url":"https://www.shop.com/Weddington+Way+Womens+Mila+Lace+Prom+Evening+Dress+-1930876632-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1930876632.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Weddington+Way+Womens+Mila+Lace+Prom+Evening+Dress+-1930876632-p+.xhtml",
+"price":"Regular\n$149.00\nOn sale,\n$5.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.12 / 2% Cashback"
+},
+{
+"name":"Weddington Way Womens Savannah Asymmetric Prom Evening Dress",
+"name_url":"https://www.shop.com/Weddington+Way+Womens+Savannah+Asymmetric+Prom+Evening+Dress+-1930859273-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1930859273.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Weddington+Way+Womens+Savannah+Asymmetric+Prom+Evening+Dress+-1930859273-p+.xhtml",
+"price":"Regular\n$149.00\nOn sale,\n$6.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.14 / 2% Cashback"
+},
+{
+"name":"Betsy & Adam Women's Sequined Gown (2, Black)",
+"name_url":"https://www.shop.com/Betsy+Adam+Womens+Sequined+Gown+2+Black+-1954017939-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1954017939.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Betsy+Adam+Womens+Sequined+Gown+2+Black+-1954017939-p+.xhtml",
+"price":"Regular\n$335.00\nOn sale,\nPrice range is\n$89.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$2.70 / 3% Cashback"
+},
+{
+"name":"Adrianna Papell Womens Plus Mesh Midi Cocktail and Party Dress",
+"name_url":"https://www.shop.com/Adrianna+Papell+Womens+Plus+Mesh+Midi+Cocktail+and+Party+Dress+-1935679989-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1935679989.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Adrianna+Papell+Womens+Plus+Mesh+Midi+Cocktail+and+Party+Dress+-1935679989-p+.xhtml",
+"price":"Regular\n$219.00\nOn sale,\n$98.55",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$1.97 / 2% Cashback"
+},
+{
+"name":"Mac Duggal Womens Floral Embroidered Cocktail and Party Dress",
+"name_url":"https://www.shop.com/Mac+Duggal+Womens+Floral+Embroidered+Cocktail+and+Party+Dress+-1952350235-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1952350235.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Mac+Duggal+Womens+Floral+Embroidered+Cocktail+and+Party+Dress+-1952350235-p+.xhtml",
+"price":"Regular\n$338.00\nOn sale,\n$155.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$3.12 / 2% Cashback"
+},
+{
+"name":"Adrianna Papell Womens Chiffon Off-The-Shoulder Blouse",
+"name_url":"https://www.shop.com/Adrianna+Papell+Womens+Chiffon+Off+The+Shoulder+Blouse+-1939495657-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1939495657.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Adrianna+Papell+Womens+Chiffon+Off+The+Shoulder+Blouse+-1939495657-p+.xhtml",
+"price":"Regular\n$139.00\nOn sale,\n$27.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.56 / 2% Cashback"
+},
+{
+"name":"Adrianna Papell Womens Portrait Long Formal Dress",
+"name_url":"https://www.shop.com/Adrianna+Papell+Womens+Portrait+Long+Formal+Dress+-1915165703-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1915165703.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Adrianna+Papell+Womens+Portrait+Long+Formal+Dress+-1915165703-p+.xhtml",
+"price":"Regular\n$129.00\nOn sale,\nPrice range is\n$50.99 - $58.05",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $1.16 / 2% Cashback"
+},
+{
+"name":"Betsy & Adam Womens Bandage Gown Dress, Style # A22928",
+"name_url":"https://www.shop.com/Betsy+Adam+Womens+Bandage+Gown+Dress+Style+A22928+-1938900372-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938900372.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Betsy+Adam+Womens+Bandage+Gown+Dress+Style+A22928+-1938900372-p+.xhtml",
+"price":"Regular\n$269.00\nOn sale,\nPrice range is\n$185.40 - $187.36",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"up to $3.75 / 2% Cashback"
+},
+{
+"name":"French Connection Womens Cellienne Sequined Plunging Cocktail and Party Dress",
+"name_url":"https://www.shop.com/French+Connection+Womens+Cellienne+Sequined+Plunging+Cocktail+and+Party+Dress+-1949581979-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1949581979.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/French+Connection+Womens+Cellienne+Sequined+Plunging+Cocktail+and+Party+Dress+-1949581979-p+.xhtml",
+"price":"Regular\n$228.00\nOn sale,\nPrice range is\n$32.69 - $58.69",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $1.17 / 2% Cashback"
+},
+{
+"name":"Betsy & Adam Womens Solid Gown Dress, Style # A22921",
+"name_url":"https://www.shop.com/Betsy+Adam+Womens+Solid+Gown+Dress+Style+A22921+-1938891035-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938891035.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Betsy+Adam+Womens+Solid+Gown+Dress+Style+A22921+-1938891035-p+.xhtml",
+"price":"Regular\n$219.00\nOn sale,\nPrice range is\n$149.36 - $151.80",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"up to $3.04 / 2% Cashback"
+},
+{
+"name":"Say Yes to the Prom Womens Sequined Strapless Strapless Prom Dress, Style # 6ASR850",
+"name_url":"https://www.shop.com/Say+Yes+to+the+Prom+Womens+Sequined+Strapless+Strapless+Prom+Dress+Style+6ASR850+-1938908257-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938908257.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Say+Yes+to+the+Prom+Womens+Sequined+Strapless+Strapless+Prom+Dress+Style+6ASR850+-1938908257-p+.xhtml",
+"price":"Regular\n$169.00\nOn sale,\n$104.60",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"$2.09 / 2% Cashback"
+},
+{
+"name":"MSK Women's Sequined Popover Gown",
+"name_url":"https://www.shop.com/MSK+Womens+Sequined+Popover+Gown+-1738242548-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1738242548.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/MSK+Womens+Sequined+Popover+Gown+-1738242548-p+.xhtml",
+"price":"Regular\n$149.00\nOn sale,\n$79.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$2.40 / 3% Cashback"
+},
+{
+"name":"Aqua Womens Velvet Smocked Cocktail Dress",
+"name_url":"https://www.shop.com/Aqua+Womens+Velvet+Smocked+Cocktail+Dress+-1872660411-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1872660411.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Aqua+Womens+Velvet+Smocked+Cocktail+Dress+-1872660411-p+.xhtml",
+"price":"Regular\n$98.00\nOn sale,\nPrice range is\n$6.99 - $9.49",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $0.19 / 2% Cashback"
+},
+{
+"name":"MSK Womens Pink Stretch Pouf Sleeve Round Neck Short Evening Sheath Dress Petites PL",
+"name_url":"https://www.shop.com/MSK+Womens+Pink+Stretch+Pouf+Sleeve+Round+Neck+Short+Evening+Sheath+Dress+Petites+PL+-1958182889-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958182889.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/MSK+Womens+Pink+Stretch+Pouf+Sleeve+Round+Neck+Short+Evening+Sheath+Dress+Petites+PL+-1958182889-p+.xhtml",
+"price":"Regular\n$69.00\nOn sale,\n$29.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.90 / 3% Cashback"
+},
+{
+"name":"Tadashi Shoji Women's Sequined Sheer Overlay Cocktail Dress",
+"name_url":"https://www.shop.com/Tadashi+Shoji+Womens+Sequined+Sheer+Overlay+Cocktail+Dress+-1887236845-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1887236845.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Tadashi+Shoji+Womens+Sequined+Sheer+Overlay+Cocktail+Dress+-1887236845-p+.xhtml",
+"price":"Regular\n$308.00\nOn sale,\n$199.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$6.00 / 3% Cashback"
+},
+{
+"name":"Alex Evenings Womens Sequin Gown Dress, Style # 1121979-1",
+"name_url":"https://www.shop.com/Alex+Evenings+Womens+Sequin+Gown+Dress+Style+1121979+1+-1938893959-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938893959.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Alex+Evenings+Womens+Sequin+Gown+Dress+Style+1121979+1+-1938893959-p+.xhtml",
+"price":"Regular\n$129.50\nOn sale,\n$84.38",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"$1.69 / 2% Cashback"
+},
+{
+"name":"XSCAPE Womens Purple Soutache Long Sleeve Crew Neck Knee Length Evening Body Con Dress 4",
+"name_url":"https://www.shop.com/XSCAPE+Womens+Purple+Soutache+Long+Sleeve+Crew+Neck+Knee+Length+Evening+Body+Con+Dress+4+-1958224324-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958224324.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/XSCAPE+Womens+Purple+Soutache+Long+Sleeve+Crew+Neck+Knee+Length+Evening+Body+Con+Dress+4+-1958224324-p+.xhtml",
+"price":"Regular\n$209.00\nOn sale,\n$68.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$2.07 / 3% Cashback"
+},
+{
+"name":"Adrianna Papell Womens Crepe Wedding Evening Dress",
+"name_url":"https://www.shop.com/Adrianna+Papell+Womens+Crepe+Wedding+Evening+Dress+-1934755665-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1934755665.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Adrianna+Papell+Womens+Crepe+Wedding+Evening+Dress+-1934755665-p+.xhtml",
+"price":"Regular\n$159.00\nOn sale,\nPrice range is\n$46.99 - $54.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $1.10 / 2% Cashback"
+},
+{
+"name":"Aqua Womens Wedding Sleeveless Evening Dress",
+"name_url":"https://www.shop.com/Aqua+Womens+Wedding+Sleeveless+Evening+Dress+-1950976377-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1950976377.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Aqua+Womens+Wedding+Sleeveless+Evening+Dress+-1950976377-p+.xhtml",
+"price":"Regular\n$328.00\nOn sale,\nPrice range is\n$17.79 - $38.39",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $0.77 / 2% Cashback"
+},
+{
+"name":"ADRIANNA PAPELL Womens White Beaded Sequined Zippered Lined Floral Long Sleeve Illusion Neckline Above The Knee Formal Sheath Dress Petites 2",
+"name_url":"https://www.shop.com/ADRIANNA+PAPELL+Womens+White+Beaded+Sequined+Zippered+Lined+Floral+Long+Sleeve+Illusion+Neckline+Above+The+Knee+Formal+Sheath+Dress+Petites+2+-1958186208-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958186208.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/ADRIANNA+PAPELL+Womens+White+Beaded+Sequined+Zippered+Lined+Floral+Long+Sleeve+Illusion+Neckline+Above+The+Knee+Formal+Sheath+Dress+Petites+2+-1958186208-p+.xhtml",
+"price":"Regular\n$199.00\nOn sale,\n$66.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$2.01 / 3% Cashback"
+},
+{
+"name":"Mac Duggal Womens Sequined High Neck Cocktail and Party Dress",
+"name_url":"https://www.shop.com/Mac+Duggal+Womens+Sequined+High+Neck+Cocktail+and+Party+Dress+-1952350130-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1952350130.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Mac+Duggal+Womens+Sequined+High+Neck+Cocktail+and+Party+Dress+-1952350130-p+.xhtml",
+"price":"Regular\n$398.00\nOn sale,\n$226.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$4.54 / 2% Cashback"
+},
+{
+"name":"Lauren by Ralph Lauren Women's Jersey Off-The-Shoulder Gown",
+"name_url":"https://www.shop.com/Lauren+by+Ralph+Lauren+Womens+Jersey+Off+The+Shoulder+Gown+-1882676750-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1882676750.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Lauren+by+Ralph+Lauren+Womens+Jersey+Off+The+Shoulder+Gown+-1882676750-p+.xhtml",
+"price":"Regular\n$190.00\nOn sale,\n$125.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$3.78 / 3% Cashback"
+},
+{
+"name":"XSCAPE Womens Pink Glitter Zippered Gown Off Shoulder Full-Length Formal Fit + Flare Dress 4",
+"name_url":"https://www.shop.com/XSCAPE+Womens+Pink+Glitter+Zippered+Gown+Off+Shoulder+Full+Length+Formal+Fit+Flare+Dress+4+-1958170283-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958170283.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/XSCAPE+Womens+Pink+Glitter+Zippered+Gown+Off+Shoulder+Full+Length+Formal+Fit+Flare+Dress+4+-1958170283-p+.xhtml",
+"price":"Regular\n$299.00\nOn sale,\n$55.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.68 / 3% Cashback"
+},
+{
+"name":"DANIELLE BERNSTEIN Womens Beige Faux Patent Leather Evening Wide Leg Pants 0",
+"name_url":"https://www.shop.com/DANIELLE+BERNSTEIN+Womens+Beige+Faux+Patent+Leather+Evening+Wide+Leg+Pants+0+-1958188812-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958188812.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/DANIELLE+BERNSTEIN+Womens+Beige+Faux+Patent+Leather+Evening+Wide+Leg+Pants+0+-1958188812-p+.xhtml",
+"price":"Regular\n$99.00\nOn sale,\n$32.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.99 / 3% Cashback"
+},
+{
+"name":"Alex Evenings Women's Metallic Column Gown",
+"name_url":"https://www.shop.com/Alex+Evenings+Womens+Metallic+Column+Gown+-1726773462-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1726773462.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Alex+Evenings+Womens+Metallic+Column+Gown+-1726773462-p+.xhtml",
+"price":"Regular\n$179.00\nOn sale,\n$119.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$3.60 / 3% Cashback"
+},
+{
+"name":"Ieena for Mac Duggal Womens Satin Sleeveless Evening Dress",
+"name_url":"https://www.shop.com/Ieena+for+Mac+Duggal+Womens+Satin+Sleeveless+Evening+Dress+-1934074010-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1934074010.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Ieena+for+Mac+Duggal+Womens+Satin+Sleeveless+Evening+Dress+-1934074010-p+.xhtml",
+"price":"Regular\n$298.00\nOn sale,\n$115.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$2.32 / 2% Cashback"
+},
+{
+"name":"Mac Duggal Womens Embellished Mesh Inset Evening Dress",
+"name_url":"https://www.shop.com/Mac+Duggal+Womens+Embellished+Mesh+Inset+Evening+Dress+-1934108767-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1934108767.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Mac+Duggal+Womens+Embellished+Mesh+Inset+Evening+Dress+-1934108767-p+.xhtml",
+"price":"Regular\n$798.00\nOn sale,\n$173.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$3.48 / 2% Cashback"
+},
+{
+"name":"ELIZA J Womens Turquoise Zippered Ruffled Asymmetric Hem Sleeveless Crew Neck Midi Evening Sheath Dress 4",
+"name_url":"https://www.shop.com/ELIZA+J+Womens+Turquoise+Zippered+Ruffled+Asymmetric+Hem+Sleeveless+Crew+Neck+Midi+Evening+Sheath+Dress+4+-1958546131-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958546131.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/ELIZA+J+Womens+Turquoise+Zippered+Ruffled+Asymmetric+Hem+Sleeveless+Crew+Neck+Midi+Evening+Sheath+Dress+4+-1958546131-p+.xhtml",
+"price":"Regular\n$188.00\nOn sale,\n$85.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$2.58 / 3% Cashback"
+},
+{
+"name":"Lauren Ralph Lauren Women's Georgette-Overlay Jersey Gown",
+"name_url":"https://www.shop.com/Lauren+Ralph+Lauren+Womens+Georgette+Overlay+Jersey+Gown+-1878433026-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1878433026.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Lauren+Ralph+Lauren+Womens+Georgette+Overlay+Jersey+Gown+-1878433026-p+.xhtml",
+"price":"Regular\n$190.00\nOn sale,\n$125.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$3.78 / 3% Cashback"
+},
+{
+"name":"Tadashi Shoji Women's Lace Embroidered Cocktail Dress",
+"name_url":"https://www.shop.com/Tadashi+Shoji+Womens+Lace+Embroidered+Cocktail+Dress+-1886988235-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1886988235.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Tadashi+Shoji+Womens+Lace+Embroidered+Cocktail+Dress+-1886988235-p+.xhtml",
+"price":"Regular\n$368.00\nOn sale,\n$199.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$6.00 / 3% Cashback"
+},
+{
+"name":"Alex Evenings Womens Velvet Sheath Dress, Style # 1915265",
+"name_url":"https://www.shop.com/Alex+Evenings+Womens+Velvet+Sheath+Dress+Style+1915265+-1938913400-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938913400.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Alex+Evenings+Womens+Velvet+Sheath+Dress+Style+1915265+-1938913400-p+.xhtml",
+"price":"Regular\n$159.00\nOn sale,\n$104.88",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"$2.10 / 2% Cashback"
+},
+{
+"name":"Kiyonna Womens Lace Trim Formal Evening Dress",
+"name_url":"https://www.shop.com/Kiyonna+Womens+Lace+Trim+Formal+Evening+Dress+-1954565503-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1954565503.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Kiyonna+Womens+Lace+Trim+Formal+Evening+Dress+-1954565503-p+.xhtml",
+"price":"Regular\n$189.00\nOn sale,\n$22.19",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.44 / 2% Cashback"
+},
+{
+"name":"Lauren Ralph Lauren Women's Cold-Shoulder Jersey Gown",
+"name_url":"https://www.shop.com/Lauren+Ralph+Lauren+Womens+Cold+Shoulder+Jersey+Gown+-1882152174-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1882152174.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Lauren+Ralph+Lauren+Womens+Cold+Shoulder+Jersey+Gown+-1882152174-p+.xhtml",
+"price":"Regular\n$190.00\nOn sale,\nPrice range is\n$79.99 - $125.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"up to $3.78 / 3% Cashback"
+},
+{
+"name":"Weddington Way Womens Riley Pleated Prom Evening Dress",
+"name_url":"https://www.shop.com/Weddington+Way+Womens+Riley+Pleated+Prom+Evening+Dress+-1931094796-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1931094796.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Weddington+Way+Womens+Riley+Pleated+Prom+Evening+Dress+-1931094796-p+.xhtml",
+"price":"Regular\n$149.00\nOn sale,\n$8.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.18 / 2% Cashback"
+},
+{
+"name":"ROYALTY Womens Pink Slitted Sleeveless Halter Full-Length Formal Body Con Dress XXS",
+"name_url":"https://www.shop.com/ROYALTY+Womens+Pink+Slitted+Sleeveless+Halter+Full+Length+Formal+Body+Con+Dress+XXS+-1958141791-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958141791.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/ROYALTY+Womens+Pink+Slitted+Sleeveless+Halter+Full+Length+Formal+Body+Con+Dress+XXS+-1958141791-p+.xhtml",
+"price":"Regular\n$79.00\nOn sale,\n$17.31",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.52 / 3% Cashback"
+}
+];
+
+    displayProducts(products);
+
+    function displayProducts(products){
+
+        products.map(function(ele){
+            var div = document.createElement("div");
+
+            var image = document.createElement("img");
+            image.setAttribute("src", ele.image);
+            image.setAttribute("alt", ele.name);
+
+            var h5 = document.createElement("h3");
+            h5.textContent = ele.name;
+
+            var h3 = document.createElement("h5");
+            h3.textContent = ele.soldBy;
+
+            var price = document.createElement("h4");
+            price.textContent = "$" + ele.price;
+
+            var ship = document.createElement("h5");
+            ship.textContent = ele.ShippingAndCashBack;
+
+            var offer = document.createElement("h5");
+            offer.textContent = "Free shipping with $50.00 orders"
+
+            var add = document.createElement("button");
+            add.textContent = "Add to Cart"
+            add.setAttribute("class", "cartBtn");
+            add.addEventListener("click", function(){
+                addToCart(ele);
+            });
+
+            div.append(image, h5, h3, price, ship, offer, add);
+            document.querySelector("#data").append(div);
+        });
+    }
+
+    var cartArr = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+    function addToCart(ele){
+      cartArr.push(ele);
+      console.log(cartArr);
+      localStorage.setItem("cartProducts", JSON.stringify(cartArr));
+    }
+</script>

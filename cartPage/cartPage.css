@@ -1,0 +1,90 @@
+h2{
+    text-align: center;
+    margin-bottom: 5%;
+    color:blue;
+}
+#body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#body > #products{
+    display: flex;
+    flex-direction: column;
+}
+#body > #products > table > tbody > tr{
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+#body > #products > table > tbody > tr > .column{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+}
+#body > #products > table > tbody > tr > #column{
+    width: 100%;
+    
+}
+#body > #products > table > tbody img{
+    width: 100px;
+    height: 100px;
+    margin-top: 30%;
+}
+#body > #products > table > tbody .qtnButtons{
+    display: flex;
+    flex-direction: row;
+    margin-top: 30%;
+    margin-left: 20%;
+    gap: 5px;
+}
+#body > #products > table > tbody .qtnButtons > .round{
+    width: 20px;
+    border-radius: 10px;
+    border: 1px;
+    border-style:double;
+    font-size: large;
+}
+#body > #products > table > tbody .qtnButtons > #box{
+    width: 30px;
+}
+#body > #products > table > tbody > tr+tr{
+    margin-top: 10%;
+}
+#body > #products > table > tbody > tr > .column > .row{
+    display: flex;
+    flex-direction: row;
+    margin-top: 15%;
+}
+#body > #products > table > tbody > tr > .column > h5+h3{
+    margin-top: 10%;
+}
+#body > #products > table > tbody > tr > .column > .row > h3+h3{
+    margin-left: 10%;
+}
+#body > #Offer{
+    display: flex;
+    flex-direction: column;
+}
+#body > #total_price{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+#body > #total_price > #total_items > h5+h3{
+    margin-top: 30%;
+}
+body > #payment > button{
+    margin-top: 5%;
+    border: 1px solid red;
+    width: 20%;
+    height: 30px;
+    text-align: center;
+    margin-left: 40%;
+    font-size: large;
+    color: white;
+    background-color: red;
+    
+}

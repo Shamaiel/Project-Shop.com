@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boys Jeans Pants</title>
+    <style>
+        #data{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-left: 5%;
+            gap: 10px;
+        }
+        #data > div > div{
+            display: flex;
+        }
+        img{
+            width: 200px;
+            border-radius: 20px;
+            height: 200px;
+        }
+        
+        .cartBtn{
+          width: 60%;
+          padding: 10px;
+          margin-left: 20px;
+          background-color: teal;
+          color: white;
+          border: none;
+          border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="data"></div>
+</body>
+</html>
+
+<script>
+
+
+var products = [
+{
+"name":"Levi's Boys 511 Slim Fit Adjustable Waistband Flex Stretch Jean",
+"name_url":"https://www.shop.com/Levis+Boys+511+Slim+Fit+Adjustable+Waistband+Flex+Stretch+Jean+-1920192061-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290600/290680/products/1920192061.png?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Boys+511+Slim+Fit+Adjustable+Waistband+Flex+Stretch+Jean+-1920192061-p+.xhtml",
+"price":"$22.06",
+"soldBy":"Sold by eWirelessGear",
+"ShippingAndCashBack":"$1.32 / 6% Cashback"
+},
+{
+"name":"Levi's 511 Boys Slim Fit Dark Wash Denim Stretch Jeans",
+"name_url":"https://www.shop.com/Levis+511+Boys+Slim+Fit+Dark+Wash+Denim+Stretch+Jeans+-1954657130-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290600/290680/products/1954657130.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+511+Boys+Slim+Fit+Dark+Wash+Denim+Stretch+Jeans+-1954657130-p+.xhtml",
+"price":"$23.98",
+"soldBy":"Sold by eWirelessGear",
+"ShippingAndCashBack":"$1.44 / 6% Cashback"
+},
+{
+"name":"Ring of Fire Big Boys Swerve Stretch Moto Jeans, Created for Macy's",
+"name_url":"https://www.shop.com/Ring+of+Fire+Big+Boys+Swerve+Stretch+Moto+Jeans+Created+for+Macys+-1841731664-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1841731664.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Ring+of+Fire+Big+Boys+Swerve+Stretch+Moto+Jeans+Created+for+Macys+-1841731664-p+.xhtml",
+"price":"$29.40",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$0.59 / 2% Cashback"
+},
+{
+"name":"Levi's Jeans Belt, Big Boys",
+"name_url":"https://www.shop.com/Levis+Jeans+Belt+Big+Boys+-1648445244-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1648445244.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Jeans+Belt+Big+Boys+-1648445244-p+.xhtml",
+"price":"$25.00",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$0.50 / 2% Cashback"
+},
+{
+"name":"Levi's Boy's 511 Modern Slim Flex Stretch 5 Pocket Jeans",
+"name_url":"https://www.shop.com/Levis+Boys+511+Modern+Slim+Flex+Stretch+5+Pocket+Jeans+-1959090409-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290600/290680/products/1959090409.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Boys+511+Modern+Slim+Flex+Stretch+5+Pocket+Jeans+-1959090409-p+.xhtml",
+"price":"Price range is\n$17.14 - $18.99",
+"soldBy":"Sold by eWirelessGear",
+"ShippingAndCashBack":"up to $1.14 / 6% Cashback"
+},
+{
+"name":"Boys 7-20 Sonoma Goods For Life Flexwear Skinny Jeans, Boy's, Size: 8, Med Blue",
+"name_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Skinny+Jeans+Boys+Size+8+Med+Blue+-1897812247-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1897812247.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Skinny+Jeans+Boys+Size+8+Med+Blue+-1897812247-p+.xhtml",
+"price":"$21.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 7-20 Sonoma Goods For Life Flexwear Skinny Jeans, Boy's, Size: 18, Med Blue",
+"name_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Skinny+Jeans+Boys+Size+18+Med+Blue+-1897812214-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1897812214.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Skinny+Jeans+Boys+Size+18+Med+Blue+-1897812214-p+.xhtml",
+"price":"$21.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 7-20 Sonoma Goods For Life Flexwear Slim Jeans, Boy's, Size: 8, Black",
+"name_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Slim+Jeans+Boys+Size+8+Black+-1897962619-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1897962619.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Slim+Jeans+Boys+Size+8+Black+-1897962619-p+.xhtml",
+"price":"$21.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Epic Threads Little Boys Denim Jeans, Created for Macy's",
+"name_url":"https://www.shop.com/Epic+Threads+Little+Boys+Denim+Jeans+Created+for+Macys+-1952337642-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1952337642.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Epic+Threads+Little+Boys+Denim+Jeans+Created+for+Macys+-1952337642-p+.xhtml",
+"price":"$25.20",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$0.50 / 2% Cashback"
+},
+{
+"name":"Boy's Classic Fit Stretch Denim Skinny Jeans, Kids",
+"name_url":"https://www.shop.com/Boys+Classic+Fit+Stretch+Denim+Skinny+Jeans+Kids+-1959311740-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1959311740.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+Classic+Fit+Stretch+Denim+Skinny+Jeans+Kids+-1959311740-p+.xhtml",
+"price":"$34.49",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$0.69 / 2% Cashback"
+},
+{
+"name":"Levi Strauss Boy's 511 Slim Fit Stretch Denim Jean",
+"name_url":"https://www.shop.com/Levi+Strauss+Boys+511+Slim+Fit+Stretch+Denim+Jean+-1936931025-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290600/290680/products/1936931025.png?plain&size=400x400",
+"image_url":"https://www.shop.com/Levi+Strauss+Boys+511+Slim+Fit+Stretch+Denim+Jean+-1936931025-p+.xhtml",
+"price":"Price range is\n$13.98 - $15.64",
+"soldBy":"Sold by eWirelessGear",
+"ShippingAndCashBack":"up to $0.94 / 6% Cashback"
+},
+{
+"name":"Rock & Roll Western Denim Jean Boy Bootcut Regular Med Vintage BB-9576",
+"name_url":"https://www.shop.com/Rock+Roll+Western+Denim+Jean+Boy+Bootcut+Regular+Med+Vintage+BB+9576+-1966833152-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/292000/292019/products/1966833152.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Rock+Roll+Western+Denim+Jean+Boy+Bootcut+Regular+Med+Vintage+BB+9576+-1966833152-p+.xhtml",
+"price":"$59.99",
+"soldBy":"Sold by Ranch & Home",
+"ShippingAndCashBack":"$3.60 / 6% Cashback"
+},
+{
+"name":"Thereabouts Little & Big Boys Adjustable Waist Stretch Fabric Straight Leg Jean, 16 , Blue",
+"name_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Straight+Leg+Jean+16+Blue+-1945984148-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1945984148.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Straight+Leg+Jean+16+Blue+-1945984148-p+.xhtml",
+"price":"$17.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.36 / 2% Cashback"
+},
+{
+"name":"Levi's Big Boys 502 Stretch Fabric Tapered Leg Regular Fit Jean, 8 , Blue",
+"name_url":"https://www.shop.com/Levis+Big+Boys+502+Stretch+Fabric+Tapered+Leg+Regular+Fit+Jean+8+Blue+-1945985099-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1945985099.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Big+Boys+502+Stretch+Fabric+Tapered+Leg+Regular+Fit+Jean+8+Blue+-1945985099-p+.xhtml",
+"price":"$36.00",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.72 / 2% Cashback"
+},
+{
+"name":"Levi's Big Boys 502 Stretch Fabric Tapered Leg Regular Fit Jean, 18 , Black",
+"name_url":"https://www.shop.com/Levis+Big+Boys+502+Stretch+Fabric+Tapered+Leg+Regular+Fit+Jean+18+Black+-1945983122-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1945983122.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Big+Boys+502+Stretch+Fabric+Tapered+Leg+Regular+Fit+Jean+18+Black+-1945983122-p+.xhtml",
+"price":"$36.00",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.72 / 2% Cashback"
+},
+{
+"name":"Thereabouts Little & Big Boys Adjustable Waist Straight Leg Jean, 4 , Blue",
+"name_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Straight+Leg+Jean+4+Blue+-1957943625-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1957943625.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Straight+Leg+Jean+4+Blue+-1957943625-p+.xhtml",
+"price":"$19.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.40 / 2% Cashback"
+},
+{
+"name":"Levi's Big Boys 502 Stretch Fabric Tapered Leg Regular Fit Jean, 20 , Black",
+"name_url":"https://www.shop.com/Levis+Big+Boys+502+Stretch+Fabric+Tapered+Leg+Regular+Fit+Jean+20+Black+-1945984277-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1945984277.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Big+Boys+502+Stretch+Fabric+Tapered+Leg+Regular+Fit+Jean+20+Black+-1945984277-p+.xhtml",
+"price":"$36.00",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.72 / 2% Cashback"
+},
+{
+"name":"Thereabouts Little & Big Boys Adjustable Waist Stretch Fabric Slim Fit Jean, 18 , Blue",
+"name_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Slim+Fit+Jean+18+Blue+-1945984153-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1945984153.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Slim+Fit+Jean+18+Blue+-1945984153-p+.xhtml",
+"price":"$17.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.36 / 2% Cashback"
+},
+{
+"name":"Thereabouts Little & Big Boys Adjustable Waist Stretch Fabric Skinny Fit Jean, 4 , Black",
+"name_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Skinny+Fit+Jean+4+Black+-1945984160-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1945984160.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Skinny+Fit+Jean+4+Black+-1945984160-p+.xhtml",
+"price":"$17.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.36 / 2% Cashback"
+},
+{
+"name":"Thereabouts Little & Big Boys Adjustable Waist Stretch Fabric Skinny Fit Jean, 7 , Black",
+"name_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Skinny+Fit+Jean+7+Black+-1945984150-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1945984150.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Skinny+Fit+Jean+7+Black+-1945984150-p+.xhtml",
+"price":"$17.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.36 / 2% Cashback"
+},
+{
+"name":"Levi's Big Boys Reversible Casual Jean Belt",
+"name_url":"https://www.shop.com/Levis+Big+Boys+Reversible+Casual+Jean+Belt+-1876314541-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1876314541.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Big+Boys+Reversible+Casual+Jean+Belt+-1876314541-p+.xhtml",
+"price":"$25.00",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$0.50 / 2% Cashback"
+},
+{
+"name":"Epic Threads Big Boys Denim Jeans, Created for Macy's",
+"name_url":"https://www.shop.com/Epic+Threads+Big+Boys+Denim+Jeans+Created+for+Macys+-1951252148-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1951252148.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Epic+Threads+Big+Boys+Denim+Jeans+Created+for+Macys+-1951252148-p+.xhtml",
+"price":"$31.50",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$0.63 / 2% Cashback"
+},
+{
+"name":"Epic Threads Big Boys Slim Denim Jeans, Created for Macy's",
+"name_url":"https://www.shop.com/Epic+Threads+Big+Boys+Slim+Denim+Jeans+Created+for+Macys+-1952337656-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1952337656.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Epic+Threads+Big+Boys+Slim+Denim+Jeans+Created+for+Macys+-1952337656-p+.xhtml",
+"price":"$31.50",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$0.63 / 2% Cashback"
+},
+{
+"name":"Thereabouts Little & Big Boys Adjustable Waist Stretch Fabric Skinny Fit Jean, 20 , Blue",
+"name_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Skinny+Fit+Jean+20+Blue+-1945985003-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1945985003.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Skinny+Fit+Jean+20+Blue+-1945985003-p+.xhtml",
+"price":"$17.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.36 / 2% Cashback"
+},
+{
+"name":"Thereabouts Little & Big Boys Adjustable Waist Stretch Fabric Skinny Fit Jean, 10 , Black",
+"name_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Skinny+Fit+Jean+10+Black+-1945984992-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1945984992.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Skinny+Fit+Jean+10+Black+-1945984992-p+.xhtml",
+"price":"$17.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.36 / 2% Cashback"
+},
+{
+"name":"Thereabouts Little & Big Boys Adjustable Waist Stretch Fabric Slim Fit Jean, 10 Husky , Blue",
+"name_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Slim+Fit+Jean+10+Husky+Blue+-1945986870-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1945986870.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Slim+Fit+Jean+10+Husky+Blue+-1945986870-p+.xhtml",
+"price":"$17.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.36 / 2% Cashback"
+},
+{
+"name":"Thereabouts Little & Big Boys Adjustable Waist Straight Leg Jean, 10 Husky , Blue",
+"name_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Straight+Leg+Jean+10+Husky+Blue+-1957943886-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1957943886.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Straight+Leg+Jean+10+Husky+Blue+-1957943886-p+.xhtml",
+"price":"$19.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.40 / 2% Cashback"
+},
+{
+"name":"Levi's 511 Slim Fit Jeans, Little Boys",
+"name_url":"https://www.shop.com/Levis+511+Slim+Fit+Jeans+Little+Boys+-1630188007-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1630188007.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+511+Slim+Fit+Jeans+Little+Boys+-1630188007-p+.xhtml",
+"price":"$42.00",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$0.84 / 2% Cashback"
+},
+{
+"name":"Boys 7-20 Sonoma Goods For Life Flexwear Taper Denim Jeans in Regular & Husky, Boy's, Size: 12, Light Blue",
+"name_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Taper+Denim+Jeans+in+Regular+Husky+Boys+Size+12+Light+Blue+-1946007116-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1946007116.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Taper+Denim+Jeans+in+Regular+Husky+Boys+Size+12+Light+Blue+-1946007116-p+.xhtml",
+"price":"$21.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 7-20 Sonoma Goods For Life Flexwear Straight Jeans in Regular, Slim & Husky, Boy's, Size: 18 HUSKY, Dark Blue",
+"name_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Straight+Jeans+in+Regular+Slim+Husky+Boys+Size+18+HUSKY+Dark+Blue+-1897819871-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1897819871.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Straight+Jeans+in+Regular+Slim+Husky+Boys+Size+18+HUSKY+Dark+Blue+-1897819871-p+.xhtml",
+"price":"$19.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 7-20 Sonoma Goods For Life Flexwear Loose Straight Jeans, Boy's, Size: 14, Med Blue",
+"name_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Loose+Straight+Jeans+Boys+Size+14+Med+Blue+-1898934019-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1898934019.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Loose+Straight+Jeans+Boys+Size+14+Med+Blue+-1898934019-p+.xhtml",
+"price":"$21.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 7-20 Sonoma Goods For Life Flexwear Straight Jeans in Regular, Slim & Husky, Boy's, Light Blue",
+"name_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Straight+Jeans+in+Regular+Slim+Husky+Boys+Light+Blue+-1898934057-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1898934057.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Straight+Jeans+in+Regular+Slim+Husky+Boys+Light+Blue+-1898934057-p+.xhtml",
+"price":"$21.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 7-20 Sonoma Goods For Life Flexwear Loose Straight Jeans, Boy's, Size: 14 HUSKY, Med Blue",
+"name_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Loose+Straight+Jeans+Boys+Size+14+HUSKY+Med+Blue+-1898934486-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1898934486.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Loose+Straight+Jeans+Boys+Size+14+HUSKY+Med+Blue+-1898934486-p+.xhtml",
+"price":"$21.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 4-12 Jumping Beans Pull On Denim Pants in Regular, Slim & Husky, Boy's, Size: 4 HUSKY, Blue",
+"name_url":"https://www.shop.com/Boys+4+12+Jumping+Beans+Pull+On+Denim+Pants+in+Regular+Slim+Husky+Boys+Size+4+HUSKY+Blue+-1904321853-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1949286035.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+4+12+Jumping+Beans+Pull+On+Denim+Pants+in+Regular+Slim+Husky+Boys+Size+4+HUSKY+Blue+-1904321853-p+.xhtml",
+"price":"$5.00",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 7-20 Sonoma Goods For Life Flexwear Taper Denim Jeans in Regular & Husky, Boy's, Med Blue",
+"name_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Taper+Denim+Jeans+in+Regular+Husky+Boys+Med+Blue+-1946007563-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1946007563.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Taper+Denim+Jeans+in+Regular+Husky+Boys+Med+Blue+-1946007563-p+.xhtml",
+"price":"$21.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 7-20 Sonoma Goods For Life Flexwear Taper Denim Jeans in Regular & Husky, Boy's, Size: 18, Med Blue",
+"name_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Taper+Denim+Jeans+in+Regular+Husky+Boys+Size+18+Med+Blue+-1946007569-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1946007569.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Taper+Denim+Jeans+in+Regular+Husky+Boys+Size+18+Med+Blue+-1946007569-p+.xhtml",
+"price":"$21.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 4-8 Jumping Beans Straight Fit Denim Jeans in Regular, Slim, & Husky, Boy's, Size: 5 HUSKY, Med Beige",
+"name_url":"https://www.shop.com/Boys+4+8+Jumping+Beans+Straight+Fit+Denim+Jeans+in+Regular+Slim+Husky+Boys+Size+5+HUSKY+Med+Beige+-1949770213-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1949770213.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+4+8+Jumping+Beans+Straight+Fit+Denim+Jeans+in+Regular+Slim+Husky+Boys+Size+5+HUSKY+Med+Beige+-1949770213-p+.xhtml",
+"price":"$5.40",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 7-20 Sonoma Goods For Life Flexwear Skinny Jeans, Boy's, Size: 16, Med Blue",
+"name_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Skinny+Jeans+Boys+Size+16+Med+Blue+-1897812251-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1897812251.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Skinny+Jeans+Boys+Size+16+Med+Blue+-1897812251-p+.xhtml",
+"price":"$21.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 7-20 Sonoma Goods For Life Flexwear Skinny Jeans, Boy's, Size: 14, Med Blue",
+"name_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Skinny+Jeans+Boys+Size+14+Med+Blue+-1897812250-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1897812250.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Skinny+Jeans+Boys+Size+14+Med+Blue+-1897812250-p+.xhtml",
+"price":"$21.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 7-20 Sonoma Goods For Life Flexwear Bootcut Jeans in Regular & Husky, Boy's, Med Blue",
+"name_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Bootcut+Jeans+in+Regular+Husky+Boys+Med+Blue+-1898517444-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1897812251.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Bootcut+Jeans+in+Regular+Husky+Boys+Med+Blue+-1898517444-p+.xhtml",
+"price":"$21.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 7-20 Sonoma Goods For Life Flexwear Loose Straight Jeans, Boy's, Size: 16, Med Blue",
+"name_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Loose+Straight+Jeans+Boys+Size+16+Med+Blue+-1898517620-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1898934486.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Loose+Straight+Jeans+Boys+Size+16+Med+Blue+-1898517620-p+.xhtml",
+"price":"$21.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 7-20 Sonoma Goods For Life Flexwear Loose Straight Jeans, Boy's, Size: 12, Med Blue",
+"name_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Loose+Straight+Jeans+Boys+Size+12+Med+Blue+-1898933093-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1946007569.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Loose+Straight+Jeans+Boys+Size+12+Med+Blue+-1898933093-p+.xhtml",
+"price":"$21.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 7-20 Sonoma Goods For Life Flexwear Skinny Jeans, Boy's, Med Blue",
+"name_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Skinny+Jeans+Boys+Med+Blue+-1897812246-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1946007563.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+7+20+Sonoma+Goods+For+Life+Flexwear+Skinny+Jeans+Boys+Med+Blue+-1897812246-p+.xhtml",
+"price":"$21.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Levi's Little Boys Slim 510 Skinny Fit Straight Leg Jean, 7 , Blue",
+"name_url":"https://www.shop.com/Levis+Little+Boys+Slim+510+Skinny+Fit+Straight+Leg+Jean+7+Blue+-1941655476-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1959311740.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Little+Boys+Slim+510+Skinny+Fit+Straight+Leg+Jean+7+Blue+-1941655476-p+.xhtml",
+"price":"$31.50",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.63 / 2% Cashback"
+},
+{
+"name":"Levi's Pull-On Big Boys Mid Rise Denim Short, Large , Blue",
+"name_url":"https://www.shop.com/Levis+Pull+On+Big+Boys+Mid+Rise+Denim+Short+Large+Blue+-1966740690-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1945984148.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Pull+On+Big+Boys+Mid+Rise+Denim+Short+Large+Blue+-1966740690-p+.xhtml",
+"price":"$31.50",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.63 / 2% Cashback"
+},
+{
+"name":"Thereabouts Little & Big Boys Adjustable Waist Stretch Fabric Skinny Fit Jean, 20 , Black",
+"name_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Skinny+Fit+Jean+20+Black+-1945985602-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290600/290680/products/1954657130.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Skinny+Fit+Jean+20+Black+-1945985602-p+.xhtml",
+"price":"$17.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.36 / 2% Cashback"
+},
+{
+"name":"Thereabouts Little & Big Boys Adjustable Waist Stretch Fabric Skinny Fit Jean, 20 Husky , Black",
+"name_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Skinny+Fit+Jean+20+Husky+Black+-1945987548-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1897962619.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Skinny+Fit+Jean+20+Husky+Black+-1945987548-p+.xhtml",
+"price":"$17.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.36 / 2% Cashback"
+},
+{
+"name":"Thereabouts Little & Big Boys Adjustable Waist Stretch Fabric Straight Leg Jean, 18 Slim , Black",
+"name_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Straight+Leg+Jean+18+Slim+Black+-1946869072-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1945983122.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Thereabouts+Little+Big+Boys+Adjustable+Waist+Stretch+Fabric+Straight+Leg+Jean+18+Slim+Black+-1946869072-p+.xhtml",
+"price":"$17.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.36 / 2% Cashback"
+},
+{
+"name":"Levi's Big Boys Flex Stretch 511 Stretch Fabric Slim Fit Jean, 10 , Blue",
+"name_url":"https://www.shop.com/Levis+Big+Boys+Flex+Stretch+511+Stretch+Fabric+Slim+Fit+Jean+10+Blue+-1945985738-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1952337642.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Big+Boys+Flex+Stretch+511+Stretch+Fabric+Slim+Fit+Jean+10+Blue+-1945985738-p+.xhtml",
+"price":"$27.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.56 / 2% Cashback"
+},
+{
+"name":"Levi's Big Boys 511 Slim Fit Jean, 14 , Blue",
+"name_url":"https://www.shop.com/Levis+Big+Boys+511+Slim+Fit+Jean+14+Blue+-1907370779-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1945985099.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Big+Boys+511+Slim+Fit+Jean+14+Blue+-1907370779-p+.xhtml",
+"price":"$36.00",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.72 / 2% Cashback"
+},
+{
+"name":"Levi's Little Boys 502 Regular Fit Tapered Leg Jean, 5 , Blue",
+"name_url":"https://www.shop.com/Levis+Little+Boys+502+Regular+Fit+Tapered+Leg+Jean+5+Blue+-1939492008-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1945985003.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Little+Boys+502+Regular+Fit+Tapered+Leg+Jean+5+Blue+-1939492008-p+.xhtml",
+"price":"$31.50",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.63 / 2% Cashback"
+},
+{
+"name":"Carter's Little & Big Boys Denim Short, 6 , Blue",
+"name_url":"https://www.shop.com/Carters+Little+Big+Boys+Denim+Short+6+Blue+-1965863569-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1951252148.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Carters+Little+Big+Boys+Denim+Short+6+Blue+-1965863569-p+.xhtml",
+"price":"$13.44",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.27 / 2% Cashback"
+},
+{
+"name":"Thereabouts Pull-On Little & Big Boys Stretch Fabric Adjustable Waist Denim Short, Large (14-16) , Blue",
+"name_url":"https://www.shop.com/Thereabouts+Pull+On+Little+Big+Boys+Stretch+Fabric+Adjustable+Waist+Denim+Short+Large+14+16+Blue+-1964998603-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1897819871.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Thereabouts+Pull+On+Little+Big+Boys+Stretch+Fabric+Adjustable+Waist+Denim+Short+Large+14+16+Blue+-1964998603-p+.xhtml",
+"price":"$14.39",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.29 / 2% Cashback"
+},
+{
+"name":"Thereabouts Pull-On Little & Big Boys Stretch Fabric Adjustable Waist Denim Short, L (14-16) Husky , Black",
+"name_url":"https://www.shop.com/Thereabouts+Pull+On+Little+Big+Boys+Stretch+Fabric+Adjustable+Waist+Denim+Short+L+14+16+Husky+Black+-1964999948-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1952337656.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Thereabouts+Pull+On+Little+Big+Boys+Stretch+Fabric+Adjustable+Waist+Denim+Short+L+14+16+Husky+Black+-1964999948-p+.xhtml",
+"price":"$14.39",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.29 / 2% Cashback"
+},
+{
+"name":"Levi's Big Boys 502 Stretch Fabric Tapered Leg Regular Fit Jean, 20 , Blue",
+"name_url":"https://www.shop.com/Levis+Big+Boys+502+Stretch+Fabric+Tapered+Leg+Regular+Fit+Jean+20+Blue+-1945985101-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1897812251.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Big+Boys+502+Stretch+Fabric+Tapered+Leg+Regular+Fit+Jean+20+Blue+-1945985101-p+.xhtml",
+"price":"$36.00",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.72 / 2% Cashback"
+},
+{
+"name":"Thereabouts Pull-On Little & Big Boys Stretch Fabric Adjustable Waist Denim Short, Xl (18-20) Husky , Black",
+"name_url":"https://www.shop.com/Thereabouts+Pull+On+Little+Big+Boys+Stretch+Fabric+Adjustable+Waist+Denim+Short+Xl+18+20+Husky+Black+-1964999704-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1945984148.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Thereabouts+Pull+On+Little+Big+Boys+Stretch+Fabric+Adjustable+Waist+Denim+Short+Xl+18+20+Husky+Black+-1964999704-p+.xhtml",
+"price":"$14.39",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.29 / 2% Cashback"
+},
+{
+"name":"Boys 4-20 Levi's 502 Taper-Fit Jeans in Regular & Husky, Boy's, Size: 16, Med Blue",
+"name_url":"https://www.shop.com/Boys+4+20+Levis+502+Taper+Fit+Jeans+in+Regular+Husky+Boys+Size+16+Med+Blue+-1863035914-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1898934486.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+4+20+Levis+502+Taper+Fit+Jeans+in+Regular+Husky+Boys+Size+16+Med+Blue+-1863035914-p+.xhtml",
+"price":"$29.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 4-20 Levi's 514 Straight Fit Stretch Jeans, Boy's, Size: 8, Dark Blue",
+"name_url":"https://www.shop.com/Boys+4+20+Levis+514+Straight+Fit+Stretch+Jeans+Boys+Size+8+Dark+Blue+-1866264319-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1946007569.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+4+20+Levis+514+Straight+Fit+Stretch+Jeans+Boys+Size+8+Dark+Blue+-1866264319-p+.xhtml",
+"price":"$29.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 4-20 Levi's 514 Straight Fit Stretch Jeans, Boy's, Dark Blue",
+"name_url":"https://www.shop.com/Boys+4+20+Levis+514+Straight+Fit+Stretch+Jeans+Boys+Dark+Blue+-1866262027-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1946007563.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+4+20+Levis+514+Straight+Fit+Stretch+Jeans+Boys+Dark+Blue+-1866262027-p+.xhtml",
+"price":"$24.99",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Boys 4-20 Levi's 514 Straight Fit Stretch Jeans, Boy's, Size: 12, Dark Blue",
+"name_url":"https://www.shop.com/Boys+4+20+Levis+514+Straight+Fit+Stretch+Jeans+Boys+Size+12+Dark+Blue+-1866264321-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1949286035.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Boys+4+20+Levis+514+Straight+Fit+Stretch+Jeans+Boys+Size+12+Dark+Blue+-1866264321-p+.xhtml",
+"price":"$29.99",
+"soldBy":"Sold by Kohl's"
+}
+];
+
+    displayProducts(products);
+
+    function displayProducts(products){
+
+        products.map(function(ele){
+            var div = document.createElement("div");
+
+            var image = document.createElement("img");
+            image.setAttribute("src", ele.image);
+            image.setAttribute("alt", ele.name);
+
+            var h5 = document.createElement("h3");
+            h5.textContent = ele.name;
+
+            var h3 = document.createElement("h5");
+            h3.textContent = ele.soldBy;
+
+            var price = document.createElement("h4");
+            price.textContent = ele.price;
+
+            var ship = document.createElement("h5");
+            ship.textContent = ele.ShippingAndCashBack;
+
+            var offer = document.createElement("h5");
+            offer.textContent = "Free shipping with $50.00 orders"
+
+            var add = document.createElement("button");
+            add.textContent = "Add to Cart"
+            add.setAttribute("class", "cartBtn");
+            add.addEventListener("click", function(){
+                addToCart(ele);
+            });
+
+            div.append(image, h5, h3, price, ship, offer, add);
+            document.querySelector("#data").append(div);
+        });
+    }
+
+    var cartArr = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+    function addToCart(ele){
+      cartArr.push(ele);
+      console.log(cartArr);
+      localStorage.setItem("cartProducts", JSON.stringify(cartArr));
+    }
+</script>

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Jackets & Coats</title>
+    <style>
+        #data{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-left: 5%;
+            gap: 10px;
+        }
+        #data > div > div{
+            display: flex;
+        }
+        img{
+            width: 200px;
+            border-radius: 20px;
+            height: 200px;
+        }
+        
+        .cartBtn{
+          width: 60%;
+          padding: 10px;
+          margin-left: 20px;
+          background-color: teal;
+          color: white;
+          border: none;
+          border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="data"></div>
+</body>
+</html>
+
+<script>
+
+var products = [
+{
+"name":"Clique Helsa Sport Colorblock Lady Full Zip Jacket",
+"name_url":"https://www.shop.com/Clique+Helsa+Sport+Colorblock+Lady+Full+Zip+Jacket+-1940910044-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910044.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Helsa+Sport+Colorblock+Lady+Full+Zip+Jacket+-1940910044-p+.xhtml",
+"price":"$52.50",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$3.15 / 6% Cashback"
+},
+{
+"name":"Clique Ladies' Stora Jacket",
+"name_url":"https://www.shop.com/Clique+Ladies+Stora+Jacket+-1940909972-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940909972.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Ladies+Stora+Jacket+-1940909972-p+.xhtml",
+"price":"Price range is\n$75.00 - $97.50",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"up to $5.85 / 6% Cashback"
+},
+{
+"name":"Clique Ladies' Narvik Colorblock Softshell Jacket",
+"name_url":"https://www.shop.com/Clique+Ladies+Narvik+Colorblock+Softshell+Jacket+-1940909944-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940909944.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Ladies+Narvik+Colorblock+Softshell+Jacket+-1940909944-p+.xhtml",
+"price":"$62.50",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$3.75 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Ladies' CB DryTec Edge Full Zip Jacket",
+"name_url":"https://www.shop.com/Cutter+Buck+Ladies+CB+DryTec+Edge+Full+Zip+Jacket+-1940910025-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910025.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Ladies+CB+DryTec+Edge+Full+Zip+Jacket+-1940910025-p+.xhtml",
+"price":"$100.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.00 / 6% Cashback"
+},
+{
+"name":"CBUK Ladies' All-Star Printed Half-Zip Jacket",
+"name_url":"https://www.shop.com/CBUK+Ladies+All+Star+Printed+Half+Zip+Jacket+-1940909994-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940909994.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/CBUK+Ladies+All+Star+Printed+Half+Zip+Jacket+-1940909994-p+.xhtml",
+"price":"$65.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$3.90 / 6% Cashback"
+},
+{
+"name":"Clique Ladies' Kingsland Jacket",
+"name_url":"https://www.shop.com/Clique+Ladies+Kingsland+Jacket+-1940910047-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910047.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Ladies+Kingsland+Jacket+-1940910047-p+.xhtml",
+"price":"$77.50",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$4.65 / 6% Cashback"
+},
+{
+"name":"Clique Summit Lady Half Zip Microfleece Jacket",
+"name_url":"https://www.shop.com/Clique+Summit+Lady+Half+Zip+Microfleece+Jacket+-1940910016-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910016.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Summit+Lady+Half+Zip+Microfleece+Jacket+-1940910016-p+.xhtml",
+"price":"$45.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$2.70 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Ladies' Shoreline Colorblock Full-Zip Jacket",
+"name_url":"https://www.shop.com/Cutter+Buck+Ladies+Shoreline+Colorblock+Full+Zip+Jacket+-1940910000-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910000.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Ladies+Shoreline+Colorblock+Full+Zip+Jacket+-1940910000-p+.xhtml",
+"price":"$100.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.00 / 6% Cashback"
+},
+{
+"name":"CBUK Ladies' Jackson Half Zip Overknit Jacket",
+"name_url":"https://www.shop.com/CBUK+Ladies+Jackson+Half+Zip+Overknit+Jacket+-1940909996-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940909996.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/CBUK+Ladies+Jackson+Half+Zip+Overknit+Jacket+-1940909996-p+.xhtml",
+"price":"$65.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$3.90 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Ladies' Tie Breaker Hoodie Jacket",
+"name_url":"https://www.shop.com/Cutter+Buck+Ladies+Tie+Breaker+Hoodie+Jacket+-1951836757-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836757.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Ladies+Tie+Breaker+Hoodie+Jacket+-1951836757-p+.xhtml",
+"price":"$85.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$5.10 / 6% Cashback"
+},
+{
+"name":"CBUK Ladies' Swish Printed Sport Vest",
+"name_url":"https://www.shop.com/CBUK+Ladies+Swish+Printed+Sport+Vest+-1951836756-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836756.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/CBUK+Ladies+Swish+Printed+Sport+Vest+-1951836756-p+.xhtml",
+"price":"Price range is\n$30.00 - $65.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"up to $3.90 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Rainier PrimaLoft® Womens Eco Insulated Full Zip Printed Puffer Jacket",
+"name_url":"https://www.shop.com/Cutter+Buck+Rainier+PrimaLoft+Womens+Eco+Insulated+Full+Zip+Printed+Puffer+Jacket+-1939500296-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939500296.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Rainier+PrimaLoft+Womens+Eco+Insulated+Full+Zip+Printed+Puffer+Jacket+-1939500296-p+.xhtml",
+"price":"$210.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$12.60 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Rainier PrimaLoft® Womens Eco Insulated Full Zip Puffer Jacket",
+"name_url":"https://www.shop.com/Cutter+Buck+Rainier+PrimaLoft+Womens+Eco+Insulated+Full+Zip+Puffer+Jacket+-1934112602-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1934112602.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Rainier+PrimaLoft+Womens+Eco+Insulated+Full+Zip+Puffer+Jacket+-1934112602-p+.xhtml",
+"price":"$200.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$12.00 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Stealth Hybrid Quilted Womens Full Zip Windbreaker Jacket",
+"name_url":"https://www.shop.com/Cutter+Buck+Stealth+Hybrid+Quilted+Womens+Full+Zip+Windbreaker+Jacket+-1949727233-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1949727233.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Stealth+Hybrid+Quilted+Womens+Full+Zip+Windbreaker+Jacket+-1949727233-p+.xhtml",
+"price":"$130.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$7.80 / 6% Cashback"
+},
+{
+"name":"Clique Colorado Womens Jacket",
+"name_url":"https://www.shop.com/Clique+Colorado+Womens+Jacket+-1939500265-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939500265.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Colorado+Womens+Jacket+-1939500265-p+.xhtml",
+"price":"$155.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$9.30 / 6% Cashback"
+},
+{
+"name":"Clique Helsa Sport Colorblock Lady Pullover Jacket",
+"name_url":"https://www.shop.com/Clique+Helsa+Sport+Colorblock+Lady+Pullover+Jacket+-1940909987-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940909987.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Helsa+Sport+Colorblock+Lady+Pullover+Jacket+-1940909987-p+.xhtml",
+"price":"$45.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$2.70 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Rainier PrimaLoft® Womens Eco Insulated Full Zip Printed Puffer Vest",
+"name_url":"https://www.shop.com/Cutter+Buck+Rainier+PrimaLoft+Womens+Eco+Insulated+Full+Zip+Printed+Puffer+Vest+-1939530732-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939530732.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Rainier+PrimaLoft+Womens+Eco+Insulated+Full+Zip+Printed+Puffer+Vest+-1939530732-p+.xhtml",
+"price":"$170.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$10.20 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Ladies' Shaw Hybrid Half-Zip Jacket",
+"name_url":"https://www.shop.com/Cutter+Buck+Ladies+Shaw+Hybrid+Half+Zip+Jacket+-1951836692-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836692.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Ladies+Shaw+Hybrid+Half+Zip+Jacket+-1951836692-p+.xhtml",
+"price":"$95.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$5.70 / 6% Cashback"
+},
+{
+"name":"Clique Ladies Helsa Full Zip Jacket",
+"name_url":"https://www.shop.com/Clique+Ladies+Helsa+Full+Zip+Jacket+-1940909970-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940909970.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Ladies+Helsa+Full+Zip+Jacket+-1940909970-p+.xhtml",
+"price":"$67.50",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$4.05 / 6% Cashback"
+},
+{
+"name":"Altitude Quilted Jacket",
+"name_url":"https://www.shop.com/Altitude+Quilted+Jacket+-1939500299-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939500299.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Altitude+Quilted+Jacket+-1939500299-p+.xhtml",
+"price":"$180.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$10.80 / 6% Cashback"
+},
+{
+"name":"Clique Ladies' Ice Colorblock Half Zip Jacket",
+"name_url":"https://www.shop.com/Clique+Ladies+Ice+Colorblock+Half+Zip+Jacket+-1940909992-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940909992.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Ladies+Ice+Colorblock+Half+Zip+Jacket+-1940909992-p+.xhtml",
+"price":"$37.50",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$2.25 / 6% Cashback"
+},
+{
+"name":"Cutter & Buck Ladies' Shoreline Half-Zip Jacket",
+"name_url":"https://www.shop.com/Cutter+Buck+Ladies+Shoreline+Half+Zip+Jacket+-1951836755-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836755.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cutter+Buck+Ladies+Shoreline+Half+Zip+Jacket+-1951836755-p+.xhtml",
+"price":"Price range is\n$85.00 - $95.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"up to $5.70 / 6% Cashback"
+},
+{
+"name":"CBUK Ladies' Swish Full-Zip Jacket",
+"name_url":"https://www.shop.com/CBUK+Ladies+Swish+Full+Zip+Jacket+-1951836758-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1951836758.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/CBUK+Ladies+Swish+Full+Zip+Jacket+-1951836758-p+.xhtml",
+"price":"$80.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$4.80 / 6% Cashback"
+},
+{
+"name":"Clique Fiery Hybrid Lady Jacket",
+"name_url":"https://www.shop.com/Clique+Fiery+Hybrid+Lady+Jacket+-1948296835-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1948296835.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Fiery+Hybrid+Lady+Jacket+-1948296835-p+.xhtml",
+"price":"$75.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$4.50 / 6% Cashback"
+},
+{
+"name":"Clique Ladies Helsa Half Zip Jacket",
+"name_url":"https://www.shop.com/Clique+Ladies+Helsa+Half+Zip+Jacket+-1940909985-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940909985.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Ladies+Helsa+Half+Zip+Jacket+-1940909985-p+.xhtml",
+"price":"$60.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$3.60 / 6% Cashback"
+},
+{
+"name":"Traverse Palm Print Half-Zip Jacket",
+"name_url":"https://www.shop.com/Traverse+Palm+Print+Half+Zip+Jacket+-1939500314-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1939500314.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Traverse+Palm+Print+Half+Zip+Jacket+-1939500314-p+.xhtml",
+"price":"$110.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$6.60 / 6% Cashback"
+},
+{
+"name":"Clique Ladies' Lemont Jacket",
+"name_url":"https://www.shop.com/Clique+Ladies+Lemont+Jacket+-1940910039-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/291600/291696/products/1940910039.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Clique+Ladies+Lemont+Jacket+-1940910039-p+.xhtml",
+"price":"$70.00",
+"soldBy":"Sold by Cutter & Buck",
+"ShippingAndCashBack":"$4.20 / 6% Cashback"
+},
+{
+"name":"Apparis Women's Eloise Faux Fur Coat",
+"name_url":"https://www.shop.com/Apparis+Womens+Eloise+Faux+Fur+Coat+-1900285782-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1900285782.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Apparis+Womens+Eloise+Faux+Fur+Coat+-1900285782-p+.xhtml",
+"price":"$139.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$4.20 / 3% Cashback"
+},
+{
+"name":"Jones New York Womens Plus Warm Midi Faux Fur Coat",
+"name_url":"https://www.shop.com/Jones+New+York+Womens+Plus+Warm+Midi+Faux+Fur+Coat+-1949178570-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1949178570.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Jones+New+York+Womens+Plus+Warm+Midi+Faux+Fur+Coat+-1949178570-p+.xhtml",
+"price":"$65.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$1.32 / 2% Cashback"
+},
+{
+"name":"Barbour Women's Evie Quilted Jacket (6, Navy)",
+"name_url":"https://www.shop.com/Barbour+Womens+Evie+Quilted+Jacket+6+Navy+-1945714120-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1945714120.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Barbour+Womens+Evie+Quilted+Jacket+6+Navy+-1945714120-p+.xhtml",
+"price":"$199.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$6.00 / 3% Cashback"
+},
+{
+"name":"Member's Mark Women's Zip Up Athletic Textured Lightweight Jacket W/ Thumbholes",
+"name_url":"https://www.shop.com/Members+Mark+Womens+Zip+Up+Athletic+Textured+Lightweight+Jacket+W+Thumbholes+-1920192016-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290600/290680/products/1920192016.png?plain&size=400x400",
+"image_url":"https://www.shop.com/Members+Mark+Womens+Zip+Up+Athletic+Textured+Lightweight+Jacket+W+Thumbholes+-1920192016-p+.xhtml",
+"price":"Price range is\n$12.99 - $15.65",
+"soldBy":"Sold by eWirelessGear",
+"ShippingAndCashBack":"up to $0.94 / 6% Cashback"
+},
+{
+"name":"DKNY Women's Knit Long Topper Jacket",
+"name_url":"https://www.shop.com/DKNY+Womens+Knit+Long+Topper+Jacket+-1863853109-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1863853109.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/DKNY+Womens+Knit+Long+Topper+Jacket+-1863853109-p+.xhtml",
+"price":"$99.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$3.00 / 3% Cashback"
+},
+{
+"name":"Lucky Brand Womens Lightweight Cold Weather Faux Fur Coat",
+"name_url":"https://www.shop.com/Lucky+Brand+Womens+Lightweight+Cold+Weather+Faux+Fur+Coat+-1947052965-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1947052965.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Lucky+Brand+Womens+Lightweight+Cold+Weather+Faux+Fur+Coat+-1947052965-p+.xhtml",
+"price":"Price range is\n$44.99 - $45.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $0.92 / 2% Cashback"
+},
+{
+"name":"Kensie Womens Winter Midi Puffer Coat",
+"name_url":"https://www.shop.com/Kensie+Womens+Winter+Midi+Puffer+Coat+-1907075206-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1907075206.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Kensie+Womens+Winter+Midi+Puffer+Coat+-1907075206-p+.xhtml",
+"price":"$39.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.80 / 2% Cashback"
+},
+{
+"name":"Gallery Womens Plus Midi Cold Weather Quilted Coat",
+"name_url":"https://www.shop.com/Gallery+Womens+Plus+Midi+Cold+Weather+Quilted+Coat+-1946676745-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1946676745.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Gallery+Womens+Plus+Midi+Cold+Weather+Quilted+Coat+-1946676745-p+.xhtml",
+"price":"$21.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.44 / 2% Cashback"
+},
+{
+"name":"Tahari Womens Brie Wool Quilted Puffer Coat",
+"name_url":"https://www.shop.com/Tahari+Womens+Brie+Wool+Quilted+Puffer+Coat+-1914730556-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1914730556.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Tahari+Womens+Brie+Wool+Quilted+Puffer+Coat+-1914730556-p+.xhtml",
+"price":"Price range is\n$47.99 - $54.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $1.10 / 2% Cashback"
+},
+{
+"name":"Avec Les Filles Womens Long Quilted Puffer Jacket",
+"name_url":"https://www.shop.com/Avec+Les+Filles+Womens+Long+Quilted+Puffer+Jacket+-1954264267-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1954264267.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Avec+Les+Filles+Womens+Long+Quilted+Puffer+Jacket+-1954264267-p+.xhtml",
+"price":"Price range is\n$81.99 - $119.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $2.40 / 2% Cashback"
+},
+{
+"name":"ALEX EVENINGS Womens Beige Glitter Open Front Evening Jacket Plus 14W",
+"name_url":"https://www.shop.com/ALEX+EVENINGS+Womens+Beige+Glitter+Open+Front+Evening+Jacket+Plus+14W+-1958148941-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958148941.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/ALEX+EVENINGS+Womens+Beige+Glitter+Open+Front+Evening+Jacket+Plus+14W+-1958148941-p+.xhtml",
+"price":"$41.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.26 / 3% Cashback"
+},
+{
+"name":"Tahari Womens Maci Wool Blend Midi Pea Coat",
+"name_url":"https://www.shop.com/Tahari+Womens+Maci+Wool+Blend+Midi+Pea+Coat+-1915600780-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1915600780.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Tahari+Womens+Maci+Wool+Blend+Midi+Pea+Coat+-1915600780-p+.xhtml",
+"price":"Price range is\n$66.99 - $67.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $1.36 / 2% Cashback"
+},
+{
+"name":"The North Face 1996 Retro Nuptse Jacket",
+"name_url":"https://www.shop.com/The+North+Face+1996+Retro+Nuptse+Jacket+-1924088498-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/266700/266794/products/1924088498.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/The+North+Face+1996+Retro+Nuptse+Jacket+-1924088498-p+.xhtml",
+"price":"$320.00",
+"soldBy":"Sold by ShopBop.com",
+"ShippingAndCashBack":"$6.40 / 2% Cashback"
+},
+{
+"name":"Wool Blend Turtleneck Poncho",
+"name_url":"https://www.shop.com/Wool+Blend+Turtleneck+Poncho+-1941871367-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273800/273802/products/1941871367.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Wool+Blend+Turtleneck+Poncho+-1941871367-p+.xhtml",
+"price":"$97.50",
+"soldBy":"Sold by Michael Kors",
+"ShippingAndCashBack":"$1.95 / 2% Cashback"
+},
+{
+"name":"Calvin Klein Women's Plus Size Hooded Packable Down Puffer Coat",
+"name_url":"https://www.shop.com/Calvin+Klein+Womens+Plus+Size+Hooded+Packable+Down+Puffer+Coat+-1871709252-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1871709252.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Calvin+Klein+Womens+Plus+Size+Hooded+Packable+Down+Puffer+Coat+-1871709252-p+.xhtml",
+"price":"$129.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$3.90 / 3% Cashback"
+},
+{
+"name":"The North Face Women 'Zephyrus Pullover' Jacket",
+"name_url":"https://www.shop.com/The+North+Face+Women+Zephyrus+Pullover+Jacket+-1907473814-p+.xhtml",
+"image":"https://img.shop.com/Image/280000/289900/289944/products/1907473814.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/The+North+Face+Women+Zephyrus+Pullover+Jacket+-1907473814-p+.xhtml",
+"price":"$61.24",
+"soldBy":"Sold by Virtual Exchanges",
+"ShippingAndCashBack":"$3.67 / 6% Cashback"
+},
+{
+"name":"Sanctuary Womens Sherpa Winter Puffer Coat",
+"name_url":"https://www.shop.com/Sanctuary+Womens+Sherpa+Winter+Puffer+Coat+-1920273865-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1920273865.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Sanctuary+Womens+Sherpa+Winter+Puffer+Coat+-1920273865-p+.xhtml",
+"price":"Price range is\n$44.99 - $49.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $1.00 / 2% Cashback"
+},
+{
+"name":"Canada Goose Forester Jacket",
+"name_url":"https://www.shop.com/Canada+Goose+Forester+Jacket+-1925101435-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/266700/266794/products/1925101435.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Canada+Goose+Forester+Jacket+-1925101435-p+.xhtml",
+"price":"$775.00",
+"soldBy":"Sold by ShopBop.com",
+"ShippingAndCashBack":"$15.50 / 2% Cashback"
+},
+{
+"name":"Marc New York by Andrew Marc Womens Medina Faux Fur Trim Quilted Down Coat",
+"name_url":"https://www.shop.com/Marc+New+York+by+Andrew+Marc+Womens+Medina+Faux+Fur+Trim+Quilted+Down+Coat+-1841165960-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1841165960.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Marc+New+York+by+Andrew+Marc+Womens+Medina+Faux+Fur+Trim+Quilted+Down+Coat+-1841165960-p+.xhtml",
+"price":"Price range is\n$52.99 - $58.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $1.18 / 2% Cashback"
+},
+{
+"name":"Tommy Hilfiger Women's Foil Puffer Coat",
+"name_url":"https://www.shop.com/Tommy+Hilfiger+Womens+Foil+Puffer+Coat+-1943572401-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1943572401.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Tommy+Hilfiger+Womens+Foil+Puffer+Coat+-1943572401-p+.xhtml",
+"price":"$109.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$3.30 / 3% Cashback"
+},
+{
+"name":"LEVI STRAUSS & CO Womens Navy Zippered Pocketed Corduroy Bubble Long Sleeve Mock Neck Puffer Winter Jacket Coat Plus 1X",
+"name_url":"https://www.shop.com/LEVI+STRAUSS+CO+Womens+Navy+Zippered+Pocketed+Corduroy+Bubble+Long+Sleeve+Mock+Neck+Puffer+Winter+Jacket+Coat+Plus+1X+-1958224255-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958224255.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/LEVI+STRAUSS+CO+Womens+Navy+Zippered+Pocketed+Corduroy+Bubble+Long+Sleeve+Mock+Neck+Puffer+Winter+Jacket+Coat+Plus+1X+-1958224255-p+.xhtml",
+"price":"$44.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.35 / 3% Cashback"
+},
+{
+"name":"Laundry by Shelli Segal Womens Faux Fur Winter Puffer Coat",
+"name_url":"https://www.shop.com/Laundry+by+Shelli+Segal+Womens+Faux+Fur+Winter+Puffer+Coat+-1949065068-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1949065068.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Laundry+by+Shelli+Segal+Womens+Faux+Fur+Winter+Puffer+Coat+-1949065068-p+.xhtml",
+"price":"$68.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$1.38 / 2% Cashback"
+},
+{
+"name":"Laundry by Shelli Segal Womens Faux Fur Hooded Puffer Coat",
+"name_url":"https://www.shop.com/Laundry+by+Shelli+Segal+Womens+Faux+Fur+Hooded+Puffer+Coat+-1916061594-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1916061594.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Laundry+by+Shelli+Segal+Womens+Faux+Fur+Hooded+Puffer+Coat+-1916061594-p+.xhtml",
+"price":"Price range is\n$57.99 - $66.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $1.34 / 2% Cashback"
+},
+{
+"name":"The North Face 1996 Retro Nuptse Jacket",
+"name_url":"https://www.shop.com/The+North+Face+1996+Retro+Nuptse+Jacket+-1923998178-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/266700/266794/products/1923998178.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/The+North+Face+1996+Retro+Nuptse+Jacket+-1923998178-p+.xhtml",
+"price":"$320.00",
+"soldBy":"Sold by ShopBop.com",
+"ShippingAndCashBack":"$6.40 / 2% Cashback"
+},
+{
+"name":"NORTH FACE Womens Black Zip Up Winter Jacket Coat XS",
+"name_url":"https://www.shop.com/NORTH+FACE+Womens+Black+Zip+Up+Winter+Jacket+Coat+XS+-1959299964-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1959299964.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/NORTH+FACE+Womens+Black+Zip+Up+Winter+Jacket+Coat+XS+-1959299964-p+.xhtml",
+"price":"$33.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.02 / 3% Cashback"
+},
+{
+"name":"Women's Lands' End Expedition Winter Maxi Down Coat, Size: Small, Black",
+"name_url":"https://www.shop.com/Womens+Lands+End+Expedition+Winter+Maxi+Down+Coat+Size+Small+Black+-1912135436-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/268500/268595/products/1912135436.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Womens+Lands+End+Expedition+Winter+Maxi+Down+Coat+Size+Small+Black+-1912135436-p+.xhtml",
+"price":"$221.97",
+"soldBy":"Sold by Kohl's"
+},
+{
+"name":"Via Spiga Womens Faux Fur Slimming Wool Coat",
+"name_url":"https://www.shop.com/Via+Spiga+Womens+Faux+Fur+Slimming+Wool+Coat+-1954649683-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1954649683.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Via+Spiga+Womens+Faux+Fur+Slimming+Wool+Coat+-1954649683-p+.xhtml",
+"price":"$129.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$2.60 / 2% Cashback"
+},
+{
+"name":"Michael Michael Kors Women's Mixed-Media Jacket (XL, Black/Bone)",
+"name_url":"https://www.shop.com/Michael+Michael+Kors+Womens+Mixed+Media+Jacket+XL+Black+Bone+-1876949324-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/264900/264928/products/1876949324.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Michael+Michael+Kors+Womens+Mixed+Media+Jacket+XL+Black+Bone+-1876949324-p+.xhtml",
+"price":"Price range is\n$99.99",
+"soldBy":"Sold by Rennde",
+"ShippingAndCashBack":"$3.00 / 3% Cashback"
+},
+{
+"name":"Marc New York by Andrew Marc Womens Chelsea Faux Fur Trim Winter Puffer Coat",
+"name_url":"https://www.shop.com/Marc+New+York+by+Andrew+Marc+Womens+Chelsea+Faux+Fur+Trim+Winter+Puffer+Coat+-1912525345-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1912525345.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Marc+New+York+by+Andrew+Marc+Womens+Chelsea+Faux+Fur+Trim+Winter+Puffer+Coat+-1912525345-p+.xhtml",
+"price":"$41.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.84 / 2% Cashback"
+},
+{
+"name":"Canada Weather Gear Womens Faux Fur Heavyweight Puffer Coat",
+"name_url":"https://www.shop.com/Canada+Weather+Gear+Womens+Faux+Fur+Heavyweight+Puffer+Coat+-1917757246-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1917757246.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Canada+Weather+Gear+Womens+Faux+Fur+Heavyweight+Puffer+Coat+-1917757246-p+.xhtml",
+"price":"$68.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$1.38 / 2% Cashback"
+},
+{
+"name":"Laundry by Shelli Segal Womens Winter Cold Weather Puffer Coat",
+"name_url":"https://www.shop.com/Laundry+by+Shelli+Segal+Womens+Winter+Cold+Weather+Puffer+Coat+-1865565449-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1865565449.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Laundry+by+Shelli+Segal+Womens+Winter+Cold+Weather+Puffer+Coat+-1865565449-p+.xhtml",
+"price":"Price range is\n$64.99 - $78.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"up to $1.58 / 2% Cashback"
+},
+{
+"name":"Canada Goose Freestyle Vest",
+"name_url":"https://www.shop.com/Canada+Goose+Freestyle+Vest+-1582536248-p+.xhtml",
+"image":"https://img.shop.com/Image/260000/266700/266794/products/1582536248.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Canada+Goose+Freestyle+Vest+-1582536248-p+.xhtml",
+"price":"$525.00",
+"soldBy":"Sold by ShopBop.com",
+"ShippingAndCashBack":"$10.50 / 2% Cashback"
+},
+{
+"name":"Laundry by Shelli Segal Womens Wool Blend Lightweight Pea Coat",
+"name_url":"https://www.shop.com/Laundry+by+Shelli+Segal+Womens+Wool+Blend+Lightweight+Pea+Coat+-1950976161-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1950976161.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Laundry+by+Shelli+Segal+Womens+Wool+Blend+Lightweight+Pea+Coat+-1950976161-p+.xhtml",
+"price":"$75.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$1.52 / 2% Cashback"
+}
+];
+
+    displayProducts(products);
+
+    function displayProducts(products){
+
+        products.map(function(ele){
+            var div = document.createElement("div");
+
+            var image = document.createElement("img");
+            image.setAttribute("src", ele.image);
+            image.setAttribute("alt", ele.name);
+
+            var h5 = document.createElement("h3");
+            h5.textContent = ele.name;
+
+            var h3 = document.createElement("h5");
+            h3.textContent = ele.soldBy;
+
+            var price = document.createElement("h4");
+            price.textContent = "$" + ele.price;
+
+            var ship = document.createElement("h5");
+            ship.textContent = ele.ShippingAndCashBack;
+
+            var offer = document.createElement("h5");
+            offer.textContent = "Free shipping with $50.00 orders"
+
+            var add = document.createElement("button");
+            add.textContent = "Add to Cart"
+            add.setAttribute("class", "cartBtn");
+            add.addEventListener("click", function(){
+                addToCart(ele);
+            });
+
+            div.append(image, h5, h3, price, ship, offer, add);
+            document.querySelector("#data").append(div);
+        });
+    }
+
+    var cartArr = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+    function addToCart(ele){
+      cartArr.push(ele);
+      console.log(cartArr);
+      localStorage.setItem("cartProducts", JSON.stringify(cartArr));
+    }
+</script>

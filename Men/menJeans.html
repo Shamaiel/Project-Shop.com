@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men Shirt</title>
+    <style>
+        #data{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-left: 5%;
+            gap: 10px;
+        }
+        #data > div > div{
+            display: flex;
+        }
+        img{
+            width: 200px;
+            border-radius: 20px;
+            height: 200px;
+        }
+        
+        .cartBtn{
+          width: 60%;
+          padding: 10px;
+          margin-left: 20px;
+          background-color: teal;
+          color: white;
+          border: none;
+          border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="data"></div>
+</body>
+</html>
+
+<script>
+
+
+var products = [
+{
+"name":"Lucky Brand Men's 410 Athletic Slim Fit 2 Way Stretch 5 Pocket Jean",
+"name_url":"https://www.shop.com/Lucky+Brand+Mens+410+Athletic+Slim+Fit+2+Way+Stretch+5+Pocket+Jean+-1920192281-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290600/290680/products/1920192281.png?plain&size=400x400",
+"image_url":"https://www.shop.com/Lucky+Brand+Mens+410+Athletic+Slim+Fit+2+Way+Stretch+5+Pocket+Jean+-1920192281-p+.xhtml",
+"price":"Price range is\n$37.43 - $38.99",
+"soldBy":"Sold by eWirelessGear",
+"ShippingAndCashBack":"up to $2.34 / 6% Cashback"
+},
+{
+"name":"Member's Mark Men's Heavy Weight Denim Relaxed Fit 5-Pocket Jeans",
+"name_url":"https://www.shop.com/Members+Mark+Mens+Heavy+Weight+Denim+Relaxed+Fit+5+Pocket+Jeans+-1918696404-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290600/290680/products/1918696404.png?plain&size=400x400",
+"image_url":"https://www.shop.com/Members+Mark+Mens+Heavy+Weight+Denim+Relaxed+Fit+5+Pocket+Jeans+-1918696404-p+.xhtml",
+"price":"Price range is\n$20.36 - $23.03",
+"soldBy":"Sold by eWirelessGear",
+"ShippingAndCashBack":"up to $1.38 / 6% Cashback"
+},
+{
+"name":"Member's Mark Men's Straight Fit Premium Stretch Denim Jeans, 5 Pocket",
+"name_url":"https://www.shop.com/Members+Mark+Mens+Straight+Fit+Premium+Stretch+Denim+Jeans+5+Pocket+-1920192067-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290600/290680/products/1920192067.png?plain&size=400x400",
+"image_url":"https://www.shop.com/Members+Mark+Mens+Straight+Fit+Premium+Stretch+Denim+Jeans+5+Pocket+-1920192067-p+.xhtml",
+"price":"Price range is\n$23.19 - $28.99",
+"soldBy":"Sold by eWirelessGear",
+"ShippingAndCashBack":"up to $1.74 / 6% Cashback"
+},
+{
+"name":"LEVI'S Mens Blue Denim Jeans 34W X 36L",
+"name_url":"https://www.shop.com/LEVIS+Mens+Blue+Denim+Jeans+34W+X+36L+-1959929666-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1959929666.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/LEVIS+Mens+Blue+Denim+Jeans+34W+X+36L+-1959929666-p+.xhtml",
+"price":"Regular\n$59.50\nOn sale,\nPrice range is\n$23.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.72 / 3% Cashback"
+},
+{
+"name":"J Brand Mens Tyler Denim Medium Wash Straight Leg Jeans",
+"name_url":"https://www.shop.com/J+Brand+Mens+Tyler+Denim+Medium+Wash+Straight+Leg+Jeans+-1893725568-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1893725568.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/J+Brand+Mens+Tyler+Denim+Medium+Wash+Straight+Leg+Jeans+-1893725568-p+.xhtml",
+"price":"Regular\n$198.00\nOn sale,\n$9.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.20 / 2% Cashback"
+},
+{
+"name":"Cinch Work Denim Jeans Mens FR Blue Label Utility WRX Dark WP78734001",
+"name_url":"https://www.shop.com/Cinch+Work+Denim+Jeans+Mens+FR+Blue+Label+Utility+WRX+Dark+WP78734001+-1932866045-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/292000/292019/products/1932866156.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Cinch+Work+Denim+Jeans+Mens+FR+Blue+Label+Utility+WRX+Dark+WP78734001+-1932866045-p+.xhtml",
+"price":"Regular\n$85.00\nOn sale,\n$80.75",
+"soldBy":"Sold by Ranch & Home",
+"ShippingAndCashBack":"$4.84 / 6% Cashback"
+},
+{
+"name":"Stetson Western Denim Jeans Mens Rocks Fit Royal 11-004-1014-4012 BU",
+"name_url":"https://www.shop.com/Stetson+Western+Denim+Jeans+Mens+Rocks+Fit+Royal+11+004+1014+4012+BU+-1932866156-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/292000/292019/products/1932866156.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Stetson+Western+Denim+Jeans+Mens+Rocks+Fit+Royal+11+004+1014+4012+BU+-1932866156-p+.xhtml",
+"price":"Regular\n$78.99\nOn sale,\n$78.94",
+"soldBy":"Sold by Ranch & Home",
+"ShippingAndCashBack":"$4.74 / 6% Cashback"
+},
+{
+"name":"Stetson Western Jeans Mens 1520 Fit Blue 11-004-1520-4072 BU",
+"name_url":"https://www.shop.com/Stetson+Western+Jeans+Mens+1520+Fit+Blue+11+004+1520+4072+BU+-1954769816-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/292000/292019/products/1954769816.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Stetson+Western+Jeans+Mens+1520+Fit+Blue+11+004+1520+4072+BU+-1954769816-p+.xhtml",
+"price":"Regular\n$89.99\nOn sale,\n$89.94",
+"soldBy":"Sold by Ranch & Home",
+"ShippingAndCashBack":"$5.40 / 6% Cashback"
+},
+{
+"name":"Dsquared² Blue Cotton Jeans & Men's Pant",
+"name_url":"https://www.shop.com/Dsquared+Blue+Cotton+Jeans+Mens+Pant+-1947219483-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290400/290461/products/1947219483.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Dsquared+Blue+Cotton+Jeans+Mens+Pant+-1947219483-p+.xhtml",
+"price":"Regular\n$407.00\nOn sale,\n$304.00",
+"soldBy":"Sold by LUX LAIR",
+"ShippingAndCashBack":"$18.24 / 6% Cashback"
+},
+{
+"name":"Men's Move in Silence Jeans",
+"name_url":"https://www.shop.com/Mens+Move+in+Silence+Jeans+-1934733443-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1934733443.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Mens+Move+in+Silence+Jeans+-1934733443-p+.xhtml",
+"price":"$59.00",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$1.18 / 2% Cashback"
+},
+{
+"name":"J Brand Mens Tyler Denim Slim Fit Jeans",
+"name_url":"https://www.shop.com/J+Brand+Mens+Tyler+Denim+Slim+Fit+Jeans+-1864679324-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1864679324.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/J+Brand+Mens+Tyler+Denim+Slim+Fit+Jeans+-1864679324-p+.xhtml",
+"price":"Regular\n$198.00\nOn sale,\n$9.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.20 / 2% Cashback"
+},
+{
+"name":"Levi's Mens 501 Straight Leg Jeans, Style # 005012615",
+"name_url":"https://www.shop.com/Levis+Mens+501+Straight+Leg+Jeans+Style+005012615+-1938888181-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938888181.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Mens+501+Straight+Leg+Jeans+Style+005012615+-1938888181-p+.xhtml",
+"price":"Regular\n$69.50\nOn sale,\nPrice range is\n$40.68 - $49.41",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"up to $0.99 / 2% Cashback"
+},
+{
+"name":"LUCKY BRAND Mens Blue Relaxed Fit Cotton Blend Denim Jeans W33/ L30",
+"name_url":"https://www.shop.com/LUCKY+BRAND+Mens+Blue+Relaxed+Fit+Cotton+Blend+Denim+Jeans+W33+L30+-1958655089-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958655089.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/LUCKY+BRAND+Mens+Blue+Relaxed+Fit+Cotton+Blend+Denim+Jeans+W33+L30+-1958655089-p+.xhtml",
+"price":"Regular\n$99.00\nOn sale,\n$55.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.68 / 3% Cashback"
+},
+{
+"name":"Dolce & Gabbana Black Skinny Fit Denim Side Band Jeans Men's Pant",
+"name_url":"https://www.shop.com/Dolce+Gabbana+Black+Skinny+Fit+Denim+Side+Band+Jeans+Mens+Pant+-1947693889-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290400/290461/products/1947693889.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Dolce+Gabbana+Black+Skinny+Fit+Denim+Side+Band+Jeans+Mens+Pant+-1947693889-p+.xhtml",
+"price":"Regular\n$1,392.00\nOn sale,\n$632.00",
+"soldBy":"Sold by LUX LAIR",
+"ShippingAndCashBack":"$37.92 / 6% Cashback"
+},
+{
+"name":"T.K. Axel Men's Slim Boot Cut Stretch Denim Jeans",
+"name_url":"https://www.shop.com/T+K+Axel+Mens+Slim+Boot+Cut+Stretch+Denim+Jeans+-1918696421-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290600/290680/products/1918696421.png?plain&size=400x400",
+"image_url":"https://www.shop.com/T+K+Axel+Mens+Slim+Boot+Cut+Stretch+Denim+Jeans+-1918696421-p+.xhtml",
+"price":"Price range is\n$21.59 - $24.37",
+"soldBy":"Sold by eWirelessGear",
+"ShippingAndCashBack":"up to $1.46 / 6% Cashback"
+},
+{
+"name":"LEVI'S Mens Black Straight Leg, Stretch, Classic Fit Cotton Denim Jeans 48W \\ 34L",
+"name_url":"https://www.shop.com/LEVIS+Mens+Black+Straight+Leg+Stretch+Classic+Fit+Cotton+Denim+Jeans+48W+34L+-1958155064-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958155064.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/LEVIS+Mens+Black+Straight+Leg+Stretch+Classic+Fit+Cotton+Denim+Jeans+48W+34L+-1958155064-p+.xhtml",
+"price":"Regular\n$69.50\nOn sale,\nPrice range is\n$27.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.84 / 3% Cashback"
+},
+{
+"name":"LEVI'S Mens Navy Tapered, Relaxed Fit Denim Jeans 38 Waist",
+"name_url":"https://www.shop.com/LEVIS+Mens+Navy+Tapered+Relaxed+Fit+Denim+Jeans+38+Waist+-1958173557-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958155064.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/LEVIS+Mens+Navy+Tapered+Relaxed+Fit+Denim+Jeans+38+Waist+-1958173557-p+.xhtml",
+"price":"Regular\n$69.50\nOn sale,\nPrice range is\n$34.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.05 / 3% Cashback"
+},
+{
+"name":"LEVI STRAUSS & CO Mens Navy Tapered, Loose Fit Stretch Denim Jeans 32W/ 32L",
+"name_url":"https://www.shop.com/LEVI+STRAUSS+CO+Mens+Navy+Tapered+Loose+Fit+Stretch+Denim+Jeans+32W+32L+-1958196013-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958196013.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/LEVI+STRAUSS+CO+Mens+Navy+Tapered+Loose+Fit+Stretch+Denim+Jeans+32W+32L+-1958196013-p+.xhtml",
+"price":"Regular\n$53.50\nOn sale,\n$25.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.78 / 3% Cashback"
+},
+{
+"name":"LEVI STRAUSS & CO Mens Blue Tapered, Loose Fit Stretch Denim Jeans W36/ L32",
+"name_url":"https://www.shop.com/LEVI+STRAUSS+CO+Mens+Blue+Tapered+Loose+Fit+Stretch+Denim+Jeans+W36+L32+-1958223718-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958223718.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/LEVI+STRAUSS+CO+Mens+Blue+Tapered+Loose+Fit+Stretch+Denim+Jeans+W36+L32+-1958223718-p+.xhtml",
+"price":"Regular\n$69.50\nOn sale,\n$27.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.84 / 3% Cashback"
+},
+{
+"name":"LEVI'S Mens Blue Tapered, Loose Fit Stretch Denim Jeans W33/ L32",
+"name_url":"https://www.shop.com/LEVIS+Mens+Blue+Tapered+Loose+Fit+Stretch+Denim+Jeans+W33+L32+-1958182860-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958182860.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/LEVIS+Mens+Blue+Tapered+Loose+Fit+Stretch+Denim+Jeans+W33+L32+-1958182860-p+.xhtml",
+"price":"Regular\n$69.50\nOn sale,\n$27.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.84 / 3% Cashback"
+},
+{
+"name":"Levi's Big and Tall Water Less 501 Shrink-To-Fit Jeans, 46 30, Black",
+"name_url":"https://www.shop.com/Levis+Big+and+Tall+Water+Less+501+Shrink+To+Fit+Jeans+46+30+Black+-1962667591-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1962667591.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Big+and+Tall+Water+Less+501+Shrink+To+Fit+Jeans+46+30+Black+-1962667591-p+.xhtml",
+"price":"Regular\n$79.50\nOn sale,\n$69.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$1.40 / 2% Cashback"
+},
+{
+"name":"LEVI'S Mens Blue Stretch, Slim Fit Denim Jeans W29/ L30",
+"name_url":"https://www.shop.com/LEVIS+Mens+Blue+Stretch+Slim+Fit+Denim+Jeans+W29+L30+-1958201329-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958201329.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/LEVIS+Mens+Blue+Stretch+Slim+Fit+Denim+Jeans+W29+L30+-1958201329-p+.xhtml",
+"price":"Regular\n$68.50\nOn sale,\n$25.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.78 / 3% Cashback"
+},
+{
+"name":"LEVI'S Mens Blue Denim Jeans W38 \\ L34",
+"name_url":"https://www.shop.com/LEVIS+Mens+Blue+Denim+Jeans+W38+L34+-1966076252-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1966076252.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/LEVIS+Mens+Blue+Denim+Jeans+W38+L34+-1966076252-p+.xhtml",
+"price":"Regular\n$59.50\nOn sale,\nPrice range is\n$23.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.72 / 3% Cashback"
+},
+{
+"name":"Mvp Collections By Mo Vaughn Productions Men's Straight Fit Jeans",
+"name_url":"https://www.shop.com/Mvp+Collections+By+Mo+Vaughn+Productions+Mens+Straight+Fit+Jeans+-1868301503-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1868301503.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Mvp+Collections+By+Mo+Vaughn+Productions+Mens+Straight+Fit+Jeans+-1868301503-p+.xhtml",
+"price":"Regular\n$148.00\nOn sale,\n$103.50",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$2.07 / 2% Cashback"
+},
+{
+"name":"Mvp Collections Men's Big & Tall Denim Biker Jean",
+"name_url":"https://www.shop.com/Mvp+Collections+Mens+Big+Tall+Denim+Biker+Jean+-1792345282-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1792345282.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Mvp+Collections+Mens+Big+Tall+Denim+Biker+Jean+-1792345282-p+.xhtml",
+"price":"$158.00",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$3.16 / 2% Cashback"
+},
+{
+"name":"True Religion Mens Denim Distressed Skinny Jeans",
+"name_url":"https://www.shop.com/True+Religion+Mens+Denim+Distressed+Skinny+Jeans+-1915600657-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1915600657.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/True+Religion+Mens+Denim+Distressed+Skinny+Jeans+-1915600657-p+.xhtml",
+"price":"Regular\n$179.00\nOn sale,\n$28.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.58 / 2% Cashback"
+},
+{
+"name":"Lee Big and Tall Men's Carpenter Jean, 44 30, Blue",
+"name_url":"https://www.shop.com/Lee+Big+and+Tall+Mens+Carpenter+Jean+44+30+Blue+-1958102830-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1958102830.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Lee+Big+and+Tall+Mens+Carpenter+Jean+44+30+Blue+-1958102830-p+.xhtml",
+"price":"Regular\n$54.00\nOn sale,\n$44.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.90 / 2% Cashback"
+},
+{
+"name":"Buffalo David Bitton Mens Evan-X Straight Leg Jeans, Style # BM20519",
+"name_url":"https://www.shop.com/Buffalo+David+Bitton+Mens+Evan+X+Straight+Leg+Jeans+Style+BM20519+-1938890544-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938890544.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Buffalo+David+Bitton+Mens+Evan+X+Straight+Leg+Jeans+Style+BM20519+-1938890544-p+.xhtml",
+"price":"Regular\n$129.00\nOn sale,\nPrice range is\n$82.05 - $82.31",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"up to $1.65 / 2% Cashback"
+},
+{
+"name":"Kimes Ranch Western Jeans Mens Classic Relaxed Bootcut Denim Dillon",
+"name_url":"https://www.shop.com/Kimes+Ranch+Western+Jeans+Mens+Classic+Relaxed+Bootcut+Denim+Dillon+-1932866032-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/292000/292019/products/1932866032.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Kimes+Ranch+Western+Jeans+Mens+Classic+Relaxed+Bootcut+Denim+Dillon+-1932866032-p+.xhtml",
+"price":"$99.00",
+"soldBy":"Sold by Ranch & Home",
+"ShippingAndCashBack":"$5.94 / 6% Cashback"
+},
+{
+"name":"7 FOR ALL MANKIND Mens Gray Slim Fit Denim Jeans 29 Waist",
+"name_url":"https://www.shop.com/7+FOR+ALL+MANKIND+Mens+Gray+Slim+Fit+Denim+Jeans+29+Waist+-1958167900-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958167900.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/7+FOR+ALL+MANKIND+Mens+Gray+Slim+Fit+Denim+Jeans+29+Waist+-1958167900-p+.xhtml",
+"price":"Regular\n$210.00\nOn sale,\n$53.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.62 / 3% Cashback"
+},
+{
+"name":"LEVI STRAUSS & CO Mens Navy Tapered, Relaxed Fit Denim Jeans W44\\ L29",
+"name_url":"https://www.shop.com/LEVI+STRAUSS+CO+Mens+Navy+Tapered+Relaxed+Fit+Denim+Jeans+W44+L29+-1961542161-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1961542161.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/LEVI+STRAUSS+CO+Mens+Navy+Tapered+Relaxed+Fit+Denim+Jeans+W44+L29+-1961542161-p+.xhtml",
+"price":"Regular\n$69.50\nOn sale,\nPrice range is\n$34.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.05 / 3% Cashback"
+},
+{
+"name":"Stetson Western Jeans Mens Bootcut Blue Button 11-004-1520-4065 BU",
+"name_url":"https://www.shop.com/Stetson+Western+Jeans+Mens+Bootcut+Blue+Button+11+004+1520+4065+BU+-1932866084-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/292000/292019/products/1932866084.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Stetson+Western+Jeans+Mens+Bootcut+Blue+Button+11+004+1520+4065+BU+-1932866084-p+.xhtml",
+"price":"Regular\n$84.99\nOn sale,\n$84.94",
+"soldBy":"Sold by Ranch & Home",
+"ShippingAndCashBack":"$5.10 / 6% Cashback"
+},
+{
+"name":"Levi's Big & Tall Mens 505 Regular Fit Jeans, 44 29, Blue",
+"name_url":"https://www.shop.com/Levis+Big+Tall+Mens+505+Regular+Fit+Jeans+44+29+Blue+-1961530415-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1961530415.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Big+Tall+Mens+505+Regular+Fit+Jeans+44+29+Blue+-1961530415-p+.xhtml",
+"price":"Regular\n$69.50\nOn sale,\n$59.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$1.20 / 2% Cashback"
+},
+{
+"name":"7 FOR ALL MANKIND Mens Paxtyn White Skinny Fit Denim Jeans 31 Waist",
+"name_url":"https://www.shop.com/7+FOR+ALL+MANKIND+Mens+Paxtyn+White+Skinny+Fit+Denim+Jeans+31+Waist+-1958211804-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958211804.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/7+FOR+ALL+MANKIND+Mens+Paxtyn+White+Skinny+Fit+Denim+Jeans+31+Waist+-1958211804-p+.xhtml",
+"price":"Regular\n$225.00\nOn sale,\n$60.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.83 / 3% Cashback"
+},
+{
+"name":"Rock & Roll Western Denim Jeans Mens Double Barrel Med Wash M0S1612",
+"name_url":"https://www.shop.com/Rock+Roll+Western+Denim+Jeans+Mens+Double+Barrel+Med+Wash+M0S1612+-1946603673-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/292000/292019/products/1946603673.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Rock+Roll+Western+Denim+Jeans+Mens+Double+Barrel+Med+Wash+M0S1612+-1946603673-p+.xhtml",
+"price":"$82.99",
+"soldBy":"Sold by Ranch & Home",
+"ShippingAndCashBack":"$4.98 / 6% Cashback"
+},
+{
+"name":"Lee Men's Legendary Core Bootcut Jean, 36 32, Blue",
+"name_url":"https://www.shop.com/Lee+Mens+Legendary+Core+Bootcut+Jean+36+32+Blue+-1934099092-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1934099092.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Lee+Mens+Legendary+Core+Bootcut+Jean+36+32+Blue+-1934099092-p+.xhtml",
+"price":"Regular\n$48.00\nOn sale,\n$36.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.74 / 2% Cashback"
+},
+{
+"name":"Lucky Brand Men's 181 Relaxed Straight Fit Stretch Jeans",
+"name_url":"https://www.shop.com/Lucky+Brand+Mens+181+Relaxed+Straight+Fit+Stretch+Jeans+-1957443571-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1957443571.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Lucky+Brand+Mens+181+Relaxed+Straight+Fit+Stretch+Jeans+-1957443571-p+.xhtml",
+"price":"$99.00",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$1.98 / 2% Cashback"
+},
+{
+"name":"Ron Tomson Men's Modern Money Jeans",
+"name_url":"https://www.shop.com/Ron+Tomson+Mens+Modern+Money+Jeans+-1931752616-p+.xhtml",
+"image":"https://img.shop.com/Image/240000/243400/243406/products/1931752616.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Ron+Tomson+Mens+Modern+Money+Jeans+-1931752616-p+.xhtml",
+"price":"$180.00",
+"soldBy":"Sold by Macy's",
+"ShippingAndCashBack":"$3.60 / 2% Cashback"
+},
+{
+"name":"Levi's Water Less Men's 527 Slim Fit Bootcut Jeans, 36 32, Blue",
+"name_url":"https://www.shop.com/Levis+Water+Less+Mens+527+Slim+Fit+Bootcut+Jeans+36+32+Blue+-1899689318-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1899689318.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Water+Less+Mens+527+Slim+Fit+Bootcut+Jeans+36+32+Blue+-1899689318-p+.xhtml",
+"price":"Regular\n$69.50\nOn sale,\n$59.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$1.20 / 2% Cashback"
+},
+{
+"name":"Wrangler Mens Larson Straight Leg Jeans, Style # 87W70PR",
+"name_url":"https://www.shop.com/Wrangler+Mens+Larson+Straight+Leg+Jeans+Style+87W70PR+-1938886014-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938886014.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Wrangler+Mens+Larson+Straight+Leg+Jeans+Style+87W70PR+-1938886014-p+.xhtml",
+"price":"Regular\n$99.95\nOn sale,\n$63.26",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"$1.27 / 2% Cashback"
+},
+{
+"name":"Levi's Water Less Men's 527 Slim Fit Bootcut Jeans, 36 36, Blue",
+"name_url":"https://www.shop.com/Levis+Water+Less+Mens+527+Slim+Fit+Bootcut+Jeans+36+36+Blue+-1946537380-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1946537380.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Water+Less+Mens+527+Slim+Fit+Bootcut+Jeans+36+36+Blue+-1946537380-p+.xhtml",
+"price":"Regular\n$69.50\nOn sale,\n$59.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$1.20 / 2% Cashback"
+},
+{
+"name":"LEVI'S Mens Blue Jeans 34X34",
+"name_url":"https://www.shop.com/LEVIS+Mens+Blue+Jeans+34X34+-1967028352-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1967028352.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/LEVIS+Mens+Blue+Jeans+34X34+-1967028352-p+.xhtml",
+"price":"Regular\n$59.50\nOn sale,\nPrice range is\n$33.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.02 / 3% Cashback"
+},
+{
+"name":"7 For All Mankind Mens Paxtyn Destroyed Button Fly Skinny Jeans",
+"name_url":"https://www.shop.com/7+For+All+Mankind+Mens+Paxtyn+Destroyed+Button+Fly+Skinny+Jeans+-1935683485-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1935683485.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/7+For+All+Mankind+Mens+Paxtyn+Destroyed+Button+Fly+Skinny+Jeans+-1935683485-p+.xhtml",
+"price":"Regular\n$225.00\nOn sale,\n$80.99",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$1.62 / 2% Cashback"
+},
+{
+"name":"J Brand Mens Tyler Denim Slim Fit Jeans",
+"name_url":"https://www.shop.com/J+Brand+Mens+Tyler+Denim+Slim+Fit+Jeans+-1864934347-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1864934347.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/J+Brand+Mens+Tyler+Denim+Slim+Fit+Jeans+-1864934347-p+.xhtml",
+"price":"Regular\n$168.00\nOn sale,\n$10.44",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.21 / 2% Cashback"
+},
+{
+"name":"I-N-C Mens Berlin Cargo Jeans, Style # 100026739",
+"name_url":"https://www.shop.com/I+N+C+Mens+Berlin+Cargo+Jeans+Style+100026739+-1938902320-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938902320.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/I+N+C+Mens+Berlin+Cargo+Jeans+Style+100026739+-1938902320-p+.xhtml",
+"price":"Regular\n$79.50\nOn sale,\nPrice range is\n$47.09 - $49.47",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"up to $0.99 / 2% Cashback"
+},
+{
+"name":"Lazer Mens Destroyed Stretch Straight Leg Jeans",
+"name_url":"https://www.shop.com/Lazer+Mens+Destroyed+Stretch+Straight+Leg+Jeans+-1958288427-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1958288427.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Lazer+Mens+Destroyed+Stretch+Straight+Leg+Jeans+-1958288427-p+.xhtml",
+"price":"Regular\n$48.00\nOn sale,\n$6.09",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.12 / 2% Cashback"
+},
+{
+"name":"Rag & Bone Mens Mid-Rise Fit 2 Slim Jeans",
+"name_url":"https://www.shop.com/Rag+Bone+Mens+Mid+Rise+Fit+2+Slim+Jeans+-1918782706-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273200/273200/products/1918782706.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Rag+Bone+Mens+Mid+Rise+Fit+2+Slim+Jeans+-1918782706-p+.xhtml",
+"price":"Regular\n$250.00\nOn sale,\n$26.59",
+"soldBy":"Sold by BHFO",
+"ShippingAndCashBack":"$0.53 / 2% Cashback"
+},
+{
+"name":"Slim-Fit Stretch-Denim Jeans",
+"name_url":"https://www.shop.com/Slim+Fit+Stretch+Denim+Jeans+-1933736670-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273800/273802/products/1933736670.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Slim+Fit+Stretch+Denim+Jeans+-1933736670-p+.xhtml",
+"price":"$98.00",
+"soldBy":"Sold by Michael Kors",
+"ShippingAndCashBack":"$1.96 / 2% Cashback"
+},
+{
+"name":"Rock & Roll Western Denim Jeans Mens Double Barrel Med Wash M0S3473",
+"name_url":"https://www.shop.com/Rock+Roll+Western+Denim+Jeans+Mens+Double+Barrel+Med+Wash+M0S3473+-1946603691-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/292000/292019/products/1946603691.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Rock+Roll+Western+Denim+Jeans+Mens+Double+Barrel+Med+Wash+M0S3473+-1946603691-p+.xhtml",
+"price":"$82.99",
+"soldBy":"Sold by Ranch & Home",
+"ShippingAndCashBack":"$4.98 / 6% Cashback"
+},
+{
+"name":"POLO RALPH LAUREN Mens Hampton Beige Flat Front, Straight Leg Relaxed Fit Jeans 42W\\32L",
+"name_url":"https://www.shop.com/POLO+RALPH+LAUREN+Mens+Hampton+Beige+Flat+Front+Straight+Leg+Relaxed+Fit+Jeans+42W+32L+-1958224170-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958224170.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/POLO+RALPH+LAUREN+Mens+Hampton+Beige+Flat+Front+Straight+Leg+Relaxed+Fit+Jeans+42W+32L+-1958224170-p+.xhtml",
+"price":"Regular\n$98.50\nOn sale,\n$43.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.32 / 3% Cashback"
+},
+{
+"name":"Berne Heritage Unlined Denim Bib Mens Big and Tall Workwear Overalls, 52 32, Blue",
+"name_url":"https://www.shop.com/Berne+Heritage+Unlined+Denim+Bib+Mens+Big+and+Tall+Workwear+Overalls+52+32+Blue+-1938862775-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1938862775.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Berne+Heritage+Unlined+Denim+Bib+Mens+Big+and+Tall+Workwear+Overalls+52+32+Blue+-1938862775-p+.xhtml",
+"price":"Regular\n$61.00\nOn sale,\n$48.80",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.98 / 2% Cashback"
+},
+{
+"name":"Lee Men's Legendary Core Bootcut Jean, 36 34, Blue",
+"name_url":"https://www.shop.com/Lee+Mens+Legendary+Core+Bootcut+Jean+36+34+Blue+-1934098308-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1934098308.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Lee+Mens+Legendary+Core+Bootcut+Jean+36+34+Blue+-1934098308-p+.xhtml",
+"price":"Regular\n$48.00\nOn sale,\n$36.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$0.74 / 2% Cashback"
+},
+{
+"name":"Acht Blue Wash Cotton Baggy Loose Fit Men's Jeans",
+"name_url":"https://www.shop.com/Acht+Blue+Wash+Cotton+Baggy+Loose+Fit+Mens+Jeans+-1927823370-p+.xhtml",
+"image":"https://img.shop.com/Image/290000/290400/290461/products/1927823370.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Acht+Blue+Wash+Cotton+Baggy+Loose+Fit+Mens+Jeans+-1927823370-p+.xhtml",
+"price":"Regular\n$172.00\nOn sale,\n$102.00",
+"soldBy":"Sold by LUX LAIR",
+"ShippingAndCashBack":"$6.12 / 6% Cashback"
+},
+{
+"name":"LEVI'S Mens Gray Straight Leg, Straight Fit Denim Jeans 30 Waist",
+"name_url":"https://www.shop.com/LEVIS+Mens+Gray+Straight+Leg+Straight+Fit+Denim+Jeans+30+Waist+-1958143565-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958143565.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/LEVIS+Mens+Gray+Straight+Leg+Straight+Fit+Denim+Jeans+30+Waist+-1958143565-p+.xhtml",
+"price":"Regular\n$69.50\nOn sale,\n$25.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.78 / 3% Cashback"
+},
+{
+"name":"Levi's Mens 559 Relaxed Straight Fit Jeans - Stretch, 32 32, Blue",
+"name_url":"https://www.shop.com/Levis+Mens+559+Relaxed+Straight+Fit+Jeans+Stretch+32+32+Blue+-1966578966-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/274900/274929/products/1966578966.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Levis+Mens+559+Relaxed+Straight+Fit+Jeans+Stretch+32+32+Blue+-1966578966-p+.xhtml",
+"price":"Regular\n$69.50\nOn sale,\n$59.99",
+"soldBy":"Sold by JCPenney",
+"ShippingAndCashBack":"$1.20 / 2% Cashback"
+},
+{
+"name":"Logo Tape Cotton Blend Joggers",
+"name_url":"https://www.shop.com/Logo+Tape+Cotton+Blend+Joggers+-1927382539-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/273800/273802/products/1927382539.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/Logo+Tape+Cotton+Blend+Joggers+-1927382539-p+.xhtml",
+"price":"$128.00",
+"soldBy":"Sold by Michael Kors",
+"ShippingAndCashBack":"$2.56 / 2% Cashback"
+},
+{
+"name":"7 FOR ALL MANKIND Mens Paxtyn White Skinny Fit Denim Jeans 40 Waist",
+"name_url":"https://www.shop.com/7+FOR+ALL+MANKIND+Mens+Paxtyn+White+Skinny+Fit+Denim+Jeans+40+Waist+-1958182409-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958211804.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/7+FOR+ALL+MANKIND+Mens+Paxtyn+White+Skinny+Fit+Denim+Jeans+40+Waist+-1958182409-p+.xhtml",
+"price":"Regular\n$225.00\nOn sale,\n$60.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.83 / 3% Cashback"
+},
+{
+"name":"NAUTICA Mens Blue Flat Front, Relaxed Fit Denim Jeans 46W\\36L",
+"name_url":"https://www.shop.com/NAUTICA+Mens+Blue+Flat+Front+Relaxed+Fit+Denim+Jeans+46W+36L+-1958224181-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1958224181.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/NAUTICA+Mens+Blue+Flat+Front+Relaxed+Fit+Denim+Jeans+46W+36L+-1958224181-p+.xhtml",
+"price":"Regular\n$59.50\nOn sale,\n$31.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$0.96 / 3% Cashback"
+},
+{
+"name":"LEVI'S Mens Blue Flat Front, Straight Leg Skinny Fit Stretch Denim Jeans W36/ L32",
+"name_url":"https://www.shop.com/LEVIS+Mens+Blue+Flat+Front+Straight+Leg+Skinny+Fit+Stretch+Denim+Jeans+W36+L32+-1959544452-p+.xhtml",
+"image":"https://img.shop.com/Image/270000/278100/278132/products/1962146564.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/LEVIS+Mens+Blue+Flat+Front+Straight+Leg+Skinny+Fit+Stretch+Denim+Jeans+W36+L32+-1959544452-p+.xhtml",
+"price":"Regular\n$69.50\nOn sale,\n$34.98",
+"soldBy":"Sold by BOBBI + BRICKA",
+"ShippingAndCashBack":"$1.05 / 3% Cashback"
+},
+{
+"name":"S.M.N Studio Mens The Hunter Slim Fit Jeans, Style # M103-PRI-SHW",
+"name_url":"https://www.shop.com/S+M+N+Studio+Mens+The+Hunter+Slim+Fit+Jeans+Style+M103+PRI+SHW+-1938903262-p+.xhtml",
+"image":"https://img.shop.com/Image/250000/253200/253251/products/1938903262.jpg?plain&size=400x400",
+"image_url":"https://www.shop.com/S+M+N+Studio+Mens+The+Hunter+Slim+Fit+Jeans+Style+M103+PRI+SHW+-1938903262-p+.xhtml",
+"price":"Regular\n$235.00\nOn sale,\n$162.04",
+"soldBy":"Sold by Tags Weekly",
+"ShippingAndCashBack":"$3.24 / 2% Cashback"
+}
+];
+
+    displayProducts(products);
+
+    function displayProducts(products){
+
+        products.map(function(ele){
+            var div = document.createElement("div");
+
+            var image = document.createElement("img");
+            image.setAttribute("src", ele.image);
+            image.setAttribute("alt", ele.name);
+
+            var h5 = document.createElement("h3");
+            h5.textContent = ele.name;
+
+            var h3 = document.createElement("h5");
+            h3.textContent = ele.soldBy;
+
+            var price = document.createElement("h4");
+            price.textContent = "$" + ele.price;
+
+            var ship = document.createElement("h5");
+            ship.textContent = ele.ShippingAndCashBack;
+
+            var offer = document.createElement("h5");
+            offer.textContent = "Free shipping with $50.00 orders"
+
+            var add = document.createElement("button");
+            add.textContent = "Add to Cart"
+            add.setAttribute("class", "cartBtn");
+            add.addEventListener("click", function(){
+                addToCart(ele);
+            });
+
+            div.append(image, h5, h3, price, ship, offer, add);
+            document.querySelector("#data").append(div);
+        });
+    }
+
+    var cartArr = JSON.parse(localStorage.getItem("cartProducts")) || [];
+
+    function addToCart(ele){
+      cartArr.push(ele);
+      console.log(cartArr);
+      localStorage.setItem("cartProducts", JSON.stringify(cartArr));
+    }
+</script>
