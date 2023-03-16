@@ -48,12 +48,10 @@
    
     }
     #lower-nav{
-         display: flex;
-         justify-content: space-between;
+        display: flex;
+        justify-content: space-between;
         height: 30px;
-       
         margin-top: -30px;
-
     }
     #search{
         margin-top: -29px;
@@ -67,11 +65,8 @@
         border: 0.1px  solid black;
     }   
      .icon{
-       
         margin-left: -35px;
         font-size: 5px;
-       
-       
      }
 
      .bar-tag{
