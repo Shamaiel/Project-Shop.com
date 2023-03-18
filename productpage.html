@@ -214,6 +214,7 @@
 
 }
     </style>
+
 </head>
 <body>
 
@@ -225,12 +226,12 @@
 
 <div id="highlight2">
     Sort:
-    <select id="sort">
+    <select id="sort" onchange="filterdata(value)" name="filter">
         <option value="">Best Match</option>
-        <option value="best">Best Match</option>
-        <option value="HighLow">Price High-Low</option>
-        <option value="LowHigh">Price Low-High</option>
-        <option value="MostCash">Most Cashback</option>
+        <option value="best" >Best Match</option>
+        <option value="HighLow" >Price High-Low</option>
+        <option value="LowHigh" >Price Low-High</option>
+        <option value="MostCash"  >Most Cashback</option>
       </select>
 </div>
 
@@ -308,42 +309,7 @@
     <!-- right side -->
 
     <div id="image">
-         <!-- <div>
-        <img src="https://img.shop.com/Image/280000/282100/282141/products/1962225787.jpg?plain&size=400x400" alt="error">
-        <h3 id="h3">Nike Free Run 2 Blue/White-Multicolor 537732-407 Men's</h3>
-        <p>Sold by KixRx</p>
-        <h6>$58.00</h6>
-        <h7>+ $3.48/6% Cashback</h7>
-        <p style="color: #00748d; font-size: 10px;">Free Shipping</p>
-        <hr>
-        <p>$58.00 - $84.00 from 2 <span>stores</span> + up to $3.48 Cashback</p>
-        <button id="imgBtn">Choose Options</button>
-
-    </div>
-
-    <div>
-        <img src="https://img.shop.com/Image/280000/282100/282141/products/1962225787.jpg?plain&size=400x400" alt="error">
-        <h3 id="h3">Nike Free Run 2 Blue/White-Multicolor 537732-407 Men's</h3>
-        <p>Sold by KixRx</p>
-        <h6>$58.00</h6>
-        <h7>+ $3.48/6% Cashback</h7>
-        <p style="color: #00748d; font-size: 10px;">Free Shipping</p>
-        <hr>
-        <p>$58.00 - $84.00 from 2 <span>stores</span> + up to $3.48 Cashback</p>
-        <button id="imgBtn">Choose Options</button>
-
-    </div> 
-
-<div>
         
-        <p>Sold by KixRx</p>
-        <h6>$58.00</h6>
-        <h7>+ $3.48/6% Cashback</h7>
-        <p style="color: #00748d; font-size: 10px;">Free Shipping</p>
-        <hr>
-        <p>$58.00 - $84.00 from 2 <span>stores</span> + up to $3.48 Cashback</p>
-        <button id="imgBtn">Choose Options</button>
-    </div>  -->
 </div>
     
     
@@ -351,25 +317,10 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    
-</body>
-</html>
 
 <script>
   var mensData = [
-    {
+  {
       image_url:"https://img.shop.com/Image/280000/282100/282141/products/1962225787.jpg?plain&size=400x400",
       name: "Nike Free Run 2 Blue/White-Multicolor 537732-407 Men's",
       price: "1170",
@@ -484,9 +435,14 @@
     
 ]
 displayproduct(mensData);
-filterdata()
-   function displayproduct(mensData){
-    mensData.map(function(ele){
+
+
+   function displayproduct(data){
+    
+
+    document.querySelector("#image").innerHTML="";
+     
+    data.map(function(ele){
         var div= document.createElement("div");
 
         var image= document.createElement("img");
@@ -537,21 +493,36 @@ filterdata()
 
 
 //    sorting
-function filterdata(){
-    var filterval= document.getElementById("sort").value
-    if(filterval===""){
+function filterdata(value){
+
+  var arr=[];
+  
+    var filterval= value//document.getElementById("sort").value
+    if(filterval==""){
         displayproduct(mensData);
-}else if(filterval==="LowHigh"){
-    mensData.sort((a, b) => a.price - b.price);
+    } if(filterval=="LowHigh"){
+   arr= mensData.sort(function(a,b){
+    return a.price - b.price;
+   })
     
-    }else if(filterval==="HighLow"){
-    mensData.sort((a, b) => b.price - a.price);
+    }if(filterval=="HighLow"){
+    arr= mensData.sort(function(a,b){
+      return b.price-a.price;
+    });
     
     }
+    displayproduct(arr);
+    console.log(arr);
     
 }
 
     
 
+mensData.filter((el)=>el.price>=startPrice||el.price<=endPrice)
+
 
 </script>
+
+</body>
+</html>
+
