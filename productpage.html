@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: poppins;
+        }
+        #highlight{
+            /* border: 1px solid red; */
+            width: 100%;
+            height: 25px;
+            padding-top: 1.5%;
+            padding-left: 2%;
+            font-size: 12px; 
+            box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+
+        }
+
+        a{
+            color: black;
+        }
+
+       #highlight > a:hover{
+            color: #00748d;
+        }
+
+        #highlight2{
+            /* border: 1px solid red; */
+            border-bottom: 1px solid rgb(176, 175, 175);
+            width: 100%;
+            height: 25px;
+            padding-top: 1%;
+            padding-left: 2%;
+            font-size: 12px; 
+            box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+        } 
+
+        #sort{
+            font-weight: bold;    
+        }
+
+        option{
+            font-weight: bold;
+        }
+
+        #sideLeft{
+            width: 15%;
+            border-right:1px solid rgb(228, 224, 224);
+            margin-top: 1%;
+            margin-left: 1%;
+        }
+
+        #category{
+            border-right:1px solid rgb(228, 224, 224);
+            width: 100%;
+            margin-top: 1%;
+            margin-left: 1%;
+        }
+
+        #sort1{
+            border: none;
+        }
+
+        #lower{
+            /* border: 1px solid red; */
+            width: 99%;
+            margin-top: 1%;
+            margin-left: 1%;
+            background-color: #f0f1f7;
+
+        }
+
+        #button{
+            display: block; 
+            border: 1px solid ;
+            border-radius: 60px; 
+            background-color: white; 
+            color: black; 
+            margin: auto;
+            margin-top: 5%;
+            height: 40px;
+
+        }
+
+        #button:hover{
+            background-color: black;
+            color: white;
+
+        }
+          #image{
+            width:90% ;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 1%;
+
+        }
+        #image > div{
+            font-size: 15px;
+            /* border: 1px solid; */
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        }
+
+        #image > div:hover{
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        #image > div>div{
+            display: flex;
+            margin-left: 10%;
+         
+        }
+        img{
+            width: 100%;
+            border-radius: 20px;
+           
+        }
+        h3{
+           
+            font-size: 15px;
+            margin-left: 3%;
+        }
+        h3:hover{
+            background-color: rgb(236, 233, 233);
+            color: #00748d;
+        }
+
+        p+p{
+            text-decoration: line-through;
+            margin-left: 20px;
+            
+          
+        }
+        button{
+          background-color: crimson;
+          border: none;
+          padding: 10px;
+          border-radius: 10px;
+          margin-bottom: 5px;
+          
+
+        }
+        button>a{
+          background-color: white;
+          text-decoration:none ;
+         
+          
+        
+        }
+        .cartbtn{
+         
+            display: block; 
+            border: 1px solid ;
+            border-radius: 60px; 
+            background-color: white; 
+            color: black;
+            align-items: center;
+            margin-top: 10%;
+            height: 40px;
+        }
+        .cartbtn:hover{
+            background-color: black;
+            color: white;  
+        }
+
+
+@media only screen and (max-width: 800px) {
+
+/* Medium Screen  */
+
+       #image{
+            width:90% ;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 10px;
+            margin: 1%;
+
+        }
+
+        #sideLeft{
+            width: 40%;
+            border-right:1px solid rgb(228, 224, 224);
+            margin-top: 1%;
+            margin-left: 1%;
+        }
+
+}
+
+@media only screen and (max-width: 500px) {
+/* Small Screen  */
+
+#image{
+            width:90% ;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 10px;
+            margin: 1%;
+
+        }
+
+        #sideLeft{
+            display: none;
+        }
+
+
+}
+    </style>
+
+</head>
+<body>
+
+    <!-- space for upper part -->
+<div id="highlight">
+
+        <a href="https://www.shop.com/">SHOP.COM</a> / <a href="">Shoes</a> / <a href="men's.html">Men</a> / <a href="women's.html">Womens</a>   
+</div>
+
+<div id="highlight2">
+    Sort:
+    <select id="sort" onchange="filterdata(value)" name="filter">
+        <option value="">Best Match</option>
+        <option value="best" >Best Match</option>
+        <option value="HighLow" >Price High-Low</option>
+        <option value="LowHigh" >Price Low-High</option>
+        <option value="MostCash"  >Most Cashback</option>
+      </select>
+</div>
+
+<!-- main parent div -->
+<div style="display:flex;">
+
+<!-- left side -->
+    <div id="sideLeft">
+        <input type="checkbox"><b>OneCart</b>®(3,183)
+        <hr style="border: 0.px solid rgb(176, 175, 175)">
+    
+        <input type="checkbox">Sale items(4,886)<br>
+        <input type="checkbox">Shipping Offers(1,058)
+        <hr style="border: 0.px solid rgb(176, 175, 175)">
+
+        <div id="category">
+            <select id="sort1">
+                <option value="">Men's Athletic Style</option> 
+            </select><br>
+            <hr>
+        
+            <select id="sort1">
+                <option value="">Size</option>  
+            </select><br>
+            <hr>
+        
+            <select id="sort1">
+                <option value="">Material</option>
+            </select><br>
+            <hr>
+        
+            <select id="sort1">
+                <option value="">Color</option>
+            </select><br>
+            <hr>
+        
+            <select id="sort1">
+                <option value="">Men's Shoe Width</option>
+            </select><br>
+            <hr>
+        
+            <select id="sort1">
+                <option value="">Occasion</option>
+            </select><br>
+            <hr>
+        
+            <select id="sort1">
+                <option value="">Brand</option>
+            </select><br>
+            <hr>
+        
+            <select id="sort1">
+                <option value="">Store</option>
+            </select><br>
+            <hr>
+        
+            <select id="sort1">
+                <option value="">Price Range</option>
+            </select><br>
+            <hr>
+        
+            <div id="lower">
+                <p style="font-size: 12px;">Tell us how we are doing <br>We constantly strive to improve the customer experience and we value your feedback.</p>
+                
+                <input style="width:95%; margin: auto; height: 100px" type="text" placeholder="Enter feedback here Include your email address if you would like to be contacted.">
+                
+                <button id="button">Submit feedback</button>
+                
+                <h3>Thanks!</h3>
+                <p style="font-size: 12px;">Your feedback is appreciated and reviewed by our team.</p>
+                </div>
+        </div>
+    </div>
+
+    <!-- right side -->
+
+    <div id="image">
+        
+</div>
+    
+    
+
+</div>
+
+
+
+<script>
+  var mensData = [
+  {
+      image_url:"https://img.shop.com/Image/280000/282100/282141/products/1962225787.jpg?plain&size=400x400",
+      name: "Nike Free Run 2 Blue/White-Multicolor 537732-407 Men's",
+      price: "1170",
+      strikedoffprice: "2599",
+    },
+    
+    {
+      image_url:
+       "https://img.shop.com/Image/260000/263300/263362/products/1844174988.jpg?plain&size=400x400",
+      name: "MEN'S REEBOK SWIM ARUBA FLIP SLIPPERS ",
+      price: 699,
+      strikedoffprice: 999,
+    },
+    {
+      image_url:
+        "https://img.shop.com/Image/240000/243400/243406/products/1938800682.jpg?plain&size=400x400",
+      name: " MEN'S REEBOK RUNNING AUSTIN SHOES",
+      price: 945,
+      strikedoffprice: 2099,
+    },
+    {
+      image_url:
+        "https://img.shop.com/Image/260000/263300/263362/products/1891726273.jpg?plain&size=400x400",
+      name: "MEN'S REEBOK SWIM AVENGER FLIP LP SLIPPERS",
+      price: 399,
+      strikedoffprice: 799,
+    },
+    {
+      image_url:
+        "https://img.shop.com/Image/290000/291500/291508/products/1959863662.jpg?plain&size=400x400",
+      name: "MEN'S REEBOK RUNNING TEMPO SHOES ",
+      price: 1620,
+      strikedoffprice: 3599,
+    },
+    {
+      image_url:
+        "https://img.shop.com/Image/260000/260000/260090/products/1938552513.jpg?plain&size=400x400 ",
+      name: " MEN'S REEBOK RUNNING ASTRO BOOSTER SHOES ",
+      price: 1440,
+      strikedoffprice: 3199,
+    },
+    {
+      image_url:
+        "https://img.shop.com/Image/260000/260000/260090/products/1938552519.jpg?plain&size=400x400 ",
+      name: " MEN'S TRAINING WORKOUT READY ELITAGE PANTS ",
+      price: 1999,
+      strikedoffprice: 3199,
+    },
+    {
+      image_url:
+        "https://img.shop.com/Image/270000/273200/273200/products/1880308358.jpg?plain&size=400x400 ",
+      name: "MEN'S REEBOK TRAINING  POLO T-SHIRTS TEE  ",
+      price: 769,
+      strikedoffprice: 1099,
+    },
+    {
+      image_url:
+        "https://img.shop.com/Image/270000/273200/273200/products/1963600545.jpg?plain&size=400x400",
+      name: "MEN'S REEBOK TRAINING WORKOUT  TEE  ",
+      price: 1299,
+      strikedoffprice: 1440,
+    },
+    {
+      image_url:
+        "https://img.shop.com/Image/270000/273200/273200/products/1957477348.jpg?plain&size=400x400 ",
+      name: "MEN'S REEBOK SUPER SOFT FLIP SLIPPERS",
+      price: 699,
+      strikedoffprice: 999,
+    },
+    {
+      image_url:
+        "https://img.shop.com/Image/280000/282100/282141/products/1928746306.jpg?plain&size=400x400",
+      name: "MEN'S REEBOK RUNNING RUN SHOES  ",
+      price: 1620,
+      strikedoffprice: 3599,
+    },
+    {
+      image_url:
+        "https://img.shop.com/Image/270000/273200/273200/products/1957919490.jpg?plain&size=400x400 ",
+      name: "MEN'S REEBOK RUNNING GENESIS RUNNER SHOES  ",
+      price: 1620,
+      strikedoffprice: 3599,
+    },
+    {
+      image_url:
+        "https://img.shop.com/Image/270000/273200/273200/products/1882827621.jpg?plain&size=400x400 ",
+      name: "MEN'S REEBOK SWIM RUSSLE FLIP SLIPPERS  ",
+      price: 599,
+      strikedoffprice: 999,
+    },
+    {
+      image_url:
+        "https://img.shop.com/Image/270000/273200/273200/products/1931558461.jpg?plain&size=400x400 ",
+      name: " MEN'S REEBOK RUNNING TREND RUNNER SHOES",
+      price: 1575,
+      strikedoffprice: 3499,
+    },
+    {
+      image_url:
+        "https://img.shop.com/Image/280000/282100/282141/products/1951360841.jpg?plain&size=400x400 ",
+      name: "UNISEX REEBOK RUNNING ZIG KINETICA II SHOES  ",
+      price: 9999,
+      strikedoffprice: 12000,
+    },
+    {
+      image_url:
+        "https://img.shop.com/Image/270000/274900/274929/products/1912779732.jpg?plain&size=400x400 ",
+      name: " MEN'S REEBOK TRAINING BAS POLO TEE ",
+      price: 779,
+      strikedoffprice: 1299,
+    },
+    
+]
+displayproduct(mensData);
+
+
+   function displayproduct(data){
+    
+
+    document.querySelector("#image").innerHTML="";
+     
+    data.map(function(ele){
+        var div= document.createElement("div");
+
+        var image= document.createElement("img");
+        image.setAttribute("src",ele.image_url);
+        image.setAttribute("alt",ele.name);
+
+         var name= document.createElement("h3")
+         name.textContent=ele.name;
+         name.style.color="black";
+         var p= document.createElement("h3")
+         p.textContent="Sold by KixRx"
+         var p1= document.createElement("h3")
+         p1.textContent="Free Shipping"
+         p1.style.color="#31a3cd";
+         var p2= document.createElement("h3")
+         p2.textContent=" up to $3.48 Cashback"
+         
+
+         var pricebox= document.createElement("div")
+         var price= document.createElement("p");
+         price.textContent="$"+ele.price;
+         
+         var strikedoffprice= document.createElement("p");
+         strikedoffprice.textContent="$"+ ele.strikedoffprice;
+
+         var btn= document.createElement("button");
+         btn.textContent="Add to cart";
+         btn.setAttribute("class","cartbtn")
+         btn.addEventListener("click", function(){
+          addtocart(ele);
+         })
+
+
+         pricebox.append(price,strikedoffprice,);
+         div.append(image,name,pricebox,p1,p, p2,btn);
+         document.querySelector("#image").append(div);
+
+    })
+
+   }
+    var cartarr= JSON.parse(localStorage.getItem("cartproduct"))||[];
+   function addtocart(ele){
+    cartarr.push(ele);
+    localStorage.setItem("cartproduct",JSON.stringify(cartarr))
+
+
+   }
+
+
+//    sorting
+function filterdata(value){
+
+  var arr=[];
+  
+    var filterval= value//document.getElementById("sort").value
+    if(filterval==""){
+        displayproduct(mensData);
+    } if(filterval=="LowHigh"){
+   arr= mensData.sort(function(a,b){
+    return a.price - b.price;
+   })
+    
+    }if(filterval=="HighLow"){
+    arr= mensData.sort(function(a,b){
+      return b.price-a.price;
+    });
+    
+    }
+    displayproduct(arr);
+    console.log(arr);
+    
+}
+
+    
+
+mensData.filter((el)=>el.price>=startPrice||el.price<=endPrice)
+
+
+</script>
+
+</body>
+</html>
+
