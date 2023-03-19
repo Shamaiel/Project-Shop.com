@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payemt Gateway</title>
+    <link rel="stylesheet" href="payment.css">
+    <link rel="stylesheet" href=
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/423552aade.js" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+      <!-- navbar -->
+      <div id="nav-container">
+
+        <div id="upper-nav">
+
+            <a id="logo-img">
+              <img src="https://img.shop.com/Image/resources/logos/shop-logo-us.svg" alt="logo">
+            </a>
+
+            <!-- <a class="home-anchor-image" href="">
+              <img src="https://img.shop.com/Image/resources/logos/shop-logo-us.svg" alt="logo">
+
+             </a> -->
+             
+            <div id="home-nav">
+                <a  href="">Continue ShoppinG</a>
+            </div>
+             
+        </div>
+
+      
+      </div>
+    
+
+
+   <h3>Checkout</h3> 
+     
+   <div id="h4">
+    <h4>Payment Method</h4>
+   </div>
+  
+   
+      <div class="line"> <hr> </div>  
+   <div id="payment-container">
+       
+       
+       <div id="left-rows">
+             
+            <div id="row">
+                <img src="https://src.mastercard.com/assets/img/btn/src_chk_btn_147x034px.svg?locale=en_us&paymentmethod=master,visa,discover,amex&checkoutid=a4a6w4v6h7cg0iaijxn0j1iaoelnus5936" alt="">
+             </div>
+
+             <div id="row">
+                <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png" alt="">
+             </div>
+
+             <div id="row">
+                 <img src="https://src.mastercard.com/assets/img/btn/src_chk_btn_147x034px.svg?locale=en_us&paymentmethod=master,visa,discover,amex&checkoutid=a4a6w4v6h7cg0iaijxn0j1iaoelnus5936" alt="">
+             </div>
+
+       </div>
+
+
+       <div id="form">
+        <form action="" class="form">
+            <label for="">Card Type</label> <br>
+            <select name="" id=""> <br>
+             <option value="">Master Card</option>
+             <option value="">Visa</option>
+             <option value="">Paypal</option>
+            </select>
+            
+ 
+            <label class="name" for="">Name on card</label> <br>
+            <input type="text" name="" class="cardName" placeholder="Enter Name on Card" > <br>
+ 
+            <label for="">Card Number</label> <br>
+            <input type="number" name="" class="cardNumber" placeholder="00986754"> <br>
+            
+            <label for="">CVV</label>
+            <input type="number" name="" class="CVV">
+
+            <label for="">Expiry Date</label> <br>
+            <input type="text" name="" class="expDate" placeholder="15/25"> <br>
+ 
+            <input type="submit" name="" id="" >
+
+
+        </form>
+       
+
+       </div>
+
+   </div>
+
+       <!-- address details    -->
+
+       <div id="address">
+         <h3>Shipping Address </h3>
+           
+      
+
+            <!-- append data here -->
+
+    
+       </div>
+
+     <!-- footer  -->
+
+     <footer id="footer">
+       
+        <div class="footer-up">
+          <div class="deals-2">
+            <p>About Us | Help | Accessibility Statement | Contact Us | Partner With Us | Services | Country/Region
+              | Connect | Own Your Own Shop Site </p>
+            <span>
+              <i class="fas fa-envelope"></i>
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-pinterest"></i>
+            </span>
+          </div>
+        </div>
+        
+      
+        <div class="footer-down">
+            <p>© 1997-2022 Market America, Inc. or its affiliates. All other designated trademarks, copyrights, and
+            brands are the property of their respective owners.</p>
+          <p>Only Customers will receive cashback on qualifying purchases. UnFranchise Owners/Shop Consultants will
+            receive increased IBV instead of cashback on qualifying purchases.</p>
+         
+         <div class="policy">
+            <a href="#">Policy</a> |
+            <a href="#">Terms of Use</a> |
+            <a href="#">Advertising disclosure</a> |
+            <a href="#">Return Policy</a> |
+            <a href="#">Shipping Information</a>
+         </div> 
+         <hr />
+         
+        </div> 
+       
+
+      </footer>
+
+
+
+
+</body>
+</html>
+
+<script>
+
+    document.querySelector(".form").addEventListener("submit", fnLogin);
+    
+    function fnLogin(event) {
+      event.preventDefault();
+  
+      var cardNumber = document.querySelector(".cardNumber").value;
+      var cvv = document.querySelector(".CVV").value;
+      var expDate = document.querySelector(".expDate").value;
+  
+      if (cardNumber == 123 && cvv == 123 && expDate == "15/25") {
+        window.location.href = "otp.html";
+        alert("Redirecting to OTP page");
+      } 
+      else {
+        alert("Details incorrect!");
+      }
+    }
+   
+  
+    var adData = JSON.parse(localStorage.getItem("addressDetails")) || []
+
+    displayAddress(adData)
+    function displayAddress(){
+       
+      var addressDiv = document.getElementById("address");
+      // addressDiv.textContent = "";
+
+      adData.map(function (elem) {
+        var innerDiv = document.createElement("div")
+        // innerDiv.setAttribute("class", inDiv)
+
+       var name =  document.createElement("p");
+        name.textContent = elem.name;
+
+       var address = document.createElement("p");
+       address.textContent = elem.address;
+
+        var city = document.createElement("p");
+        city.textContent = elem.city;
+
+       var zip = document.createElement("p");
+       zip.textContent = elem.zip;
+
+       var phone = document.createElement("p");
+       phone.textContent = elem.phone;
+
+      innerDiv.append(name, address, city, zip, phone);
+      addressDiv.append(innerDiv);
+
+
+      })
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  </script>
