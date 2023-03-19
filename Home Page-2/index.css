@@ -1,0 +1,465 @@
+@media all and (min-width: 768px) and (max-width: 1024){
+    body{
+        flex-direction: column;
+    }
+}
+@media all and (min-width: 320px) and (max-width:767px){
+    body{
+        flex-direction: column;
+    }
+}
+body{
+    background-color: #f0f1f7;
+}
+.spa{
+  font-weight: 600;
+}
+.spa:hover{
+  color: rgb(3, 145, 201);
+}
+#belowFooter{
+    display: flex;
+    justify-content: space-between;
+    color: #f0f1f7;
+}
+.deco{
+  color: #595a5b;
+  font-weight: 500;
+  font-family: sans-serif;
+  margin-top: 15px;
+}
+.Rs{
+  width: 30px;
+}
+.deco-2{
+  font-weight: 600;
+  color: #595a5b;
+}
+.cover{
+  background-color: white;
+  padding: 15px 0;
+}
+#belowFooter-2{
+    display: flex;
+    justify-content: center;
+    margin-top: -17px;
+    gap: 5px;
+}
+h5 + img{
+    width: 13px;
+}
+h6 + img{
+    width: 25px;
+}
+#earn{
+    display: flex;
+    gap: 5px;
+    margin-right: 10px;
+}
+#shop{
+    margin-left: 10px;
+}
+a{
+    margin-top: 20px;
+    font-family: sans-serif;
+    font-weight: 500;
+    color: #202340;
+}
+h5{
+    color: #202340;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+#button-1{
+    padding: 10px 12px;
+    margin-top: 10px;
+    border-radius: 30px;
+    font-size: large;
+    font-weight: 600;
+    color: #202340;
+    background-color: white;
+    border-width: 1px;
+    border-color: #202340;
+}
+#button-1:hover{
+  background-color: #202340;
+  color: white;
+}
+.back{
+    margin-top: 10px;
+}
+#feature{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 10px;
+    margin-left: -10px;
+    margin-bottom: -20px;
+    gap: -10px;
+}
+.fe-box{
+    width: 280px;
+    height: 350px;
+    text-align: left;
+    margin: 10px 10px 10px 10px;
+    padding: 20px 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    background-color: white;
+    font-family: sans-serif;
+}
+.ProName{
+  margin-top: -10px;
+  font-family: sans-serif;
+  color:#2d2e2e;
+  font-weight: 500;
+}
+.macys{
+  display: block;
+  margin-left: 70px;
+  margin-right: -30px;
+  margin-top: 20px;
+  width: 100%;
+}
+.stores:hover{
+  color: rgb(3, 145, 201);
+}
+.stores{
+  margin-top: 100px;
+}
+.free:hover{
+  color: rgb(3, 145, 201);
+}
+a:hover{
+  text-decoration: none;
+}
+.lole{
+  width: 260px;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+.logos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#button-2{
+    display: block;
+    padding:8px 95px ;
+    border-radius: 30px;
+    font-size: large;
+    color: white;
+    border-width: 1px;
+    border-color: #202340;
+    background-color: #414467;
+}
+#button-2:hover{
+  background-color: #202340;
+}
+.sign-in{
+    width: 260px;
+    margin-top: 10px;
+    height: 60px;
+    text-align: left;
+    padding: 25px 15px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    background-color: white;
+    font-family: sans-serif;
+    
+}
+button + img{
+    margin-left: -8px;
+    margin-top: 20px;
+    width: 250px;
+}
+#fullBox{
+  background-color: white;
+  padding: 40px 0;
+  margin-top: 20px;
+}
+.brands{
+    text-align: center;
+    font-family: sans-serif;
+    font-size:25px;
+    margin-left: 450px;
+    margin-top: -15px;
+    color:#2e2c38;
+}
+.toxins{
+  width: 360px;
+  height: 360px;
+}
+.flex{
+    display: flex;
+    justify-content: space-evenly;
+}
+.subBrands{
+    border: 4px solid #f0f1f7;
+}
+.display{
+    display: flex;
+    justify-content:space-evenly;
+    width: 100%;
+    
+    margin-top: 10px;
+}
+.get{
+    display: flex;
+    justify-content: space-evenly;
+}
+.whole{
+    display: flex;
+    flex-direction: column;
+}
+.box {
+    width:22%;
+    margin: -10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+#parent {
+    display:flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+.avatar {
+    width:100%;
+}
+h4 + img{
+    width: 20px;
+}
+.per{
+    display: flex;
+    gap: 10px;
+    color: #2e2c38;
+}
+#cash{
+    display: flex;
+    justify-content: space-evenly;
+    font-family: sans-serif;
+    
+}
+#para{
+    display: flex;
+    text-align: center;
+    font-size: x-small;
+    font-family: sans-serif;
+    justify-content: space-evenly;
+    padding: 0 20px;
+    font-weight: 600;
+    margin-top: -20px;
+}
+.homePage_icon{
+    width: 120px;
+    margin-top: -40px;
+    margin-bottom: -40px;
+    margin-left: 560px;
+}
+#slide_show-1{
+    margin-top: -25px;
+    padding: 0px 20px;
+}
+.luxury{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: -10px;
+    color: #2e2c38;
+}
+.fulpage{
+    background-color: white;
+    padding: 10px 10px;
+}
+.slide{
+    display: flex;
+}
+.swiper {
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+  }
+
+  .swiper-slide {
+    text-align: left;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  #dolar{
+    width: 15px;
+    margin-top: 12px;
+  }
+  #dollar{
+    width: 75px;
+    margin-top: 17px;
+  }
+  .review{
+    display: flex;
+    font-size:small;
+    margin-top: -35px;
+    font-family: sans-serif;
+  }
+  .star{
+    display:flex;
+    margin-top: -20px;
+  }
+  .orders{
+    font-size:small;
+    margin-top: 16px;
+  }
+  .orders:hover{
+    color: rgb(0, 191, 255);
+    cursor: pointer;
+  }
+  .prices{
+    font-weight: bold;
+    margin-top: -20px;
+  }
+  .shipping{
+    font-size:x-small;
+    margin-top: -5px;
+    color: rgb(3, 162, 215);
+  }
+  .shipping:hover{
+    color: rgb(0, 191, 255);
+    cursor: pointer;
+  }
+  .p-details{
+    margin-left: 50px;
+    
+  }
+  .forLink{
+    text-decoration: none;
+  }
+  .content{
+    margin-top: -20px;
+  }
+  .swiper-button-next{
+    border: 1px solid #2e2c38;
+    border-radius: 90px;
+    padding: 5px 13px;
+    background-color: white;
+  }
+  .swiper-button-next:hover{
+    background-color: #e1e2e8;
+  }
+  .swiper-button-prev{
+    border: 1px solid #2e2c38;
+    border-radius: 90px;
+    padding: 5px 13px;
+    background-color: white;
+  }
+  .swiper-button-prev:hover{
+    background-color: #e1e2e8;
+  }
+  #slide_show-2{
+    margin-top: 20px;
+    padding: 0 20px;
+  }
+  #cleaning{
+    margin-top: 20px;
+    background-color: white;
+    padding: 10px;
+  }
+  .spring-img{
+    width: 150px;
+    border: 8px solid #cfd1d7;
+    border-radius: 85px;
+  }
+  .spring-items{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .spring-names{
+    display: flex;
+    justify-content: space-evenly;
+    justify-content: space-between;
+    justify-content: space-around;
+    text-align: center;
+    margin-left: 60px;
+    font-family: sans-serif;
+    color: #2e2c38;
+  }
+  .Spring-head{
+    font-family: sans-serif;
+    text-align: center;
+    color: #2e2c38;
+  }
+  .spring{
+    padding: 0 20px;
+  }
+  #slide_show-3{
+    margin-top: 20px;
+    padding: 0 20px;
+  }
+  #slide_show-4{
+    margin-top: 20px;
+    padding: 0 20px;
+  }
+  #cleaning-2{
+    margin-top: 20px;
+    background-color: white;
+    padding: 10px;
+  }
+  .spring-img-2{
+    width: 150px;
+    border: 8px solid #cfd1d7;
+    border-radius: 85px;
+  }
+  .spring-items-2{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .spring-names-2{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-left: -50px;
+    font-family: sans-serif;
+  }
+  .Spring-head-2{
+    font-family: sans-serif;
+    text-align: center;
+  }
+  #slide_show-5{
+    margin-top: 20px;
+    padding: 0 20px;
+  }
+  .patrick{
+    padding: 0 20px;
+  }
+  #ourBrands{
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  .Brands-2{
+    font-family: sans-serif;
+    text-align: center;
+  }
+  .brandNames{
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: -10px;
+    font-family: sans-serif;
+  }
+  .brandPics{
+    display: flex;
+    justify-content: space-evenly;
+   
+  }
+  .brands-2{
+    width: 200px;
+   
+  }
+  .last{
+    color: 2e2c38;
+    padding: 0 20px;
+  }
+ 
