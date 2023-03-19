@@ -199,8 +199,8 @@ button + img{
     display: flex;
     justify-content:space-evenly;
     width: 100%;
-    
     margin-top: 10px;
+    
 }
 .get{
     display: flex;
@@ -462,4 +462,20 @@ h4 + img{
     color: 2e2c38;
     padding: 0 20px;
   }
- 
+ @media all and (min-width: 768px) and (max-width: 1024px){
+    .macys{
+      width: 50%;
+      margin: 20px 0 -10px 20px
+    }
+    .fe-box{
+      width: 100%;
+      
+    }
+    #fullBox{
+      width: 100%;
+    }
+    .flex{
+      width: 100%;
+      
+    }
+ }
